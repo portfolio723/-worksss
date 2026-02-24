@@ -19,7 +19,12 @@ import {
   FileText,
   MapPin,
   Building2,
-  Link as LinkIcon
+  Link as LinkIcon,
+  UserPen,
+  KeyRound,
+  Sliders,
+  Trash2,
+  ShieldAlert
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -158,7 +163,39 @@ export default function HirerProfilePage() {
           </TabsContent>
 
           <TabsContent value="settings" className="space-y-4">
-            <div className="space-y-3">
+            <div className="space-y-3 pb-10">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1 mb-2">General Settings</h3>
+              
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+                <div className="flex items-center gap-4">
+                  <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
+                    <UserPen className="h-5 w-5 text-primary group-hover:text-white" />
+                  </div>
+                  <span className="text-sm font-bold text-foreground">Edit Profile</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              </Button>
+
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+                <div className="flex items-center gap-4">
+                  <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
+                    <Sliders className="h-5 w-5 text-primary group-hover:text-white" />
+                  </div>
+                  <span className="text-sm font-bold text-foreground">Account Settings</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              </Button>
+
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+                <div className="flex items-center gap-4">
+                  <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
+                    <KeyRound className="h-5 w-5 text-primary group-hover:text-white" />
+                  </div>
+                  <span className="text-sm font-bold text-foreground">Change Password</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              </Button>
+
               <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
@@ -168,6 +205,7 @@ export default function HirerProfilePage() {
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
+
               <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
@@ -177,9 +215,25 @@ export default function HirerProfilePage() {
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
+
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-rose-500 ml-1 mt-8 mb-2">Danger Zone</h3>
+
               <Button 
                 variant="ghost" 
-                className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-medium"
+                className="w-full justify-between h-16 bg-white border border-rose-100 shadow-sm rounded-2xl px-6 text-rose-600 hover:bg-rose-50 font-medium"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="bg-rose-100 p-2.5 rounded-xl">
+                    <Trash2 className="h-5 w-5 text-rose-600" />
+                  </div>
+                  <span className="text-sm font-bold">Delete Account</span>
+                </div>
+                <ShieldAlert className="h-5 w-5 text-rose-300" />
+              </Button>
+
+              <Button 
+                variant="ghost" 
+                className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-medium mt-4"
                 onClick={handleLogout}
               >
                 <div className="flex items-center gap-4">

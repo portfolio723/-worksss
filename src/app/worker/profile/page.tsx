@@ -18,7 +18,12 @@ import {
   Bell,
   Lock,
   FileText,
-  MapPin
+  MapPin,
+  UserPen,
+  KeyRound,
+  Sliders,
+  Trash2,
+  ShieldAlert
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -163,7 +168,33 @@ export default function WorkerProfilePage() {
           </TabsContent>
 
           <TabsContent value="settings" className="space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-2 pb-10">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1 mb-2">Account Management</h3>
+              
+              <Button variant="ghost" className="w-full justify-between h-14 bg-white border border-border/30 shadow-sm rounded-2xl px-6 group hover:bg-secondary font-medium">
+                <div className="flex items-center gap-3">
+                  <UserPen className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-bold tracking-tight">Edit Profile</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Button>
+
+              <Button variant="ghost" className="w-full justify-between h-14 bg-white border border-border/30 shadow-sm rounded-2xl px-6 group hover:bg-secondary font-medium">
+                <div className="flex items-center gap-3">
+                  <Sliders className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-bold tracking-tight">Account Settings</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Button>
+
+              <Button variant="ghost" className="w-full justify-between h-14 bg-white border border-border/30 shadow-sm rounded-2xl px-6 group hover:bg-secondary font-medium">
+                <div className="flex items-center gap-3">
+                  <KeyRound className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-bold tracking-tight">Change Password</span>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </Button>
+
               <Button variant="ghost" className="w-full justify-between h-14 bg-white border border-border/30 shadow-sm rounded-2xl px-6 group hover:bg-secondary font-medium">
                 <div className="flex items-center gap-3">
                   <Bell className="h-5 w-5 text-primary" />
@@ -171,6 +202,7 @@ export default function WorkerProfilePage() {
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               </Button>
+              
               <Button variant="ghost" className="w-full justify-between h-14 bg-white border border-border/30 shadow-sm rounded-2xl px-6 group hover:bg-secondary font-medium">
                 <div className="flex items-center gap-3">
                   <Lock className="h-5 w-5 text-primary" />
@@ -178,9 +210,20 @@ export default function WorkerProfilePage() {
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               </Button>
+
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-rose-500 ml-1 mt-8 mb-2">Danger Zone</h3>
+
+              <Button variant="ghost" className="w-full justify-between h-14 bg-white border border-rose-100 shadow-sm rounded-2xl px-6 group hover:bg-rose-50 font-medium">
+                <div className="flex items-center gap-3">
+                  <Trash2 className="h-5 w-5 text-rose-600" />
+                  <span className="text-sm font-bold tracking-tight text-rose-600">Delete Account</span>
+                </div>
+                <ShieldAlert className="h-5 w-5 text-rose-300" />
+              </Button>
+
               <Button 
                 variant="ghost" 
-                className="w-full justify-between h-14 bg-white border border-border/30 shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-medium"
+                className="w-full justify-between h-14 bg-white border border-border/30 shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-medium mt-4"
                 onClick={handleLogout}
               >
                 <div className="flex items-center gap-3">
