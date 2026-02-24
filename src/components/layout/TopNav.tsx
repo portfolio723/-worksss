@@ -1,13 +1,21 @@
-import { Bell, User, Menu } from 'lucide-react';
+
+"use client"
+
+import { Bell, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { usePathname } from 'next/navigation';
 
 export function TopNav() {
+  const pathname = usePathname();
+  const isHirer = pathname.startsWith('/hirer');
+  const profilePath = isHirer ? '/hirer/profile' : '/worker/profile';
+
   return (
     <nav className="top-nav">
       <div className="flex items-center gap-2">
         <Menu className="h-5 w-5 text-accent md:hidden" />
-        <Link href="/" className="text-xl font-bold text-accent tracking-tighter">
+        <Link href={isHirer ? "/hirer" : "/worker"} className="text-xl font-bold text-accent tracking-tighter">
           #works
         </Link>
       </div>
@@ -16,10 +24,10 @@ export function TopNav() {
           <Bell className="h-5 w-5" />
           <span className="absolute top-2 right-2 h-2 w-2 bg-destructive rounded-full" />
         </Button>
-        <Link href="/profile">
+        <Link href={profilePath}>
           <div className="h-8 w-8 rounded-full bg-primary/40 border border-primary overflow-hidden">
             <img 
-              src="https://picsum.photos/seed/avatar1/150/150" 
+              src={isHirer ? "https://picsum.photos/seed/avatar_in_1/150/150" : "https://picsum.photos/seed/avatar_in_2/150/150"} 
               alt="User" 
               className="w-full h-full object-cover"
             />

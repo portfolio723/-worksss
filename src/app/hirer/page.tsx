@@ -24,15 +24,6 @@ const recentApplicants = [
     location: 'IIT Delhi',
     skills: ['Next.js', 'Firebase', 'Tailwind'],
     avatar: 'https://picsum.photos/seed/s1/100/100'
-  },
-  {
-    id: 'a2',
-    name: 'Vikram Malhotra',
-    role: 'Content Writer',
-    rating: 4.7,
-    location: 'Mumbai University',
-    skills: ['SEO', 'Copywriting', 'Canva'],
-    avatar: 'https://picsum.photos/seed/s2/100/100'
   }
 ];
 
@@ -80,29 +71,13 @@ export default function HirerDashboard() {
         </div>
 
         <section className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold">Active Postings</h2>
-            <Button 
-              variant="link" 
-              className="text-accent h-auto p-0"
-              onClick={() => router.push('/hirer/jobs')}
-            >
-              View all
-            </Button>
-          </div>
-          
+          <h2 className="text-lg font-bold mb-4">Active Postings</h2>
           <Card className="p-4 border-l-4 border-l-accent mb-4">
             <div className="flex justify-between items-start mb-2">
               <h3 className="font-bold text-sm">React Dev Intern (Summer)</h3>
               <Badge variant="secondary">Active</Badge>
             </div>
-            <p className="text-xs text-muted-foreground mb-3">Stipend: ₹15,000 - ₹25,000 /mo</p>
-            <div className="flex gap-2 flex-wrap mb-4">
-              <Badge variant="outline" className="text-[10px]">React</Badge>
-              <Badge variant="outline" className="text-[10px]">TypeScript</Badge>
-              <Badge variant="outline" className="text-[10px]">Redux</Badge>
-            </div>
-            <div className="flex items-center justify-between">
+            <div className="flex justify-between items-center mt-4">
               <span className="text-xs text-muted-foreground">14 Students Applied</span>
               <div className="flex gap-2">
                 <Button 
@@ -126,62 +101,39 @@ export default function HirerDashboard() {
         </section>
 
         <section className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold">Top Student Matches</h2>
-          </div>
-          
-          <div className="space-y-4">
-            {recentApplicants.map((applicant) => (
-              <Card key={applicant.name} className="p-4">
-                <div className="flex gap-4">
-                  <img 
-                    src={applicant.avatar} 
-                    alt={applicant.name} 
-                    className="w-12 h-12 rounded-xl object-cover"
-                    data-ai-hint="indian student"
-                  />
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h4 className="font-bold text-sm">{applicant.name}</h4>
-                        <p className="text-xs text-muted-foreground">{applicant.role}</p>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                        <span className="text-xs font-bold">{applicant.rating}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1 text-[10px] text-muted-foreground mt-1 mb-2">
-                      <MapPin className="h-3 w-3" />
-                      {applicant.location}
-                    </div>
-                    <div className="flex gap-2 mb-3">
-                      {applicant.skills.map(s => (
-                        <span key={s} className="text-[10px] bg-secondary px-2 py-0.5 rounded-full">{s}</span>
-                      ))}
-                    </div>
-                    <div className="flex gap-2">
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-1 h-8 text-xs"
-                        onClick={() => router.push(`/worker/profile/${applicant.id}`)}
-                      >
-                        Profile
-                      </Button>
-                      <Button 
-                        size="sm" 
-                        className="flex-1 h-8 text-xs bg-accent"
-                        onClick={() => router.push(`/messages/${applicant.id}`)}
-                      >
-                        Message
-                      </Button>
-                    </div>
+          <h2 className="text-lg font-bold mb-4">Top Student Matches</h2>
+          {recentApplicants.map((applicant) => (
+            <Card key={applicant.name} className="p-4">
+              <div className="flex gap-4">
+                <img 
+                  src={applicant.avatar} 
+                  alt={applicant.name} 
+                  className="w-12 h-12 rounded-xl object-cover"
+                />
+                <div className="flex-1">
+                  <h4 className="font-bold text-sm">{applicant.name}</h4>
+                  <p className="text-xs text-muted-foreground">{applicant.role}</p>
+                  <div className="flex gap-2 mt-4">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1 h-8 text-xs"
+                      onClick={() => router.push(`/hirer/students/${applicant.id}`)}
+                    >
+                      Profile
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      className="flex-1 h-8 text-xs bg-accent"
+                      onClick={() => router.push(`/hirer/messages/${applicant.id}`)}
+                    >
+                      Message
+                    </Button>
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
+              </div>
+            </Card>
+          ))}
         </section>
       </main>
 

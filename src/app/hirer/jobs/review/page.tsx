@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -12,7 +13,6 @@ import {
   MessageSquare, 
   CheckCircle2, 
   XCircle, 
-  Star, 
   MapPin, 
   GraduationCap,
   Filter,
@@ -43,35 +43,11 @@ const mockApplicants = [
     appliedOn: '1 day ago',
     skills: ['Figma', 'Adobe XD', 'Prototyping'],
     avatar: 'https://picsum.photos/seed/p1/100/100'
-  },
-  {
-    id: 'a3',
-    name: 'Amit Singh',
-    college: 'Anna University',
-    role: 'Backend Intern',
-    matchScore: 85,
-    status: 'pending',
-    appliedOn: '3 days ago',
-    skills: ['Node.js', 'PostgreSQL', 'Docker'],
-    avatar: 'https://picsum.photos/seed/am1/100/100'
-  },
-  {
-    id: 'a4',
-    name: 'Sanya Malhotra',
-    college: 'BITS Pilani',
-    role: 'Fullstack Intern',
-    matchScore: 89,
-    status: 'rejected',
-    appliedOn: '4 days ago',
-    skills: ['MERN Stack', 'Redux', 'AWS'],
-    avatar: 'https://picsum.photos/seed/sm1/100/100'
   }
 ];
 
 export default function ReviewApplicantsPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const jobId = searchParams.get('jobId') || '1';
   const [activeTab, setActiveTab] = useState('all');
 
   const filteredApplicants = mockApplicants.filter(app => {
@@ -99,16 +75,6 @@ export default function ReviewApplicantsPage() {
           </div>
         </div>
 
-        <div className="flex gap-2 mb-6">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input className="pl-10 h-12 bg-white border-none shadow-sm rounded-xl" placeholder="Search by name or college..." />
-          </div>
-          <Button variant="outline" className="h-12 w-12 rounded-xl bg-white border-none shadow-sm">
-            <Filter className="h-5 w-5 text-accent" />
-          </Button>
-        </div>
-
         <Tabs defaultValue="all" className="w-full mb-6" onValueChange={setActiveTab}>
           <TabsList className="w-full bg-white/50 p-1 rounded-xl">
             <TabsTrigger value="all" className="flex-1 rounded-lg">All</TabsTrigger>
@@ -124,7 +90,7 @@ export default function ReviewApplicantsPage() {
                     <img 
                       src={applicant.avatar} 
                       alt={applicant.name} 
-                      className="w-14 h-14 rounded-2xl object-cover border-2 border-secondary"
+                      className="w-14 h-14 rounded-2xl object-cover"
                       data-ai-hint="indian student"
                     />
                     <div className="absolute -bottom-1 -right-1 bg-green-500 text-[8px] text-white px-1 rounded-md font-bold">
@@ -148,14 +114,6 @@ export default function ReviewApplicantsPage() {
                         {applicant.status}
                       </Badge>
                     </div>
-
-                    <div className="flex gap-1.5 flex-wrap mt-2">
-                      {applicant.skills.map(skill => (
-                        <span key={skill} className="text-[10px] bg-secondary/50 text-accent font-medium px-2 py-0.5 rounded-md">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
 
@@ -167,7 +125,7 @@ export default function ReviewApplicantsPage() {
                   <Button 
                     variant="ghost" 
                     className="h-10 text-xs gap-2 text-accent"
-                    onClick={() => router.push(`/messages/${applicant.id}`)}
+                    onClick={() => router.push(`/hirer/messages/${applicant.id}`)}
                   >
                     <MessageSquare className="h-4 w-4" />
                     Chat
@@ -179,12 +137,6 @@ export default function ReviewApplicantsPage() {
                 </div>
               </Card>
             ))}
-
-            {filteredApplicants.length === 0 && (
-              <div className="text-center py-20">
-                <p className="text-muted-foreground">No applicants found in this category.</p>
-              </div>
-            )}
           </div>
         </Tabs>
       </main>
