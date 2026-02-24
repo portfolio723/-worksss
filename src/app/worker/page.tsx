@@ -70,11 +70,11 @@ export default function WorkerDashboard() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-6">
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[10px] font-medium opacity-80">Total Earned</p>
+                <p className="text-[10px] font-normal opacity-80">Total Earned</p>
                 <p className="text-sm font-bold">₹1.2L</p>
               </div>
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[10px] font-medium opacity-80">In Clearance</p>
+                <p className="text-[10px] font-normal opacity-80">In Clearance</p>
                 <p className="text-sm font-bold">₹8,400</p>
               </div>
             </div>
