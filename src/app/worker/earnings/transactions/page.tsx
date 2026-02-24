@@ -40,39 +40,39 @@ export default function WorkerTransactionsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="worker-theme min-h-screen bg-background pb-20">
       <TopNav />
       
       <main className="content-area max-w-lg mx-auto">
-        <div className="flex items-center gap-4 mb-6">
+        <div className="flex items-center gap-4 mb-8">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-2xl hover:bg-secondary"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
-          <h1 className="text-2xl font-bold">Transaction History</h1>
+          <h1 className="text-3xl font-black tracking-tight">Transaction History</h1>
         </div>
 
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-3 mb-8">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input className="pl-10 h-12 bg-white border-none shadow-sm rounded-xl" placeholder="Search Transactions..." />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input className="pl-12 h-14 bg-white border-border shadow-sm rounded-2xl text-base" placeholder="Search Transactions..." />
           </div>
-          <Button variant="outline" className="h-12 w-12 rounded-xl bg-white border-none shadow-sm">
-            <Filter className="h-5 w-5 text-accent" />
+          <Button variant="outline" className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-secondary transition-all">
+            <Filter className="h-6 w-6 text-primary" />
           </Button>
         </div>
 
-        <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 mb-2">
+        <div className="flex gap-2 overflow-x-auto pb-6 no-scrollbar -mx-4 px-4 mb-4">
           {['All', 'Income', 'Withdrawals'].map(filter => (
             <Badge 
               key={filter} 
               variant={activeFilter === filter.toLowerCase() ? 'default' : 'outline'}
-              className={`px-4 py-1.5 rounded-full cursor-pointer whitespace-nowrap transition-all ${
-                activeFilter === filter.toLowerCase() ? 'bg-accent border-accent text-white' : 'bg-white'
+              className={`px-6 py-2 rounded-full cursor-pointer whitespace-nowrap transition-all font-black text-xs ${
+                activeFilter === filter.toLowerCase() ? 'bg-primary border-primary text-white shadow-lg' : 'bg-white text-muted-foreground'
               }`}
               onClick={() => setActiveFilter(filter.toLowerCase())}
             >
@@ -81,26 +81,26 @@ export default function WorkerTransactionsPage() {
           ))}
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {filteredTransactions.map((tx) => (
-            <Card key={tx.id} className="p-4 bg-white border-none shadow-sm rounded-xl">
+            <Card key={tx.id} className="p-5 bg-white border-border/50 shadow-sm rounded-2xl hover:border-primary transition-all group">
               <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-xl ${tx.type === 'Income' ? 'bg-green-100 text-green-600' : 'bg-blue-50 text-accent'}`}>
+                <div className={`p-3.5 rounded-2xl ${tx.type === 'Income' ? 'bg-secondary text-primary' : 'bg-secondary/50 text-muted-foreground'}`}>
                   {tx.type === 'Income' ? <ArrowDownLeft className="h-5 w-5" /> : <ArrowUpRight className="h-5 w-5" />}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-bold text-sm truncate">{tx.title}</h3>
-                    <span className={`text-sm font-bold ${tx.type === 'Income' ? 'text-green-600' : 'text-foreground'}`}>
+                    <h3 className="font-black text-sm tracking-tight truncate group-hover:text-primary transition-colors">{tx.title}</h3>
+                    <span className={`text-sm font-black ${tx.type === 'Income' ? 'text-primary' : 'text-foreground'}`}>
                       {tx.type === 'Income' ? '+' : '-'}{tx.amount}
                     </span>
                   </div>
-                  <div className="flex justify-between items-end">
-                    <p className="text-[10px] text-muted-foreground flex items-center gap-1">
+                  <div className="flex justify-between items-end mt-1">
+                    <p className="text-[10px] text-muted-foreground font-bold flex items-center gap-1">
                       <Calendar className="h-3 w-3" />
                       {tx.date} • {tx.type}
                     </p>
-                    <p className={`text-[10px] font-bold ${tx.status === 'Completed' || tx.status === 'Credited' ? 'text-green-600' : 'text-yellow-600'}`}>
+                    <p className={`text-[10px] font-black tracking-tight ${tx.status === 'Completed' || tx.status === 'Credited' ? 'text-primary' : 'text-muted-foreground'}`}>
                       {tx.status}
                     </p>
                   </div>
@@ -110,8 +110,8 @@ export default function WorkerTransactionsPage() {
           ))}
         </div>
 
-        <Button className="w-full mt-8 h-12 rounded-xl border-dashed border-2 border-muted bg-transparent text-muted-foreground hover:bg-muted/5 font-bold gap-2">
-          <Download className="h-4 w-4" />
+        <Button className="w-full mt-10 h-14 rounded-2xl border-dashed border-2 border-border bg-transparent text-muted-foreground hover:bg-secondary hover:text-primary font-black gap-3 transition-all">
+          <Download className="h-5 w-5" />
           Export Transaction Statement (PDF)
         </Button>
       </main>
