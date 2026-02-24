@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -8,33 +9,39 @@
     },
     {
       "id": "onboarding-1",
-      "description": "Indian student working on a laptop in a cafe",
-      "imageUrl": "https://picsum.photos/seed/student1/600/400",
-      "imageHint": "indian student"
+      "description": "Indian student studying with a laptop in a modern environment",
+      "imageUrl": "https://picsum.photos/seed/student-learn/600/400",
+      "imageHint": "student laptop"
     },
     {
       "id": "onboarding-2",
-      "description": "Indian professionals collaborating",
-      "imageUrl": "https://picsum.photos/seed/student2/600/400",
-      "imageHint": "indian professionals"
+      "description": "Creative startup team collaborating in a vibrant office",
+      "imageUrl": "https://picsum.photos/seed/startup-launch/600/400",
+      "imageHint": "team collaboration"
     },
     {
       "id": "onboarding-3",
-      "description": "Success and earnings chart for students",
-      "imageUrl": "https://picsum.photos/seed/student3/600/400",
-      "imageHint": "success income"
+      "description": "Mobile payment and financial success visualization",
+      "imageUrl": "https://picsum.photos/seed/payment-success/600/400",
+      "imageHint": "money success"
     },
     {
-      "id": "avatar-hirer",
-      "description": "Portrait of an Indian businessman",
-      "imageUrl": "https://picsum.photos/seed/avatar_in_1/150/150",
-      "imageHint": "indian man"
+      "id": "avatar-worker-default",
+      "description": "Professional portrait of a young Indian student",
+      "imageUrl": "https://picsum.photos/seed/student-male/200/200",
+      "imageHint": "indian student"
     },
     {
-      "id": "avatar-worker",
-      "description": "Portrait of an Indian student",
-      "imageUrl": "https://picsum.photos/seed/avatar_in_2/150/150",
-      "imageHint": "indian woman"
+      "id": "avatar-worker-female",
+      "description": "Professional portrait of a female Indian student",
+      "imageUrl": "https://picsum.photos/seed/student-female/200/200",
+      "imageHint": "indian girl"
+    },
+    {
+      "id": "avatar-hirer-default",
+      "description": "Professional portrait of an Indian entrepreneur",
+      "imageUrl": "https://picsum.photos/seed/hirer-arjun/200/200",
+      "imageHint": "indian businessman"
     }
   ]
 }

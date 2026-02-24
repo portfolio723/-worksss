@@ -21,9 +21,11 @@ import {
   MapPin
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function WorkerProfilePage() {
   const router = useRouter();
+  const workerAvatar = PlaceHolderImages.find(img => img.id === 'avatar-worker-default');
 
   const handleLogout = () => {
     router.push('/auth');
@@ -33,7 +35,7 @@ export default function WorkerProfilePage() {
     name: "Rohan Gupta",
     sub: "Final Year Student • IIT Bombay",
     email: "rohan.g@iitb.ac.in",
-    avatar: "https://picsum.photos/seed/avatar_in_2/200/200",
+    avatar: workerAvatar?.imageUrl || "https://picsum.photos/seed/avatar_in_2/200/200",
     bio: "Passionate Frontend Developer Specializing In React And Next.js. Looking For Summer Internships And Remote Gigs.",
     location: "Mumbai, MH",
     skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Figma"],
@@ -57,7 +59,7 @@ export default function WorkerProfilePage() {
                 src={profileData.avatar} 
                 alt={profileData.name} 
                 className="w-full h-full object-cover"
-                data-ai-hint="indian student"
+                data-ai-hint={workerAvatar?.imageHint}
               />
             </div>
             <Button size="icon" className="absolute -bottom-2 -right-2 h-10 w-10 rounded-2xl bg-accent shadow-lg border-4 border-background">

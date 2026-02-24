@@ -5,29 +5,30 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { ChevronRight } from 'lucide-react';
-
-const onboardingSteps = [
-  {
-    title: "Earn While You Learn",
-    description: "Find Part-Time Gigs And Internships That Fit Your College Schedule.",
-    image: "https://picsum.photos/seed/student1/600/400"
-  },
-  {
-    title: "Launch Your Career",
-    description: "Connect With India's Top Startups And Agencies Looking For Fresh Talent.",
-    image: "https://picsum.photos/seed/student2/600/400"
-  },
-  {
-    title: "Secure Stipends",
-    description: "Timely Payments For Every Milestone Completed, Directly To Your Account.",
-    image: "https://picsum.photos/seed/student3/600/400"
-  }
-];
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function EntryPage() {
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  const onboardingSteps = [
+    {
+      title: "Earn While You Learn",
+      description: "Find Part-Time Gigs And Internships That Fit Your College Schedule.",
+      image: PlaceHolderImages.find(img => img.id === 'onboarding-1')
+    },
+    {
+      title: "Launch Your Career",
+      description: "Connect With India's Top Startups And Agencies Looking For Fresh Talent.",
+      image: PlaceHolderImages.find(img => img.id === 'onboarding-2')
+    },
+    {
+      title: "Secure Stipends",
+      description: "Timely Payments For Every Milestone Completed, Directly To Your Account.",
+      image: PlaceHolderImages.find(img => img.id === 'onboarding-3')
+    }
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
@@ -54,6 +55,8 @@ export default function EntryPage() {
     }
   };
 
+  const currentStep = onboardingSteps[step];
+
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="flex justify-end p-4">
@@ -63,18 +66,18 @@ export default function EntryPage() {
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
         <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden mb-8 shadow-xl border border-muted">
           <img 
-            src={onboardingSteps[step].image} 
-            alt={onboardingSteps[step].title} 
+            src={currentStep.image?.imageUrl} 
+            alt={currentStep.title} 
             className="w-full h-full object-cover"
-            data-ai-hint="indian student"
+            data-ai-hint={currentStep.image?.imageHint}
           />
         </div>
         
         <h2 className="text-3xl font-bold mb-4 px-4 leading-tight">
-          {onboardingSteps[step].title}
+          {currentStep.title}
         </h2>
         <p className="text-muted-foreground px-8 mb-8">
-          {onboardingSteps[step].description}
+          {currentStep.description}
         </p>
 
         <div className="flex gap-2 mb-8">
