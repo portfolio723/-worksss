@@ -1,0 +1,40 @@
+{
+  "placeholderImages": [
+    {
+      "id": "splash-logo",
+      "description": "Clean modern logo with waves and a work icon",
+      "imageUrl": "https://picsum.photos/seed/wave/200/200",
+      "imageHint": "logo waves"
+    },
+    {
+      "id": "onboarding-1",
+      "description": "Person working on a laptop in a bright modern office",
+      "imageUrl": "https://picsum.photos/seed/work1/600/400",
+      "imageHint": "remote work"
+    },
+    {
+      "id": "onboarding-2",
+      "description": "Two people shaking hands over a digital contract",
+      "imageUrl": "https://picsum.photos/seed/work2/600/400",
+      "imageHint": "business partnership"
+    },
+    {
+      "id": "onboarding-3",
+      "description": "Growth chart showing success and income",
+      "imageUrl": "https://picsum.photos/seed/work3/600/400",
+      "imageHint": "success income"
+    },
+    {
+      "id": "avatar-hirer",
+      "description": "Portrait of a business professional",
+      "imageUrl": "https://picsum.photos/seed/avatar1/150/150",
+      "imageHint": "professional man"
+    },
+    {
+      "id": "avatar-worker",
+      "description": "Portrait of a creative designer",
+      "imageUrl": "https://picsum.photos/seed/avatar2/150/150",
+      "imageHint": "creative woman"
+    }
+  ]
+}
