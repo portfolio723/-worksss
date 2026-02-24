@@ -3,22 +3,46 @@
 import { Bell, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export function TopNav() {
   const pathname = usePathname();
+  const router = useRouter();
   const isHirer = pathname.startsWith('/hirer');
   const notificationPath = isHirer ? '/hirer/notifications' : '/worker/notifications';
 
   return (
     <nav className="top-nav">
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-3">
         <Link 
           href={isHirer ? "/hirer" : "/worker"} 
-          className="text-2xl font-black text-foreground tracking-tighter hover:opacity-80 transition-opacity px-2"
+          className="text-2xl font-black text-foreground tracking-tighter hover:opacity-80 transition-opacity px-1"
         >
           #
         </Link>
+
+        {/* Role Toggle Switch */}
+        <div className="bg-secondary/50 p-1 rounded-full flex items-center border border-border/20 h-9">
+          <button 
+            onClick={() => router.push('/hirer')}
+            className={cn(
+              "px-4 h-7 text-[10px] font-black rounded-full transition-all flex items-center justify-center",
+              isHirer ? "bg-black text-white shadow-sm" : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            Hirer
+          </button>
+          <button 
+            onClick={() => router.push('/worker')}
+            className={cn(
+              "px-4 h-7 text-[10px] font-black rounded-full transition-all flex items-center justify-center",
+              !isHirer ? "bg-black text-white shadow-sm" : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            Worker
+          </button>
+        </div>
       </div>
       
       <div className="flex items-center gap-1">
