@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useRef, useEffect } from 'react';
@@ -43,10 +42,10 @@ export default function WorkerConversationPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-secondary/10">
-      <header className="bg-white border-b px-4 h-16 flex items-center justify-between sticky top-0 z-10">
+    <div className="worker-theme flex flex-col h-screen bg-background">
+      <header className="bg-background/80 backdrop-blur-md border-b border-border/50 px-4 h-16 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" onClick={() => router.back()}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-secondary" onClick={() => router.back()}>
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="flex items-center gap-2">
@@ -54,18 +53,18 @@ export default function WorkerConversationPage() {
               <img src={contact.avatar} alt={contact.name} className="w-10 h-10 rounded-full object-cover" />
             </div>
             <div>
-              <h2 className="text-sm font-bold leading-none">{contact.name}</h2>
-              <p className="text-[10px] text-muted-foreground mt-1">{contact.role}</p>
+              <h2 className="text-sm font-black leading-none tracking-tight">{contact.name}</h2>
+              <p className="text-[10px] text-muted-foreground mt-1 font-bold">{contact.role}</p>
             </div>
           </div>
         </div>
       </header>
 
-      <main ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4">
+      <main ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.sent ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 shadow-sm text-sm ${
-              msg.sent ? 'bg-accent text-white rounded-tr-none' : 'bg-white text-foreground rounded-tl-none'
+            <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 shadow-sm text-sm font-medium ${
+              msg.sent ? 'bg-primary text-white rounded-tr-none' : 'bg-secondary text-foreground rounded-tl-none'
             }`}>
               {msg.text}
               <div className={`text-[9px] mt-1 text-right ${msg.sent ? 'text-white/70' : 'text-muted-foreground'}`}>
@@ -76,16 +75,16 @@ export default function WorkerConversationPage() {
         ))}
       </main>
 
-      <footer className="bg-white border-t p-4 pb-8">
+      <footer className="bg-background border-t border-border/50 p-4 pb-8">
         <div className="flex items-center gap-2">
           <Input 
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Type A Message..." 
-            className="flex-1 h-12 bg-secondary/20 border-none rounded-2xl"
+            className="flex-1 h-12 bg-secondary border-none rounded-2xl text-sm font-medium"
           />
-          <Button size="icon" className="h-12 w-12 rounded-2xl bg-accent" onClick={handleSend}>
+          <Button size="icon" className="h-12 w-12 rounded-2xl bg-primary text-white shadow-lg" onClick={handleSend}>
             <Send className="h-5 w-5" />
           </Button>
         </div>

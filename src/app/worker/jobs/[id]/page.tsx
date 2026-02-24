@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -48,7 +47,7 @@ export default function JobDetailPage() {
 
   if (isApplied) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
+      <div className="worker-theme min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="h-10 w-10 text-green-600" />
         </div>
@@ -56,7 +55,7 @@ export default function JobDetailPage() {
         <p className="text-muted-foreground mb-8">
           Your Profile Has Been Shared With {job.company}. Keep An Eye On Your Messages!
         </p>
-        <Button className="bg-accent rounded-xl px-8" onClick={() => router.push('/worker')}>
+        <Button className="bg-primary text-white rounded-xl px-8" onClick={() => router.push('/worker')}>
           Back To Dashboard
         </Button>
       </div>
@@ -64,7 +63,7 @@ export default function JobDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="worker-theme min-h-screen bg-background pb-20">
       <TopNav />
       
       <main className="content-area max-w-lg mx-auto">
@@ -87,9 +86,9 @@ export default function JobDetailPage() {
           </div>
         </div>
 
-        <Card className="p-6 bg-white border-none shadow-sm rounded-3xl mb-6">
+        <Card className="p-6 bg-white border-border/50 shadow-sm rounded-3xl mb-6">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center text-accent font-bold text-xl">
+            <div className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center text-primary font-bold text-xl">
               TS
             </div>
             <div>
@@ -102,17 +101,17 @@ export default function JobDetailPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 pt-4 border-t">
+          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border/50">
             <div className="space-y-1">
-              <p className="text-[10px] text-muted-foreground font-bold tracking-wider">Stipend</p>
-              <div className="flex items-center gap-1 text-sm font-bold text-accent">
+              <p className="text-[10px] text-muted-foreground font-black uppercase tracking-tight">Stipend</p>
+              <div className="flex items-center gap-1 text-sm font-black text-primary">
                 <Wallet className="h-4 w-4" />
                 {job.stipend}
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-[10px] text-muted-foreground font-bold tracking-wider">Duration</p>
-              <div className="flex items-center gap-1 text-sm font-bold">
+              <p className="text-[10px] text-muted-foreground font-black uppercase tracking-tight">Duration</p>
+              <div className="flex items-center gap-1 text-sm font-black">
                 <Clock className="h-4 w-4 text-muted-foreground" />
                 {job.duration}
               </div>
@@ -122,18 +121,18 @@ export default function JobDetailPage() {
 
         <section className="space-y-6 px-2">
           <div>
-            <h3 className="font-bold mb-3">About The Internship</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <h3 className="text-sm font-black tracking-tight mb-3">About The Internship</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed font-medium">
               {job.description}
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold mb-3">Key Responsibilities</h3>
+            <h3 className="text-sm font-black tracking-tight mb-3">Key Responsibilities</h3>
             <ul className="space-y-3">
               {job.responsibilities.map((item, i) => (
-                <li key={i} className="flex gap-3 text-sm text-muted-foreground">
-                  <div className="h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                <li key={i} className="flex gap-3 text-xs text-muted-foreground font-medium">
+                  <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
                   {item}
                 </li>
               ))}
@@ -141,10 +140,10 @@ export default function JobDetailPage() {
           </div>
 
           <div>
-            <h3 className="font-bold mb-3">Required Skills</h3>
+            <h3 className="text-sm font-black tracking-tight mb-3">Required Skills</h3>
             <div className="flex flex-wrap gap-2">
               {job.skills.map(skill => (
-                <Badge key={skill} variant="outline" className="border-accent text-accent px-3 py-1">
+                <Badge key={skill} variant="outline" className="border-primary text-primary px-3 py-1 font-black text-[10px]">
                   {skill}
                 </Badge>
               ))}
@@ -152,9 +151,9 @@ export default function JobDetailPage() {
           </div>
         </section>
 
-        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] p-6 bg-white border-t z-50">
+        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] p-6 bg-white border-t border-border/50 z-50">
           <Button 
-            className="w-full h-14 bg-accent text-lg font-bold rounded-2xl shadow-lg"
+            className="w-full h-14 bg-primary text-white text-lg font-black rounded-2xl shadow-lg"
             onClick={handleApply}
           >
             Apply Now
