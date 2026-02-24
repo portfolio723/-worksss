@@ -119,7 +119,7 @@ export default function WorkerProfilePage() {
               </div>
               <div className="flex items-start gap-3">
                 <div className="bg-primary/20 p-2 rounded-xl">
-                  <graduationcap className="h-5 w-5 text-accent" />
+                  <GraduationCap className="h-5 w-5 text-accent" />
                 </div>
                 <div>
                   <p className="text-sm font-bold">Bachelor Of Technology</p>
