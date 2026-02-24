@@ -4,7 +4,7 @@
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
-import { Wallet, Star, MapPin, Activity } from 'lucide-react';
+import { Wallet, MapPin, Activity } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress as ProgressUI } from '@/components/ui/progress';
@@ -38,7 +38,7 @@ export default function WorkerDashboard() {
           onClick={() => router.push('/worker/earnings')}
         >
           <div className="relative z-10">
-            <span className="text-sm opacity-80 mb-1 block">Total Earnings</span>
+            <span className="text-sm opacity-80 mb-1 block font-bold uppercase tracking-wider">Total Earnings</span>
             <div className="flex items-center justify-between mb-4">
               <span className="text-3xl font-bold">₹42,500.00</span>
               <div className="bg-white/20 p-2 rounded-xl">
@@ -56,7 +56,7 @@ export default function WorkerDashboard() {
           </div>
           <ProgressUI value={75} className="h-2 bg-primary/20" />
           <div className="flex items-center justify-between mt-2">
-            <p className="text-[10px] text-muted-foreground">Add your college ID & portfolio to get verified.</p>
+            <p className="text-[10px] text-muted-foreground">Add Your College ID And Portfolio To Get Verified.</p>
             <Button 
               size="sm" 
               variant="link" 
@@ -94,14 +94,14 @@ export default function WorkerDashboard() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className="flex-1 h-9 rounded-xl"
+                    className="flex-1 h-9 rounded-xl font-bold"
                     onClick={() => router.push(`/worker/jobs/${job.id}`)}
                   >
                     View Details
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-9 rounded-xl bg-accent"
+                    className="flex-1 h-9 rounded-xl bg-accent font-bold"
                     onClick={() => router.push(`/worker/jobs/${job.id}`)}
                   >
                     Apply Now

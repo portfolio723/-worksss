@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from 'react';
@@ -8,17 +9,17 @@ import { ChevronRight } from 'lucide-react';
 const onboardingSteps = [
   {
     title: "Earn While You Learn",
-    description: "Find part-time gigs and internships that fit your college schedule.",
+    description: "Find Part-Time Gigs And Internships That Fit Your College Schedule.",
     image: "https://picsum.photos/seed/student1/600/400"
   },
   {
     title: "Launch Your Career",
-    description: "Connect with India's top startups and agencies looking for fresh talent.",
+    description: "Connect With India's Top Startups And Agencies Looking For Fresh Talent.",
     image: "https://picsum.photos/seed/student2/600/400"
   },
   {
     title: "Secure Stipends",
-    description: "Timely payments for every milestone completed, directly to your account.",
+    description: "Timely Payments For Every Milestone Completed, Directly To Your Account.",
     image: "https://picsum.photos/seed/student3/600/400"
   }
 ];
@@ -39,8 +40,8 @@ export default function EntryPage() {
         <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mb-6 overflow-hidden">
           <div className="w-16 h-16 bg-accent rounded-xl animate-bounce" />
         </div>
-        <h1 className="text-4xl font-bold text-accent tracking-tighter">#workwave</h1>
-        <p className="text-muted-foreground mt-2">Career simplified.</p>
+        <h1 className="text-4xl font-bold text-accent tracking-tighter">#WorkWave</h1>
+        <p className="text-muted-foreground mt-2">Career Simplified.</p>
       </div>
     );
   }
@@ -91,7 +92,7 @@ export default function EntryPage() {
           className="w-full h-12 text-lg rounded-xl bg-accent hover:bg-accent/90" 
           onClick={handleNext}
         >
-          {step === onboardingSteps.length - 1 ? 'Get Started' : 'Next'}
+          {step === onboardingSteps.length - 1 ? 'Get Started' : 'Next Step'}
           <ChevronRight className="ml-2 h-5 w-5" />
         </Button>
       </div>

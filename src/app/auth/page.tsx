@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -35,7 +36,7 @@ export default function AuthPage() {
           {isLogin ? 'Namaste!' : 'Create Account'}
         </h1>
         <p className="text-muted-foreground mb-6">
-          {isLogin ? 'Login to find your next internship' : 'Join the community of ambitious Indian students'}
+          {isLogin ? 'Login To Find Your Next Internship' : 'Join The Community Of Ambitious Indian Students'}
         </p>
 
         {isLogin && (
@@ -51,13 +52,13 @@ export default function AuthPage() {
 
         <form onSubmit={handleAuth} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="email">College Email / Personal Email</Label>
+            <Label htmlFor="email">College Email Or Personal Email</Label>
             <Input 
               id="email" 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="name@example.in" 
+              placeholder="Name@Example.In" 
               className="h-12"
               required 
             />
@@ -66,7 +67,7 @@ export default function AuthPage() {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <Label htmlFor="password">Password</Label>
-              {isLogin && <Button variant="link" className="p-0 h-auto text-xs">Forgot password?</Button>}
+              {isLogin && <Button variant="link" className="p-0 h-auto text-xs">Forgot Password?</Button>}
             </div>
             <Input 
               id="password" 
@@ -89,7 +90,7 @@ export default function AuthPage() {
             <span className="w-full border-t" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-white px-2 text-muted-foreground">Or continue with</span>
+            <span className="bg-white px-2 text-muted-foreground">Or Continue With</span>
           </div>
         </div>
 
@@ -118,7 +119,7 @@ export default function AuthPage() {
 
       <div className="mt-auto text-center">
         <p className="text-sm text-muted-foreground">
-          {isLogin ? "Don't have an account?" : "Already have an account?"}{' '}
+          {isLogin ? "Don't Have An Account?" : "Already Have An Account?"}{' '}
           <Button 
             variant="link" 
             className="p-0 h-auto font-bold text-accent"

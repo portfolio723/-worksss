@@ -4,14 +4,14 @@
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
-import { Plus, Clock, Users, CheckCircle2, Star, MapPin, CreditCard } from 'lucide-react';
+import { Plus, Clock, Users, CheckCircle2, CreditCard } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useRouter } from 'next/navigation';
 
 const stats = [
   { label: 'Active Internships', value: 2, icon: Clock, color: 'text-blue-500', bg: 'bg-blue-50' },
-  { label: 'Applicants', value: 24, icon: Users, color: 'text-purple-500', bg: 'bg-purple-50' },
+  { label: 'Total Applicants', value: 24, icon: Users, color: 'text-purple-500', bg: 'bg-purple-50' },
   { label: 'Completed Gigs', value: 18, icon: CheckCircle2, color: 'text-green-500', bg: 'bg-green-50' },
 ];
 
@@ -37,7 +37,7 @@ export default function HirerDashboard() {
       <main className="content-area">
         <div className="mb-6">
           <h1 className="text-2xl font-bold">Namaste, Arjun</h1>
-          <p className="text-muted-foreground">You have 5 new student applications today.</p>
+          <p className="text-muted-foreground">You Have 5 New Student Applications Today.</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-8">
@@ -65,7 +65,7 @@ export default function HirerDashboard() {
                 <stat.icon className="h-5 w-5" />
               </div>
               <span className="text-2xl font-bold">{stat.value}</span>
-              <span className="text-xs text-muted-foreground">{stat.label}</span>
+              <span className="text-xs text-muted-foreground font-bold">{stat.label}</span>
             </Card>
           ))}
         </div>
@@ -83,17 +83,17 @@ export default function HirerDashboard() {
                 <Button 
                   size="sm" 
                   variant="outline" 
-                  className="h-8 text-xs"
+                  className="h-8 text-xs font-bold"
                   onClick={() => router.push('/hirer/jobs/edit?jobId=1')}
                 >
-                  Edit
+                  Edit Posting
                 </Button>
                 <Button 
                   size="sm" 
-                  className="h-8 text-xs bg-accent"
+                  className="h-8 text-xs bg-accent font-bold"
                   onClick={() => router.push('/hirer/jobs/review?jobId=1')}
                 >
-                  Review
+                  Review All
                 </Button>
               </div>
             </div>
@@ -117,17 +117,17 @@ export default function HirerDashboard() {
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className="flex-1 h-8 text-xs"
+                      className="flex-1 h-8 text-xs font-bold"
                       onClick={() => router.push(`/hirer/students/${applicant.id}`)}
                     >
-                      Profile
+                      View Profile
                     </Button>
                     <Button 
                       size="sm" 
-                      className="flex-1 h-8 text-xs bg-accent"
+                      className="flex-1 h-8 text-xs bg-accent font-bold"
                       onClick={() => router.push(`/hirer/messages/${applicant.id}`)}
                     >
-                      Message
+                      Send Message
                     </Button>
                   </div>
                 </div>
