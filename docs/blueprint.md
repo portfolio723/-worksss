@@ -1,4 +1,4 @@
-# **App Name**: WorkWave
+# **App Name**: #works
 
 ## Core Features:
 
