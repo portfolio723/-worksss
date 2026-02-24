@@ -81,7 +81,7 @@ export default function HirerDashboard() {
 
         <section className="mb-10">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Live Listings</h2>
+            <h2 className="text-sm font-bold text-muted-foreground tracking-tight">Live Listings</h2>
             <Button variant="link" className="text-xs font-bold text-primary p-0 h-auto" onClick={() => router.push('/hirer/jobs')}>
               View All Postings
             </Button>
@@ -111,7 +111,7 @@ export default function HirerDashboard() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-wider mb-4">Top Matches</h2>
+          <h2 className="text-sm font-bold text-muted-foreground tracking-tight mb-4">Top Matches</h2>
           {recentApplicants.map((applicant) => (
             <Card key={applicant.name} className="p-5 bg-white border-none shadow-sm rounded-2xl">
               <div className="flex gap-4">
