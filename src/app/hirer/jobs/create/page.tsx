@@ -17,7 +17,7 @@ import {
   SelectValue 
 } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
-import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Clock, Zap, Hammer } from 'lucide-react';
 
 export default function CreateJobPage() {
   const router = useRouter();
@@ -65,11 +65,13 @@ export default function CreateJobPage() {
 
         <Card className="p-8 bg-white border-none shadow-sm rounded-3xl">
           <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Title */}
             <div className="space-y-3">
               <Label htmlFor="title" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Internship Title</Label>
               <Input id="title" placeholder="e.g. Social Media Marketing Intern" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
             </div>
 
+            {/* Category & Urgency */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-3">
                 <Label htmlFor="category" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Category</Label>
@@ -87,7 +89,41 @@ export default function CreateJobPage() {
                 </Select>
               </div>
               <div className="space-y-3">
-                <Label htmlFor="type" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Work Type</Label>
+                <Label htmlFor="urgency" className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+                  <Zap className="h-3 w-3" /> Urgency
+                </Label>
+                <Select required>
+                  <SelectTrigger id="urgency" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="immediate">Immediate</SelectItem>
+                    <SelectItem value="high">High Priority</SelectItem>
+                    <SelectItem value="flexible">Flexible</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="space-y-3">
+              <Label htmlFor="description" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Job Description</Label>
+              <Textarea 
+                id="description" 
+                placeholder="What Will The Student Be Doing? What Are The Expectations?" 
+                className="min-h-[140px] rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary p-4"
+                required
+              />
+            </div>
+
+            {/* Budget & Work Mode */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-3">
+                <Label htmlFor="budget" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Budget (₹/mo)</Label>
+                <Input id="budget" placeholder="e.g. ₹15,000" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
+              </div>
+              <div className="space-y-3">
+                <Label htmlFor="type" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Work Mode</Label>
                 <Select required>
                   <SelectTrigger id="type" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
                     <SelectValue placeholder="Select" />
@@ -101,45 +137,32 @@ export default function CreateJobPage() {
               </div>
             </div>
 
-            <div className="space-y-3">
-              <Label htmlFor="location" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Location (City)</Label>
-              <Input id="location" placeholder="e.g. Bangalore, Remote" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
+            {/* Location & Start Date */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-3">
+                <Label htmlFor="location" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Location</Label>
+                <Input id="location" placeholder="e.g. Bangalore" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
+              </div>
+              <div className="space-y-3">
+                <Label htmlFor="startDate" className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+                  <Clock className="h-3 w-3" /> Start Date
+                </Label>
+                <Input id="startDate" type="date" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary px-4" />
+              </div>
             </div>
 
-            <div className="space-y-3">
-              <Label htmlFor="stipend" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Stipend (Per Month)</Label>
-              <Input id="stipend" placeholder="e.g. ₹15,000" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
-              <p className="text-[10px] text-muted-foreground font-bold italic">Fixed Amount Or Range Preferred By Indian Students.</p>
-            </div>
-
-            <div className="space-y-3">
-              <Label htmlFor="duration" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Duration</Label>
-              <Select required>
-                <SelectTrigger id="duration" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
-                  <SelectValue placeholder="Select Duration" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">1 Month</SelectItem>
-                  <SelectItem value="2">2 Months</SelectItem>
-                  <SelectItem value="3">3 Months</SelectItem>
-                  <SelectItem value="6">6 Months</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-3">
-              <Label htmlFor="skills" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Required Skills (Comma Separated)</Label>
-              <Input id="skills" placeholder="e.g. React, Canva, SEO" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
-            </div>
-
-            <div className="space-y-3">
-              <Label htmlFor="description" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Job Description</Label>
-              <Textarea 
-                id="description" 
-                placeholder="What Will The Student Be Doing? What Are The Expectations?" 
-                className="min-h-[140px] rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary p-4"
-                required
-              />
+            {/* Skills & Tools */}
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <Label htmlFor="skills" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Skills Required (Optional)</Label>
+                <Input id="skills" placeholder="e.g. React, SEO, Copywriting" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
+              </div>
+              <div className="space-y-3">
+                <Label htmlFor="tools" className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+                  <Hammer className="h-3 w-3" /> Tools Required (Optional)
+                </Label>
+                <Input id="tools" placeholder="e.g. Figma, Photoshop, Slack" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
+              </div>
             </div>
 
             <div className="pt-6">
