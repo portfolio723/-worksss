@@ -168,7 +168,11 @@ export default function HirerJobsPage() {
 
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-foreground">{job.stipend}</span>
-                    <Button size="sm" className="h-9 px-6 bg-accent rounded-xl text-xs font-bold">
+                    <Button 
+                      size="sm" 
+                      className="h-9 px-6 bg-accent rounded-xl text-xs font-bold"
+                      onClick={() => router.push(`/hirer/jobs/review?jobId=${job.id}`)}
+                    >
                       Review Applicants
                     </Button>
                   </div>

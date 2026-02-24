@@ -80,7 +80,7 @@ export default function HirerDashboard() {
           
           <Card className="p-4 border-l-4 border-l-accent mb-4">
             <div className="flex justify-between items-start mb-2">
-              <h3 className="font-bold">React Dev Intern (Summer)</h3>
+              <h3 className="font-bold text-sm">React Dev Intern (Summer)</h3>
               <Badge variant="secondary">Active</Badge>
             </div>
             <p className="text-xs text-muted-foreground mb-3">Stipend: ₹15,000 - ₹25,000 /mo</p>
@@ -93,7 +93,13 @@ export default function HirerDashboard() {
               <span className="text-xs text-muted-foreground">14 Students Applied</span>
               <div className="flex gap-2">
                 <Button size="sm" variant="outline" className="h-8 text-xs">Edit</Button>
-                <Button size="sm" className="h-8 text-xs bg-accent">Review</Button>
+                <Button 
+                  size="sm" 
+                  className="h-8 text-xs bg-accent"
+                  onClick={() => router.push('/hirer/jobs/review?jobId=1')}
+                >
+                  Review
+                </Button>
               </div>
             </div>
           </Card>
