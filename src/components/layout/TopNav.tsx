@@ -23,12 +23,15 @@ export function TopNav() {
         </Link>
 
         {/* Role Toggle Switch */}
-        <div className="bg-secondary/50 p-1 rounded-full flex items-center border border-border/20 h-9">
+        <div className={cn(
+          "p-1 rounded-full flex items-center border border-border/20 h-9 transition-colors",
+          isHirer ? "hirer-theme bg-secondary/50" : "worker-theme bg-secondary/50"
+        )}>
           <button 
             onClick={() => router.push('/hirer')}
             className={cn(
               "px-4 h-7 text-[10px] font-black rounded-full transition-all flex items-center justify-center",
-              isHirer ? "bg-black text-white shadow-sm" : "text-muted-foreground hover:text-foreground"
+              isHirer ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
             )}
           >
             Hirer
@@ -37,7 +40,7 @@ export function TopNav() {
             onClick={() => router.push('/worker')}
             className={cn(
               "px-4 h-7 text-[10px] font-black rounded-full transition-all flex items-center justify-center",
-              !isHirer ? "bg-black text-white shadow-sm" : "text-muted-foreground hover:text-foreground"
+              !isHirer ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
             )}
           >
             Worker
