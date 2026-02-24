@@ -9,21 +9,21 @@
     },
     {
       "id": "onboarding-1",
-      "description": "Indian student studying with a laptop in a modern environment",
-      "imageUrl": "https://picsum.photos/seed/student-learn/600/400",
-      "imageHint": "student laptop"
+      "description": "Earn While You Learn Asset",
+      "imageUrl": "/W1.svg",
+      "imageHint": "student working"
     },
     {
       "id": "onboarding-2",
-      "description": "Creative startup team collaborating in a vibrant office",
-      "imageUrl": "https://picsum.photos/seed/startup-launch/600/400",
-      "imageHint": "team collaboration"
+      "description": "Launch Your Career Asset",
+      "imageUrl": "/W2.svg",
+      "imageHint": "career collaboration"
     },
     {
       "id": "onboarding-3",
-      "description": "Mobile payment and financial success visualization",
-      "imageUrl": "https://picsum.photos/seed/payment-success/600/400",
-      "imageHint": "money success"
+      "description": "Secure Stipends Asset",
+      "imageUrl": "/W3.jpeg",
+      "imageHint": "financial success"
     },
     {
       "id": "avatar-worker-default",
