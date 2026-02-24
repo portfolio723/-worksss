@@ -51,13 +51,11 @@ export default function HirerDashboard() {
       <TopNav />
       
       <main className="content-area px-6 py-6 space-y-10">
-        {/* Header Section */}
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl font-normal tracking-tight text-foreground">Namaste, Arjun</h1>
           <p className="text-sm text-muted-foreground font-medium">Recruiter Dashboard • TechShastra</p>
         </div>
 
-        {/* 1. Payment Status / Escrow Summary */}
         <Card 
           className="p-7 bg-primary text-primary-foreground shadow-xl relative overflow-hidden rounded-[2.5rem] border-none cursor-pointer"
           onClick={() => router.push('/hirer/payments')}
@@ -65,7 +63,7 @@ export default function HirerDashboard() {
           <div className="relative z-10">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <span className="text-xs opacity-90 font-bold tracking-tight">Escrow Balance</span>
+                <span className="text-xs opacity-90 font-normal tracking-tight">Balance</span>
                 <h2 className="text-4xl font-normal mt-1 tracking-tighter">₹58,400.00</h2>
               </div>
               <div className="bg-white/20 p-3 rounded-2xl">
@@ -84,7 +82,6 @@ export default function HirerDashboard() {
           <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-white/5 rounded-full" />
         </Card>
 
-        {/* Quick Stats Carousel */}
         <Carousel className="w-full overflow-hidden -mx-6 px-6" opts={{ align: "start", dragFree: true }}>
           <CarouselContent className="-ml-4">
             {stats.map((stat) => (
@@ -101,7 +98,6 @@ export default function HirerDashboard() {
           </CarouselContent>
         </Carousel>
 
-        {/* 2. Posted Jobs (Live Listings) */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-normal text-foreground tracking-tight flex items-center gap-2">
@@ -128,7 +124,6 @@ export default function HirerDashboard() {
           </Card>
         </section>
 
-        {/* 3. Applications Received (Recent) */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-normal text-foreground tracking-tight flex items-center gap-2">
@@ -153,7 +148,6 @@ export default function HirerDashboard() {
           </div>
         </section>
 
-        {/* 4. Ongoing Jobs (Tracking) */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-normal text-foreground tracking-tight flex items-center gap-2">
@@ -184,7 +178,6 @@ export default function HirerDashboard() {
           </div>
         </section>
 
-        {/* 5. Saved Profiles */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-normal text-foreground tracking-tight flex items-center gap-2">
@@ -208,7 +201,6 @@ export default function HirerDashboard() {
           </div>
         </section>
 
-        {/* 6. Reviews Received */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-normal text-foreground tracking-tight flex items-center gap-2">

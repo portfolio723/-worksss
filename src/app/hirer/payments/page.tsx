@@ -47,7 +47,7 @@ export default function HirerPaymentsPage() {
           <div className="relative z-10">
             <div className="flex justify-between items-start mb-6">
               <div>
-                <span className="text-[11px] opacity-90 uppercase font-black tracking-widest">Escrow Balance</span>
+                <span className="text-[11px] opacity-90 uppercase font-normal tracking-widest">Balance</span>
                 <h2 className="text-4xl font-normal mt-2 tracking-tight">₹58,400.00</h2>
               </div>
               <div className="bg-white/20 p-3 rounded-2xl">
