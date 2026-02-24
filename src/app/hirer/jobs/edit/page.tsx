@@ -1,7 +1,6 @@
-
 "use client"
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
@@ -19,7 +18,7 @@ import {
 import { Card } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 
-export default function EditJobPage() {
+function EditJobContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const jobId = searchParams.get('jobId');
@@ -41,9 +40,9 @@ export default function EditJobPage() {
         </div>
         <h1 className="text-2xl font-bold mb-2">Changes Saved!</h1>
         <p className="text-muted-foreground mb-8">
-          Your internship posting has been updated successfully.
+          Your Internship Posting Has Been Updated Successfully.
         </p>
-        <p className="text-sm text-accent animate-pulse font-medium">Redirecting to your dashboard...</p>
+        <p className="text-sm text-accent animate-pulse font-medium">Redirecting To Your Dashboard...</p>
       </div>
     );
   }
@@ -154,5 +153,13 @@ export default function EditJobPage() {
 
       <BottomNav role="hirer" />
     </div>
+  );
+}
+
+export default function EditJobPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center">Loading...</div>}>
+      <EditJobContent />
+    </Suspense>
   );
 }

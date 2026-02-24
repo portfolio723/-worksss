@@ -1,22 +1,18 @@
 "use client"
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { 
   User, 
   Settings, 
   LogOut, 
   ChevronRight, 
   ShieldCheck, 
-  Briefcase, 
   GraduationCap, 
   Link as LinkIcon,
   Camera,
@@ -28,14 +24,13 @@ import {
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-export default function ProfilePage() {
+function ProfileContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [role, setRole] = useState<'worker' | 'hirer'>('worker');
 
   useEffect(() => {
     // In a real app, this would come from auth state or a global context
-    // For the demo, we check if the user came from a hirer or worker path
     const path = window.location.href;
     if (path.includes('role=hirer')) {
       setRole('hirer');
@@ -270,5 +265,13 @@ export default function ProfilePage() {
 
       <BottomNav role={role} />
     </div>
+  );
+}
+
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center">Loading Profile...</div>}>
+      <ProfileContent />
+    </Suspense>
   );
 }
