@@ -1,7 +1,7 @@
 
 "use client"
 
-import { Bell } from 'lucide-react';
+import { Bell, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
@@ -23,6 +23,11 @@ export function TopNav() {
       </div>
       
       <div className="flex items-center gap-1">
+        <Link href="/location-access">
+          <Button variant="ghost" size="icon" className="h-10 w-10 rounded-2xl hover:bg-secondary">
+            <MapPin className="h-5 w-5 text-muted-foreground" />
+          </Button>
+        </Link>
         <Link href={notificationPath}>
           <Button variant="ghost" size="icon" className="relative h-10 w-10 rounded-2xl hover:bg-secondary">
             <Bell className="h-5 w-5 text-muted-foreground" />
