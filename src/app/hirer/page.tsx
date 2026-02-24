@@ -105,7 +105,14 @@ export default function HirerDashboard() {
             <div className="flex items-center justify-between">
               <span className="text-xs text-muted-foreground">14 Students Applied</span>
               <div className="flex gap-2">
-                <Button size="sm" variant="outline" className="h-8 text-xs">Edit</Button>
+                <Button 
+                  size="sm" 
+                  variant="outline" 
+                  className="h-8 text-xs"
+                  onClick={() => router.push('/hirer/jobs/edit?jobId=1')}
+                >
+                  Edit
+                </Button>
                 <Button 
                   size="sm" 
                   className="h-8 text-xs bg-accent"
@@ -154,7 +161,14 @@ export default function HirerDashboard() {
                       ))}
                     </div>
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline" className="flex-1 h-8 text-xs">Profile</Button>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-1 h-8 text-xs"
+                        onClick={() => router.push(`/worker/profile/${applicant.id}`)}
+                      >
+                        Profile
+                      </Button>
                       <Button 
                         size="sm" 
                         className="flex-1 h-8 text-xs bg-accent"

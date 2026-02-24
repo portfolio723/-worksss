@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 
 const recommendedJobs = [
   {
+    id: '1',
     title: 'Frontend Intern (Next.js)',
     budget: '₹20,000/mo',
     location: 'Bangalore / Remote',
@@ -19,6 +20,7 @@ const recommendedJobs = [
     match: '98%'
   },
   {
+    id: '2',
     title: 'Campus Ambassador',
     budget: '₹5,000 + Perks',
     location: 'Delhi NCR',
@@ -85,7 +87,13 @@ export default function WorkerDashboard() {
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-bold">Curated for Students</h2>
             </div>
-            <Button variant="link" className="text-accent h-auto p-0" onClick={() => router.push('/worker/browse')}>Filter</Button>
+            <Button 
+              variant="link" 
+              className="text-accent h-auto p-0" 
+              onClick={() => router.push('/worker/browse')}
+            >
+              Filter
+            </Button>
           </div>
           
           <div className="space-y-4">
@@ -111,8 +119,21 @@ export default function WorkerDashboard() {
                   ))}
                 </div>
                 <div className="flex gap-2">
-                  <Button size="sm" variant="outline" className="flex-1 h-9 rounded-xl">View Details</Button>
-                  <Button size="sm" className="flex-1 h-9 rounded-xl bg-accent">Apply Now</Button>
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="flex-1 h-9 rounded-xl"
+                    onClick={() => router.push(`/worker/jobs/${job.id}`)}
+                  >
+                    View Details
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-9 rounded-xl bg-accent"
+                    onClick={() => router.push(`/worker/jobs/${job.id}`)}
+                  >
+                    Apply Now
+                  </Button>
                 </div>
               </Card>
             ))}
