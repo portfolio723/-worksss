@@ -16,7 +16,8 @@ import {
   Star,
   Zap,
   Navigation,
-  X
+  X,
+  Target
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -180,21 +181,32 @@ export default function BrowseJobs() {
                     />
                   </div>
 
-                  {/* Distance */}
+                  {/* Distance (GPS/Manual Location Integration) */}
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
                       <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                        <Navigation className="h-3 w-3" /> Distance (km)
+                        <Navigation className="h-3 w-3" /> Distance (KM)
                       </h3>
-                      <span className="text-xs font-black text-primary">{distance[0]} km</span>
+                      <span className="text-xs font-black text-primary">{distance[0]} KM</span>
                     </div>
                     <Slider 
                       defaultValue={[10]} 
                       max={50} 
+                      min={1}
                       step={1} 
                       onValueChange={setDistance}
                       className="py-2"
                     />
+                    <div 
+                      className="flex items-center justify-between p-4 bg-secondary/30 rounded-2xl cursor-pointer hover:bg-secondary/50 transition-colors"
+                      onClick={() => router.push('/location-access')}
+                    >
+                      <div className="flex items-center gap-3">
+                        <Target className="h-4 w-4 text-primary" />
+                        <span className="text-[10px] font-black uppercase tracking-tighter text-muted-foreground">Nearby Banjara Hills</span>
+                      </div>
+                      <span className="text-[10px] font-bold text-primary">Change Area</span>
+                    </div>
                   </div>
 
                   {/* Rating */}
