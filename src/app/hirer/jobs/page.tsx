@@ -96,11 +96,11 @@ export default function HirerJobsPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-normal text-foreground">Manage Postings</h1>
-            <p className="text-sm text-muted-foreground font-medium">Track Your Listings And Applications In Real-Time.</p>
+            <p className="text-sm text-muted-foreground font-normal">Track Your Listings And Applications In Real-Time.</p>
           </div>
           <Button 
             size="icon" 
-            className="h-12 w-12 rounded-2xl bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 font-medium"
+            className="h-12 w-12 rounded-2xl bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 font-normal"
             onClick={() => router.push('/hirer/jobs/create')}
           >
             <Plus className="h-6 w-6" />
@@ -110,8 +110,8 @@ export default function HirerJobsPage() {
         <div className="bg-blue-50 p-4 rounded-2xl mb-8 border border-blue-100 flex gap-3">
           <Info className="h-5 w-5 text-primary shrink-0 mt-0.5" />
           <div className="space-y-1">
-            <p className="text-[10px] font-black uppercase tracking-widest text-primary">Cancellation Policy</p>
-            <p className="text-xs text-blue-800 leading-relaxed font-medium">
+            <p className="text-[10px] font-normal uppercase tracking-widest text-primary">Cancellation Policy</p>
+            <p className="text-xs text-blue-800 leading-relaxed font-normal">
               Free cancellation for all postings before a hire is accepted. Penalty apply only for accepted project cancellations.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function HirerJobsPage() {
         <div className="relative mb-8">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input 
-            className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-medium focus:ring-primary" 
+            className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-normal focus:ring-primary" 
             placeholder="Search Your Postings..." 
           />
         </div>
@@ -141,11 +141,11 @@ export default function HirerJobsPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-2">
                         <h3 className="font-normal text-lg text-foreground leading-tight truncate">{job.title}</h3>
-                        <Badge variant={job.status === 'Active' ? 'secondary' : 'outline'} className={`text-[10px] h-5 font-bold ${job.status === 'Active' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : ''}`}>
+                        <Badge variant={job.status === 'Active' ? 'secondary' : 'outline'} className={`text-[10px] h-5 font-normal ${job.status === 'Active' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : ''}`}>
                           {job.status}
                         </Badge>
                       </div>
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground font-medium">
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground font-normal">
                         <div className="flex items-center gap-1.5">
                           <MapPin className="h-3.5 w-3.5" />
                           {job.location}
@@ -160,7 +160,7 @@ export default function HirerJobsPage() {
                     <AlertDialog>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon" className="h-10 w-10 -mr-2 rounded-xl font-medium">
+                          <Button variant="ghost" size="icon" className="h-10 w-10 -mr-2 rounded-xl font-normal">
                             <MoreVertical className="h-5 w-5" />
                           </Button>
                         </DropdownMenuTrigger>
@@ -176,7 +176,7 @@ export default function HirerJobsPage() {
                       <AlertDialogContent className="hirer-theme rounded-[2rem] p-8 max-w-[360px]">
                         <AlertDialogHeader>
                           <AlertDialogTitle className="text-2xl font-normal">Confirm Cancellation?</AlertDialogTitle>
-                          <AlertDialogDescription className="text-sm font-medium">
+                          <AlertDialogDescription className="text-sm font-normal">
                             {job.hasAcceptedHires 
                               ? "Warning: You have already accepted talent for this gig. Cancelling now will incur a 10% platform penalty fee from your escrow."
                               : "This posting has no accepted hires yet. You can cancel this posting without any penalty fees."}
@@ -196,21 +196,21 @@ export default function HirerJobsPage() {
 
                   <div className="bg-secondary/30 rounded-2xl p-4 mb-6 grid grid-cols-3 gap-4">
                     <div className="text-center">
-                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Applicants</p>
+                      <p className="text-[10px] text-muted-foreground uppercase font-normal tracking-widest mb-1.5">Applicants</p>
                       <div className="flex items-center justify-center gap-1.5">
                         <Users className="h-3.5 w-3.5 text-primary" />
                         <span className="text-base font-normal text-foreground">{job.applicants}</span>
                       </div>
                     </div>
                     <div className="text-center border-x border-muted/50">
-                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Views</p>
+                      <p className="text-[10px] text-muted-foreground uppercase font-normal tracking-widest mb-1.5">Views</p>
                       <div className="flex items-center justify-center gap-1.5">
                         <Eye className="h-3.5 w-3.5 text-primary" />
                         <span className="text-base font-normal text-foreground">{job.views}</span>
                       </div>
                     </div>
                     <div className="text-center">
-                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Role Type</p>
+                      <p className="text-[10px] text-muted-foreground uppercase font-normal tracking-widest mb-1.5">Role Type</p>
                       <span className="text-xs font-normal text-primary">{job.type}</span>
                     </div>
                   </div>
@@ -218,7 +218,7 @@ export default function HirerJobsPage() {
                   <div className="flex items-center justify-between gap-4">
                     <span className="text-sm font-normal text-foreground">{job.stipend}</span>
                     <Button 
-                      className="h-11 px-6 bg-primary text-primary-foreground rounded-2xl text-xs font-medium shadow-md hover:bg-primary/90"
+                      className="h-11 px-6 bg-primary text-primary-foreground rounded-2xl text-xs font-normal shadow-md hover:bg-primary/90"
                       onClick={() => router.push(`/hirer/jobs/review?jobId=${job.id}`)}
                     >
                       Review Applicants
@@ -232,11 +232,11 @@ export default function HirerJobsPage() {
                   <Plus className="h-10 w-10 text-muted-foreground opacity-30" />
                 </div>
                 <h3 className="font-normal text-xl text-foreground mb-3">No {activeTab} Postings Found</h3>
-                <p className="text-sm text-muted-foreground font-medium mb-10 leading-relaxed">
+                <p className="text-sm text-muted-foreground font-normal mb-10 leading-relaxed">
                   Ready To Find Your Next Student Talent? Post A New Internship Or Gig Project To Get Started.
                 </p>
                 <Button 
-                  className="bg-primary text-primary-foreground rounded-2xl px-10 h-14 text-base font-medium shadow-xl"
+                  className="bg-primary text-primary-foreground rounded-2xl px-10 h-14 text-base font-normal shadow-xl"
                   onClick={() => router.push('/hirer/jobs/create')}
                 >
                   Create New Posting

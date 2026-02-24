@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -10,7 +9,6 @@ import {
   ArrowLeft, 
   Users, 
   CreditCard, 
-  MessageSquare, 
   AlertCircle,
   Clock,
   CheckCircle2
@@ -31,7 +29,7 @@ const hirerNotifications = [
   {
     id: 'n2',
     title: 'Payment Successful',
-    description: '₹15,000 Added To Your Escrow Balance Via UPI.',
+    description: '₹15,000 Added To Your Balance Via UPI.',
     time: '2 Hours Ago',
     type: 'payment',
     read: true,
@@ -75,12 +73,12 @@ export default function HirerNotificationsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-xl hover:bg-secondary font-medium"
+            className="h-10 w-10 rounded-xl hover:bg-secondary font-normal"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <h1 className="text-2xl font-bold text-foreground">Notifications</h1>
+          <h1 className="text-2xl font-normal text-foreground">Notifications</h1>
         </div>
 
         <div className="space-y-4">
@@ -95,20 +93,20 @@ export default function HirerNotificationsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className={`text-base font-bold truncate ${notif.read ? 'text-foreground' : 'text-primary'}`}>
+                    <h3 className={`text-base font-normal truncate ${notif.read ? 'text-foreground' : 'text-primary'}`}>
                       {notif.title}
                     </h3>
-                    <span className="text-[10px] text-muted-foreground font-black uppercase tracking-tight whitespace-nowrap ml-3 mt-1">
+                    <span className="text-[10px] text-muted-foreground font-normal uppercase tracking-tight whitespace-nowrap ml-3 mt-1">
                       {notif.time}
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                  <p className="text-sm text-muted-foreground leading-relaxed font-normal">
                     {notif.description}
                   </p>
                   {!notif.read && (
                     <div className="mt-5 flex gap-3">
-                      <Button size="sm" className="h-9 px-5 text-xs bg-primary text-primary-foreground font-medium rounded-xl shadow-md">View Details</Button>
-                      <Button size="sm" variant="ghost" className="h-9 px-5 text-xs font-medium rounded-xl hover:bg-primary/5">Mark Read</Button>
+                      <Button size="sm" className="h-9 px-5 text-xs bg-primary text-primary-foreground font-normal rounded-xl shadow-md">View Details</Button>
+                      <Button size="sm" variant="ghost" className="h-9 px-5 text-xs font-normal rounded-xl hover:bg-primary/5">Mark Read</Button>
                     </div>
                   )}
                 </div>
@@ -122,7 +120,7 @@ export default function HirerNotificationsPage() {
             <div className="bg-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
               <AlertCircle className="h-10 w-10 text-muted-foreground opacity-20" />
             </div>
-            <p className="text-muted-foreground font-bold text-lg">No Notifications Yet.</p>
+            <p className="text-muted-foreground font-normal text-lg">No Notifications Yet.</p>
           </div>
         )}
       </main>

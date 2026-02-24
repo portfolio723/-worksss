@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -65,13 +64,13 @@ export default function HirerProfilePage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <Button size="icon" className="absolute -bottom-2 -right-2 h-11 w-11 rounded-2xl bg-primary text-primary-foreground shadow-xl border-4 border-background hover:bg-primary/90 font-medium">
+            <Button size="icon" className="absolute -bottom-2 -right-2 h-11 w-11 rounded-2xl bg-primary text-primary-foreground shadow-xl border-4 border-background hover:bg-primary/90 font-normal">
               <Camera className="h-5 w-5" />
             </Button>
           </div>
-          <h1 className="text-3xl font-bold text-foreground tracking-tight">{profileData.name}</h1>
-          <p className="text-base text-primary font-bold mt-1">{profileData.sub}</p>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground mt-2 font-bold uppercase tracking-widest">
+          <h1 className="text-3xl font-normal text-foreground tracking-tight">{profileData.name}</h1>
+          <p className="text-base text-primary font-normal mt-1">{profileData.sub}</p>
+          <div className="flex items-center gap-2 text-xs text-muted-foreground mt-2 font-normal uppercase tracking-widest">
             <MapPin className="h-4 w-4" />
             {profileData.location}
           </div>
@@ -80,33 +79,33 @@ export default function HirerProfilePage() {
         <div className="grid grid-cols-3 gap-4 mb-10">
           {profileData.stats.map((stat) => (
             <Card key={stat.label} className="p-4 text-center border-none shadow-sm bg-white rounded-2xl">
-              <p className="text-lg font-bold text-primary">{stat.value}</p>
-              <p className="text-xs text-muted-foreground font-black tracking-tight mt-1">{stat.label}</p>
+              <p className="text-lg font-normal text-primary">{stat.value}</p>
+              <p className="text-xs text-muted-foreground font-normal tracking-tight mt-1">{stat.label}</p>
             </Card>
           ))}
         </div>
 
         <Tabs defaultValue="details" className="w-full">
           <TabsList className="w-full bg-secondary/50 p-1 rounded-2xl mb-8">
-            <TabsTrigger value="details" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Account Details</TabsTrigger>
-            <TabsTrigger value="settings" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Security</TabsTrigger>
-            <TabsTrigger value="verify" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Trust & Verify</TabsTrigger>
+            <TabsTrigger value="details" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Account Details</TabsTrigger>
+            <TabsTrigger value="settings" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Security</TabsTrigger>
+            <TabsTrigger value="verify" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Trust & Verify</TabsTrigger>
           </TabsList>
 
           <TabsContent value="details" className="space-y-6">
             <Card className="p-7 bg-white border-none shadow-sm rounded-3xl">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-sm font-bold text-foreground uppercase tracking-widest">About Me</h3>
-                <Button variant="link" className="text-primary h-auto p-0 text-xs font-medium">Edit Bio</Button>
+                <h3 className="text-sm font-normal text-foreground uppercase tracking-widest">About Me</h3>
+                <Button variant="link" className="text-primary h-auto p-0 text-xs font-normal">Edit Bio</Button>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+              <p className="text-sm text-muted-foreground leading-relaxed font-normal">
                 {profileData.bio}
               </p>
             </Card>
 
             <Card className="p-7 bg-white border-none shadow-sm rounded-3xl">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-sm font-bold text-foreground uppercase tracking-widest">Company Information</h3>
+                <h3 className="text-sm font-normal text-foreground uppercase tracking-widest">Company Information</h3>
               </div>
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
@@ -114,8 +113,8 @@ export default function HirerProfilePage() {
                     <Building2 className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-base font-bold text-foreground">{profileData.company}</p>
-                    <p className="text-xs text-muted-foreground font-medium">{profileData.industry}</p>
+                    <p className="text-base font-normal text-foreground">{profileData.company}</p>
+                    <p className="text-xs text-muted-foreground font-normal">{profileData.industry}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -123,8 +122,8 @@ export default function HirerProfilePage() {
                     <LinkIcon className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-base font-bold text-foreground">techshastra.in</p>
-                    <p className="text-xs text-muted-foreground font-medium">Official Company Website</p>
+                    <p className="text-base font-normal text-foreground">techshastra.in</p>
+                    <p className="text-xs text-muted-foreground font-normal">Official Company Website</p>
                   </div>
                 </div>
               </div>
@@ -138,8 +137,8 @@ export default function HirerProfilePage() {
                   <ShieldCheck className="h-7 w-7 text-emerald-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">Verified Recruiter</h3>
-                  <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Status: Fully Verified</p>
+                  <h3 className="text-lg font-normal text-foreground">Verified Recruiter</h3>
+                  <p className="text-[10px] text-muted-foreground uppercase font-normal tracking-widest">Status: Fully Verified</p>
                 </div>
               </div>
 
@@ -147,16 +146,16 @@ export default function HirerProfilePage() {
                 <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-2xl">
                   <div className="flex items-center gap-3">
                     <FileText className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm font-bold text-foreground">GST Certificate</span>
+                    <span className="text-sm font-normal text-foreground">GST Certificate</span>
                   </div>
-                  <Badge variant="secondary" className="bg-emerald-500 text-white text-[10px] font-black border-none">VERIFIED</Badge>
+                  <Badge variant="secondary" className="bg-emerald-500 text-white text-[10px] font-normal border-none">VERIFIED</Badge>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-2xl">
                   <div className="flex items-center gap-3">
                     <User className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm font-bold text-foreground">Company PAN</span>
+                    <span className="text-sm font-normal text-foreground">Company PAN</span>
                   </div>
-                  <Badge variant="secondary" className="bg-emerald-500 text-white text-[10px] font-black border-none">VERIFIED</Badge>
+                  <Badge variant="secondary" className="bg-emerald-500 text-white text-[10px] font-normal border-none">VERIFIED</Badge>
                 </div>
               </div>
             </Card>
@@ -164,83 +163,83 @@ export default function HirerProfilePage() {
 
           <TabsContent value="settings" className="space-y-4">
             <div className="space-y-3 pb-10">
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1 mb-2">General Settings</h3>
+              <h3 className="text-[10px] font-normal uppercase tracking-widest text-muted-foreground ml-1 mb-2">General Settings</h3>
               
-              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-normal">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
                     <UserPen className="h-5 w-5 text-primary group-hover:text-white" />
                   </div>
-                  <span className="text-sm font-bold text-foreground">Edit Profile</span>
+                  <span className="text-sm font-normal text-foreground">Edit Profile</span>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
 
-              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-normal">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
                     <Sliders className="h-5 w-5 text-primary group-hover:text-white" />
                   </div>
-                  <span className="text-sm font-bold text-foreground">Account Settings</span>
+                  <span className="text-sm font-normal text-foreground">Account Settings</span>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
 
-              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-normal">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
                     <KeyRound className="h-5 w-5 text-primary group-hover:text-white" />
                   </div>
-                  <span className="text-sm font-bold text-foreground">Change Password</span>
+                  <span className="text-sm font-normal text-foreground">Change Password</span>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
 
-              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-normal">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
                     <Bell className="h-5 w-5 text-primary group-hover:text-white" />
                   </div>
-                  <span className="text-sm font-bold text-foreground">Notification Settings</span>
+                  <span className="text-sm font-normal text-foreground">Notification Settings</span>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
 
-              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-normal">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
                     <Lock className="h-5 w-5 text-primary group-hover:text-white" />
                   </div>
-                  <span className="text-sm font-bold text-foreground">Privacy & Security</span>
+                  <span className="text-sm font-normal text-foreground">Privacy & Security</span>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
 
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-rose-500 ml-1 mt-8 mb-2">Danger Zone</h3>
+              <h3 className="text-[10px] font-normal uppercase tracking-widest text-rose-500 ml-1 mt-8 mb-2">Danger Zone</h3>
 
               <Button 
                 variant="ghost" 
-                className="w-full justify-between h-16 bg-white border border-rose-100 shadow-sm rounded-2xl px-6 text-rose-600 hover:bg-rose-50 font-medium"
+                className="w-full justify-between h-16 bg-white border border-rose-100 shadow-sm rounded-2xl px-6 text-rose-600 hover:bg-rose-50 font-normal"
               >
                 <div className="flex items-center gap-4">
                   <div className="bg-rose-100 p-2.5 rounded-xl">
                     <Trash2 className="h-5 w-5 text-rose-600" />
                   </div>
-                  <span className="text-sm font-bold">Delete Account</span>
+                  <span className="text-sm font-normal">Delete Account</span>
                 </div>
                 <ShieldAlert className="h-5 w-5 text-rose-300" />
               </Button>
 
               <Button 
                 variant="ghost" 
-                className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-medium mt-4"
+                className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-normal mt-4"
                 onClick={handleLogout}
               >
                 <div className="flex items-center gap-4">
                   <div className="bg-destructive/10 p-2.5 rounded-xl group-hover:bg-destructive group-hover:text-white transition-colors">
                     <LogOut className="h-5 w-5" />
                   </div>
-                  <span className="text-sm font-bold">Logout From Account</span>
+                  <span className="text-sm font-normal">Logout From Account</span>
                 </div>
               </Button>
             </div>

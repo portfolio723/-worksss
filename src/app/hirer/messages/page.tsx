@@ -37,8 +37,8 @@ export default function HirerMessagesPage() {
       
       <main className="content-area px-6">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold text-foreground">Messages</h1>
-          <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-tight">
+          <h1 className="text-2xl font-normal text-foreground">Messages</h1>
+          <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-normal uppercase tracking-tight">
             2 New
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function HirerMessagesPage() {
         <div className="relative mb-8">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input 
-            className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-medium focus:ring-primary" 
+            className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-normal focus:ring-primary" 
             placeholder="Search applicants..." 
           />
         </div>
@@ -71,17 +71,17 @@ export default function HirerMessagesPage() {
               
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-baseline mb-1">
-                  <h3 className="font-bold text-base truncate text-foreground">{chat.name}</h3>
-                  <span className="text-[10px] text-muted-foreground font-bold">{chat.time}</span>
+                  <h3 className="font-normal text-base truncate text-foreground">{chat.name}</h3>
+                  <span className="text-[10px] text-muted-foreground font-normal">{chat.time}</span>
                 </div>
-                <p className={`text-sm truncate font-medium ${chat.unread > 0 ? 'text-primary' : 'text-muted-foreground'}`}>
+                <p className={`text-sm truncate font-normal ${chat.unread > 0 ? 'text-primary' : 'text-muted-foreground'}`}>
                   {chat.lastMessage}
                 </p>
               </div>
 
               {chat.unread > 0 && (
                 <div className="bg-primary w-6 h-6 rounded-full flex items-center justify-center shadow-md">
-                  <span className="text-[10px] text-primary-foreground font-black">{chat.unread}</span>
+                  <span className="text-[10px] text-primary-foreground font-normal">{chat.unread}</span>
                 </div>
               )}
             </Card>
@@ -91,7 +91,7 @@ export default function HirerMessagesPage() {
         {conversations.length === 0 && (
           <div className="text-center py-24 px-8 bg-white rounded-3xl shadow-sm mt-8">
             <MessageSquare className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-            <p className="text-muted-foreground font-bold">No messages yet.</p>
+            <p className="text-muted-foreground font-normal">No messages yet.</p>
           </div>
         )}
       </main>

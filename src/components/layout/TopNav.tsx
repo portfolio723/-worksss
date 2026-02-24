@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Bell, MapPin } from 'lucide-react';
@@ -18,7 +17,7 @@ export function TopNav() {
       <div className="flex items-center gap-3">
         <Link 
           href={isHirer ? "/hirer" : "/worker"} 
-          className="text-2xl font-black text-foreground tracking-tighter hover:opacity-80 transition-opacity px-1"
+          className="text-2xl font-normal text-foreground tracking-tighter hover:opacity-80 transition-opacity px-1"
         >
           #
         </Link>
@@ -29,18 +28,20 @@ export function TopNav() {
           isHirer ? "hirer-theme bg-secondary/50" : "worker-theme bg-secondary/50"
         )}>
           <button 
+            type="button"
             onClick={() => router.push('/hirer')}
             className={cn(
-              "px-4 h-7 text-[10px] font-medium rounded-full transition-all flex items-center justify-center",
+              "px-4 h-7 text-xs font-normal rounded-full transition-all flex items-center justify-center",
               isHirer ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
             )}
           >
             Hirer
           </button>
           <button 
+            type="button"
             onClick={() => router.push('/worker')}
             className={cn(
-              "px-4 h-7 text-[10px] font-medium rounded-full transition-all flex items-center justify-center",
+              "px-4 h-7 text-xs font-normal rounded-full transition-all flex items-center justify-center",
               !isHirer ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
             )}
           >
@@ -51,12 +52,12 @@ export function TopNav() {
       
       <div className="flex items-center gap-1">
         <Link href="/location-access">
-          <Button variant="ghost" size="icon" className="h-10 w-10 rounded-2xl hover:bg-secondary font-medium">
+          <Button variant="ghost" size="icon" className="h-10 w-10 rounded-2xl hover:bg-secondary font-normal">
             <MapPin className="h-5 w-5 text-muted-foreground" />
           </Button>
         </Link>
         <Link href={notificationPath}>
-          <Button variant="ghost" size="icon" className="relative h-10 w-10 rounded-2xl hover:bg-secondary font-medium">
+          <Button variant="ghost" size="icon" className="relative h-10 w-10 rounded-2xl hover:bg-secondary font-normal">
             <Bell className="h-5 w-5 text-muted-foreground" />
             <span className="absolute top-2.5 right-2.5 h-2 w-2 bg-destructive rounded-full border-2 border-white" />
           </Button>

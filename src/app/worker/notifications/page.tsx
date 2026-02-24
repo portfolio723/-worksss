@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -74,12 +73,12 @@ export default function WorkerNotificationsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-2xl hover:bg-secondary font-medium"
+            className="h-10 w-10 rounded-2xl hover:bg-secondary font-normal"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
-          <h1 className="text-3xl font-black tracking-tight">Alerts And Updates</h1>
+          <h1 className="text-3xl font-normal tracking-tight">Alerts And Updates</h1>
         </div>
 
         <div className="space-y-4">
@@ -94,20 +93,20 @@ export default function WorkerNotificationsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start mb-1">
-                    <h3 className={`text-sm font-black tracking-tight truncate ${notif.read ? 'text-foreground' : 'text-primary'}`}>
+                    <h3 className={`text-sm font-normal tracking-tight truncate ${notif.read ? 'text-foreground' : 'text-primary'}`}>
                       {notif.title}
                     </h3>
-                    <span className="text-[10px] text-muted-foreground font-bold whitespace-nowrap ml-2">
+                    <span className="text-[10px] text-muted-foreground font-normal whitespace-nowrap ml-2">
                       {notif.time}
                     </span>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed font-medium">
+                  <p className="text-xs text-muted-foreground leading-relaxed font-normal">
                     {notif.description}
                   </p>
                   {!notif.read && (
                     <div className="mt-4 flex gap-2">
-                      <Button size="sm" className="h-8 px-4 text-[10px] bg-primary text-white font-medium rounded-xl">Check Now</Button>
-                      <Button size="sm" variant="ghost" className="h-8 px-4 text-[10px] font-medium rounded-xl hover:bg-secondary">Dismiss</Button>
+                      <Button size="sm" className="h-8 px-4 text-[10px] bg-primary text-white font-normal rounded-xl">Check Now</Button>
+                      <Button size="sm" variant="ghost" className="h-8 px-4 text-[10px] font-normal rounded-xl hover:bg-secondary">Dismiss</Button>
                     </div>
                   )}
                 </div>
@@ -119,7 +118,7 @@ export default function WorkerNotificationsPage() {
         {workerNotifications.length === 0 && (
           <div className="text-center py-24">
             <BellRing className="h-16 w-16 text-muted-foreground mx-auto mb-6 opacity-10" />
-            <p className="text-muted-foreground font-black text-lg tracking-tight">All Caught Up!</p>
+            <p className="text-muted-foreground font-normal text-lg tracking-tight">All Caught Up!</p>
           </div>
         )}
       </main>

@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -29,8 +28,8 @@ export default function WorkerMessagesPage() {
       
       <main className="content-area">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl font-black">Chats</h1>
-          <div className="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-black tracking-tight">
+          <h1 className="text-3xl font-normal">Chats</h1>
+          <div className="bg-primary text-white px-3 py-1 rounded-full text-[10px] font-normal tracking-tight">
             1 New
           </div>
         </div>
@@ -38,7 +37,7 @@ export default function WorkerMessagesPage() {
         <div className="relative mb-6">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input 
-            className="pl-12 h-14 bg-white border-border/50 shadow-sm rounded-2xl text-base" 
+            className="pl-12 h-14 bg-white border-border/50 shadow-sm rounded-2xl text-base font-normal" 
             placeholder="Search Recruiters..." 
           />
         </div>
@@ -63,17 +62,17 @@ export default function WorkerMessagesPage() {
               
               <div className="flex-1 min-w-0">
                 <div className="flex justify-between items-baseline mb-1">
-                  <h3 className="font-black text-sm truncate">{chat.name}</h3>
-                  <span className="text-[10px] text-muted-foreground font-bold">{chat.time}</span>
+                  <h3 className="font-normal text-sm truncate">{chat.name}</h3>
+                  <span className="text-[10px] text-muted-foreground font-normal">{chat.time}</span>
                 </div>
-                <p className={`text-xs truncate font-medium ${chat.unread > 0 ? 'text-primary' : 'text-muted-foreground'}`}>
+                <p className={`text-xs truncate font-normal ${chat.unread > 0 ? 'text-primary' : 'text-muted-foreground'}`}>
                   {chat.lastMessage}
                 </p>
               </div>
 
               {chat.unread > 0 && (
                 <div className="bg-primary w-5 h-5 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-[10px] text-white font-black">{chat.unread}</span>
+                  <span className="text-[10px] text-white font-normal">{chat.unread}</span>
                 </div>
               )}
             </Card>
@@ -82,7 +81,7 @@ export default function WorkerMessagesPage() {
           {conversations.length === 0 && (
             <div className="text-center py-20 px-8">
               <MessageSquare className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-              <p className="text-muted-foreground font-bold">No Conversations Yet.</p>
+              <p className="text-muted-foreground font-normal">No Conversations Yet.</p>
             </div>
           )}
         </div>
