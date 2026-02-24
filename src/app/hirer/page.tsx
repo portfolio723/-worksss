@@ -1,3 +1,4 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -7,6 +8,11 @@ import { Plus, Clock, Users, CheckCircle2, CreditCard } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useRouter } from 'next/navigation';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const stats = [
   { label: 'Active Jobs', value: 2, icon: Clock, color: 'text-blue-600', bg: 'bg-blue-100' },
@@ -57,17 +63,21 @@ export default function HirerDashboard() {
           </Button>
         </div>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar -mx-6 px-6 mb-8">
-          {stats.map((stat) => (
-            <Card key={stat.label} className="min-w-[160px] p-5 flex flex-col gap-2 bg-white border-none shadow-sm rounded-2xl">
-              <div className={`${stat.bg} ${stat.color} p-2.5 rounded-xl w-fit`}>
-                <stat.icon className="h-5 w-5" />
-              </div>
-              <span className="text-3xl font-bold text-foreground mt-2">{stat.value}</span>
-              <span className="text-xs text-muted-foreground font-bold tracking-tight">{stat.label}</span>
-            </Card>
-          ))}
-        </div>
+        <Carousel className="w-full mb-8 overflow-hidden -mx-6 px-6" opts={{ align: "start", dragFree: true }}>
+          <CarouselContent className="-ml-4">
+            {stats.map((stat) => (
+              <CarouselItem key={stat.label} className="pl-4 basis-[160px]">
+                <Card className="p-5 flex flex-col gap-2 bg-white border-none shadow-sm rounded-2xl h-full">
+                  <div className={`${stat.bg} ${stat.color} p-2.5 rounded-xl w-fit`}>
+                    <stat.icon className="h-5 w-5" />
+                  </div>
+                  <span className="text-3xl font-bold text-foreground mt-2">{stat.value}</span>
+                  <span className="text-sm text-muted-foreground font-bold tracking-tight">{stat.label}</span>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
 
         <section className="mb-10">
           <div className="flex items-center justify-between mb-4">
