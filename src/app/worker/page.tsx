@@ -115,8 +115,8 @@ export default function WorkerDashboard() {
               <Card key={job.id} className="p-4 border-none bg-white shadow-sm rounded-2xl space-y-3">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="font-bold text-sm leading-tight">{job.title}</h3>
-                    <p className="text-[10px] text-muted-foreground font-medium">{job.company}</p>
+                    <h3 className="font-bold text-base leading-tight">{job.title}</h3>
+                    <p className="text-xs text-muted-foreground font-medium">{job.company}</p>
                   </div>
                   <Badge variant="outline" className="text-[8px] font-black uppercase text-primary border-primary/20">
                     {job.deadline}
@@ -151,8 +151,8 @@ export default function WorkerDashboard() {
                   <Briefcase className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-xs truncate">{job.title}</h3>
-                  <p className="text-[9px] text-muted-foreground font-medium uppercase">{job.company} • {job.date}</p>
+                  <h3 className="font-bold text-base truncate">{job.title}</h3>
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase">{job.company} • {job.date}</p>
                 </div>
                 <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 font-bold text-[8px]">
                   {job.status}
@@ -177,8 +177,8 @@ export default function WorkerDashboard() {
               <Card key={job.id} className="p-4 border-none bg-white shadow-sm rounded-2xl hover:bg-primary/5 cursor-pointer group transition-colors" onClick={() => router.push(`/worker/jobs/${job.id}`)}>
                 <div className="flex justify-between items-center gap-3">
                   <div className="min-w-0 flex-1">
-                    <h3 className="font-bold text-xs group-hover:text-primary transition-colors truncate">{job.title}</h3>
-                    <p className="text-[9px] text-muted-foreground font-bold">{job.company} • {job.type}</p>
+                    <h3 className="font-bold text-base group-hover:text-primary transition-colors truncate">{job.title}</h3>
+                    <p className="text-xs text-muted-foreground font-bold">{job.company} • {job.type}</p>
                   </div>
                   <span className="text-[10px] font-black text-primary shrink-0">{job.stipend}</span>
                   <ChevronRight className="h-3 w-3 text-muted-foreground" />
@@ -203,8 +203,8 @@ export default function WorkerDashboard() {
                     <Star className="h-5 w-5 text-primary fill-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xs">{review.client}</h3>
-                    <p className="text-[9px] text-muted-foreground font-medium">{review.company}</p>
+                    <h3 className="font-bold text-sm">{review.client}</h3>
+                    <p className="text-xs text-muted-foreground font-medium">{review.company}</p>
                   </div>
                   <div className="ml-auto flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
@@ -212,7 +212,7 @@ export default function WorkerDashboard() {
                     ))}
                   </div>
                 </div>
-                <p className="text-[10px] text-muted-foreground italic leading-relaxed font-medium">
+                <p className="text-xs text-muted-foreground italic leading-relaxed font-medium">
                   "{review.comment}"
                 </p>
                 <p className="mt-3 text-[8px] font-black uppercase text-primary/40 tracking-widest">{review.date}</p>
