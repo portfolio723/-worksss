@@ -97,7 +97,8 @@ export default function AuthPage() {
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-xs font-bold text-muted-foreground ml-1">Phone Number</Label>
               <div className="flex h-14 rounded-2xl border border-slate-200 overflow-hidden focus-within:ring-2 focus-within:ring-primary shadow-sm">
-                <div className="w-16 flex items-center justify-center border-r border-slate-200 bg-white">
+                <div className="w-24 flex items-center justify-center gap-1 border-r border-slate-200 bg-white px-2">
+                  <span className="text-sm font-bold text-foreground tracking-tight">+91</span>
                   <ChevronDown className="h-4 w-4 text-muted-foreground" />
                 </div>
                 <Input 
