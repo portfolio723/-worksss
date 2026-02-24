@@ -61,7 +61,7 @@ export default function WorkerDashboard() {
           <div className="relative z-10">
             <div className="flex justify-between items-start mb-4">
               <div>
-                <span className="text-[10px] opacity-80 font-black tracking-widest">Available Balance</span>
+                <span className="text-sm opacity-90 font-medium tracking-tight">Available Balance</span>
                 <div className="text-3xl font-black mt-1 tracking-tighter">₹42,500.00</div>
               </div>
               <div className="bg-white/20 p-2.5 rounded-2xl">
@@ -70,11 +70,11 @@ export default function WorkerDashboard() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-6">
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[8px] font-black opacity-70">Total Earned</p>
+                <p className="text-[10px] font-medium opacity-80">Total Earned</p>
                 <p className="text-sm font-bold">₹1.2L</p>
               </div>
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[8px] font-black opacity-70">In Clearance</p>
+                <p className="text-[10px] font-medium opacity-80">In Clearance</p>
                 <p className="text-sm font-bold">₹8,400</p>
               </div>
             </div>
@@ -106,7 +106,7 @@ export default function WorkerDashboard() {
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
               <Activity className="h-4 w-4 text-primary" /> Active Gigs
             </h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-bold" onClick={() => router.push('/worker/active-jobs')}>
+            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-medium" onClick={() => router.push('/worker/active-jobs')}>
               See All
             </Button>
           </div>
@@ -140,7 +140,7 @@ export default function WorkerDashboard() {
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
               <Send className="h-4 w-4 text-primary" /> Applications
             </h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-bold" onClick={() => router.push('/worker/applied-jobs')}>
+            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-medium" onClick={() => router.push('/worker/applied-jobs')}>
               Track
             </Button>
           </div>
@@ -168,7 +168,7 @@ export default function WorkerDashboard() {
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
               <Bookmark className="h-4 w-4 text-primary" /> Saved
             </h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-bold" onClick={() => router.push('/worker/saved-jobs')}>
+            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-medium" onClick={() => router.push('/worker/saved-jobs')}>
               View All
             </Button>
           </div>
