@@ -7,8 +7,19 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Clock, MessageSquare, CheckCircle2, FileText, LayoutDashboard } from 'lucide-react';
+import { ArrowLeft, Clock, MessageSquare, CheckCircle2, FileText, LayoutDashboard, AlertCircle, XCircle } from 'lucide-react';
 import { Progress as ProgressUI } from '@/components/ui/progress';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const activeJobs = [
   { id: 'aj1', title: 'React Dev Intern', company: 'TechShastra', deadline: 'Next Week', progress: 65, status: 'On Track', milestone: 'API Integration' },
@@ -27,6 +38,16 @@ export default function ActiveJobsPage() {
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <h1 className="text-3xl font-black tracking-tight">Current Projects</h1>
+        </div>
+
+        <div className="bg-amber-50 p-5 rounded-3xl mb-8 border border-amber-100 flex gap-4">
+          <AlertCircle className="h-6 w-6 text-amber-600 shrink-0 mt-0.5" />
+          <div className="space-y-1">
+            <p className="text-[10px] font-black uppercase tracking-widest text-amber-700">Worker Ethics Policy</p>
+            <p className="text-xs text-amber-800 leading-relaxed font-medium">
+              Cancelling a project after acceptance will negatively impact your <span className="font-bold">Behaviour Rating</span> and profile visibility.
+            </p>
+          </div>
         </div>
 
         <div className="space-y-6">
@@ -69,9 +90,31 @@ export default function ActiveJobsPage() {
                   <MessageSquare className="h-5 w-5" />
                   Chat Client
                 </Button>
-                <Button variant="secondary" className="h-14 rounded-2xl font-medium col-span-2 lg:col-span-1">
-                  View Brief
-                </Button>
+                
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="ghost" className="h-14 rounded-2xl font-bold text-rose-500 hover:bg-rose-50 border-none flex gap-2">
+                      <XCircle className="h-5 w-5" />
+                      Abandon Project
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent className="worker-theme rounded-[2rem] p-8 max-w-[360px]">
+                    <AlertDialogHeader>
+                      <AlertDialogTitle className="text-2xl font-black">Abandon Project?</AlertDialogTitle>
+                      <AlertDialogDescription className="text-sm font-medium">
+                        Abandoning an ongoing project will result in a <span className="text-rose-600 font-bold">1-star Behaviour Rating</span> impact and restricted project access for 14 days.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter className="mt-6 flex-col gap-3">
+                      <AlertDialogAction className="w-full h-14 bg-rose-600 text-white rounded-2xl font-bold shadow-lg">
+                        Yes, Abandon
+                      </AlertDialogAction>
+                      <AlertDialogCancel className="w-full h-14 bg-secondary text-foreground rounded-2xl font-bold border-none">
+                        Continue Working
+                      </AlertDialogCancel>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               </div>
             </Card>
           ))}

@@ -6,7 +6,7 @@ import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, Plus, MoreVertical, Users, Eye, Calendar, MapPin } from 'lucide-react';
+import { Search, Plus, MoreVertical, Users, Eye, Calendar, MapPin, AlertTriangle, Info } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -16,6 +16,17 @@ import {
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { useRouter } from 'next/navigation';
 
 const myPostings = [
@@ -28,7 +39,8 @@ const myPostings = [
     applicants: 14,
     views: 156,
     location: 'Remote',
-    type: 'Internship'
+    type: 'Internship',
+    hasAcceptedHires: false
   },
   {
     id: '2',
@@ -39,7 +51,8 @@ const myPostings = [
     applicants: 8,
     views: 92,
     location: 'Hitech City, HYD',
-    type: 'Gig'
+    type: 'Gig',
+    hasAcceptedHires: true
   },
   {
     id: '3',
@@ -50,7 +63,8 @@ const myPostings = [
     applicants: 32,
     views: 412,
     location: 'Remote',
-    type: 'Gig'
+    type: 'Gig',
+    hasAcceptedHires: false
   },
   {
     id: '4',
@@ -61,7 +75,8 @@ const myPostings = [
     applicants: 0,
     views: 0,
     location: 'Banjara Hills, HYD',
-    type: 'Internship'
+    type: 'Internship',
+    hasAcceptedHires: false
   }
 ];
 
@@ -91,6 +106,16 @@ export default function HirerJobsPage() {
           >
             <Plus className="h-6 w-6" />
           </Button>
+        </div>
+
+        <div className="bg-blue-50 p-4 rounded-2xl mb-8 border border-blue-100 flex gap-3">
+          <Info className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+          <div className="space-y-1">
+            <p className="text-[10px] font-black uppercase tracking-widest text-primary">Cancellation Policy</p>
+            <p className="text-xs text-blue-800 leading-relaxed font-medium">
+              Free cancellation for all postings before a hire is accepted. Penalty apply only for accepted project cancellations.
+            </p>
+          </div>
         </div>
 
         <div className="relative mb-8">
@@ -132,18 +157,42 @@ export default function HirerJobsPage() {
                         </div>
                       </div>
                     </div>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-10 w-10 -mr-2 rounded-xl font-medium">
-                          <MoreVertical className="h-5 w-5" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end" className="rounded-xl border-none shadow-xl">
-                        <DropdownMenuItem className="font-bold text-sm p-3" onClick={() => router.push(`/hirer/jobs/edit?jobId=${job.id}`)}>Edit Posting</DropdownMenuItem>
-                        <DropdownMenuItem className="font-bold text-sm p-3">View Detailed Stats</DropdownMenuItem>
-                        <DropdownMenuItem className="font-bold text-sm p-3 text-destructive">Close Posting</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                    
+                    <AlertDialog>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="icon" className="h-10 w-10 -mr-2 rounded-xl font-medium">
+                            <MoreVertical className="h-5 w-5" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="rounded-xl border-none shadow-xl">
+                          <DropdownMenuItem className="font-bold text-sm p-3" onClick={() => router.push(`/hirer/jobs/edit?jobId=${job.id}`)}>Edit Posting</DropdownMenuItem>
+                          <DropdownMenuItem className="font-bold text-sm p-3">View Detailed Stats</DropdownMenuItem>
+                          <AlertDialogTrigger asChild>
+                            <DropdownMenuItem className="font-bold text-sm p-3 text-destructive">Close Posting</DropdownMenuItem>
+                          </AlertDialogTrigger>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                      
+                      <AlertDialogContent className="hirer-theme rounded-[2rem] p-8 max-w-[360px]">
+                        <AlertDialogHeader>
+                          <AlertDialogTitle className="text-2xl font-black">Confirm Cancellation?</AlertDialogTitle>
+                          <AlertDialogDescription className="text-sm font-medium">
+                            {job.hasAcceptedHires 
+                              ? "Warning: You have already accepted talent for this gig. Cancelling now will incur a 10% platform penalty fee from your escrow."
+                              : "This posting has no accepted hires yet. You can cancel this posting without any penalty fees."}
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter className="mt-6 flex-col gap-3">
+                          <AlertDialogAction className="w-full h-14 bg-destructive text-white rounded-2xl font-bold shadow-lg">
+                            Yes, Cancel Posting
+                          </AlertDialogAction>
+                          <AlertDialogCancel className="w-full h-14 bg-secondary text-foreground rounded-2xl font-bold border-none">
+                            Keep Posting
+                          </AlertDialogCancel>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
                   </div>
 
                   <div className="bg-secondary/30 rounded-2xl p-4 mb-6 grid grid-cols-3 gap-4">
