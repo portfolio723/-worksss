@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -110,7 +109,7 @@ export default function BrowseJobs() {
       
       <main className="content-area">
         <div className="mb-6 px-2">
-          <h1 className="text-3xl font-black">Browse Jobs</h1>
+          <h1 className="text-3xl font-normal">Browse Jobs</h1>
           <p className="text-sm text-muted-foreground mt-1 font-medium">Find Your Next Big Opportunity.</p>
         </div>
 
@@ -137,7 +136,7 @@ export default function BrowseJobs() {
               className="worker-theme h-[92vh] w-full max-w-[390px] mx-auto p-0 flex flex-col border-none rounded-t-[2.5rem] overflow-hidden left-1/2 -translate-x-1/2"
             >
               <SheetHeader className="p-6 border-b flex flex-row items-center justify-between">
-                <SheetTitle className="text-2xl font-black">Filters</SheetTitle>
+                <SheetTitle className="text-2xl font-normal">Filters</SheetTitle>
                 <SheetClose asChild>
                   <Button variant="ghost" size="icon" className="rounded-full h-10 w-10">
                     <X className="h-6 w-6" />
@@ -156,7 +155,7 @@ export default function BrowseJobs() {
                       {categories.map((cat) => (
                         <div key={cat} className="flex items-center space-x-2 bg-secondary/30 p-3 rounded-xl">
                           <Checkbox id={`cat-${cat}`} />
-                          <Label htmlFor={`cat-${cat}`} className="text-xs font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                          <Label htmlFor={`cat-${cat}`} className="text-xs font-normal leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                             {cat}
                           </Label>
                         </div>
@@ -205,7 +204,7 @@ export default function BrowseJobs() {
                         <Target className="h-4 w-4 text-primary" />
                         <span className="text-[10px] font-black uppercase tracking-tighter text-muted-foreground">Nearby Banjara Hills</span>
                       </div>
-                      <span className="text-[10px] font-bold text-primary">Change Area</span>
+                      <span className="text-[10px] font-normal text-primary">Change Area</span>
                     </div>
                   </div>
 
@@ -219,7 +218,7 @@ export default function BrowseJobs() {
                         <Label
                           key={rating}
                           htmlFor={`rating-${rating}`}
-                          className="flex items-center justify-between p-3 rounded-xl border border-border bg-white cursor-pointer hover:bg-secondary/20 transition-all font-bold text-xs"
+                          className="flex items-center justify-between p-3 rounded-xl border border-border bg-white cursor-pointer hover:bg-secondary/20 transition-all font-normal text-xs"
                         >
                           <span className="flex items-center gap-1.5">
                             {rating} <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
@@ -240,7 +239,7 @@ export default function BrowseJobs() {
                         <Label
                           key={mode}
                           htmlFor={`mode-${mode}`}
-                          className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-border bg-white cursor-pointer hover:bg-primary hover:text-white transition-all font-bold text-xs"
+                          className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-border bg-white cursor-pointer hover:bg-primary hover:text-white transition-all font-normal text-xs"
                         >
                           <RadioGroupItem value={mode.toLowerCase()} id={`mode-${mode}`} className="sr-only" />
                           {mode}
@@ -255,7 +254,7 @@ export default function BrowseJobs() {
                       <Clock className="h-3 w-3" /> Availability / Urgency
                     </h3>
                     <Select defaultValue="any">
-                      <SelectTrigger className="h-12 rounded-xl bg-secondary/30 border-none font-bold text-xs">
+                      <SelectTrigger className="h-12 rounded-xl bg-secondary/30 border-none font-normal text-xs">
                         <SelectValue placeholder="Select Urgency" />
                       </SelectTrigger>
                       <SelectContent className="rounded-xl border-none shadow-xl">
@@ -271,7 +270,7 @@ export default function BrowseJobs() {
 
               <SheetFooter className="p-6 border-t bg-white">
                 <SheetClose asChild>
-                  <Button className="w-full h-16 bg-primary text-white rounded-2xl font-bold shadow-xl">
+                  <Button className="w-full h-16 bg-primary text-white rounded-2xl font-normal shadow-xl">
                     Apply Filters
                   </Button>
                 </SheetClose>
@@ -286,7 +285,7 @@ export default function BrowseJobs() {
               <Badge 
                 key={filter} 
                 variant="secondary" 
-                className="px-5 py-2 rounded-full bg-white shadow-sm border border-border font-bold text-xs cursor-pointer hover:bg-primary hover:text-white transition-all"
+                className="px-5 py-2 rounded-full bg-white shadow-sm border border-border font-normal text-xs cursor-pointer hover:bg-primary hover:text-white transition-all"
               >
                 {filter}
               </Badge>
@@ -300,8 +299,8 @@ export default function BrowseJobs() {
             <Card key={job.id} className="p-5 bg-white border-border/50 hover:border-primary transition-all shadow-sm group rounded-[2rem]">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors tracking-tight">{job.title}</h3>
-                  <p className="text-xs font-bold text-muted-foreground">{job.company}</p>
+                  <h3 className="font-normal text-lg group-hover:text-primary transition-colors tracking-tight">{job.title}</h3>
+                  <p className="text-xs font-normal text-muted-foreground">{job.company}</p>
                 </div>
                 <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:bg-secondary rounded-xl font-medium">
                   <Bookmark className="h-5 w-5" />
@@ -334,13 +333,13 @@ export default function BrowseJobs() {
               <div className="flex gap-3 pt-4 border-t border-border/50">
                 <Button 
                   variant="outline"
-                  className="flex-1 h-11 rounded-xl border-border font-bold text-xs"
+                  className="flex-1 h-11 rounded-xl border-border font-normal text-xs"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   View Details
                 </Button>
                 <Button 
-                  className="flex-1 h-11 rounded-xl bg-primary text-white font-bold text-xs shadow-md"
+                  className="flex-1 h-11 rounded-xl bg-primary text-white font-normal text-xs shadow-md"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   Apply Now

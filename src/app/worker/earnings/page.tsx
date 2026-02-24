@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -33,14 +32,14 @@ export default function WorkerEarningsPage() {
       
       <main className="content-area">
         <div className="mb-6">
-          <h1 className="text-3xl font-black">Your Earnings</h1>
+          <h1 className="text-3xl font-normal">Your Earnings</h1>
           <p className="text-sm text-muted-foreground mt-1">Track Your Income And Withdraw Funds</p>
         </div>
 
-        <Card className="p-6 bg-primary text-primary-foreground mb-6 shadow-xl relative overflow-hidden border-none">
+        <Card className="p-6 bg-primary text-primary-foreground mb-6 shadow-xl relative overflow-hidden border-none rounded-3xl">
           <div className="relative z-10 text-center">
             <span className="text-xs opacity-80 font-bold tracking-tight">Available For Withdrawal</span>
-            <h2 className="text-4xl font-black mt-2 mb-6">₹42,500.00</h2>
+            <h2 className="text-4xl font-normal mt-2 mb-6">₹42,500.00</h2>
             
             <div className="grid grid-cols-2 gap-4">
               <Button 
@@ -62,44 +61,44 @@ export default function WorkerEarningsPage() {
         </Card>
 
         <div className="grid grid-cols-2 gap-4 mb-8">
-          <Card className="p-4 bg-white border-border/50 shadow-sm">
+          <Card className="p-4 bg-white border-border/50 shadow-sm rounded-2xl">
             <div className="bg-secondary p-2 rounded-lg w-fit mb-2">
               <Clock className="h-4 w-4 text-primary" />
             </div>
             <p className="text-xs text-muted-foreground font-bold tracking-tight">In Clearance</p>
-            <p className="text-lg font-black">₹8,400</p>
+            <p className="text-lg font-normal">₹8,400</p>
           </Card>
-          <Card className="p-4 bg-white border-border/50 shadow-sm">
+          <Card className="p-4 bg-white border-border/50 shadow-sm rounded-2xl">
             <div className="bg-secondary p-2 rounded-lg w-fit mb-2">
               <TrendingUp className="h-4 w-4 text-primary" />
             </div>
             <p className="text-xs text-muted-foreground font-bold tracking-tight">Total Earned</p>
-            <p className="text-lg font-black">₹1.2L</p>
+            <p className="text-lg font-normal">₹1.2L</p>
           </Card>
         </div>
 
         <section className="mb-8">
           <h3 className="text-xs font-black text-muted-foreground tracking-tight mb-4">Saved Withdrawal Methods</h3>
           <div className="space-y-3">
-            <Card className="p-4 bg-white border-border/50 shadow-sm flex items-center justify-between cursor-pointer hover:bg-secondary/50 transition-colors">
+            <Card className="p-4 bg-white border-border/50 shadow-sm flex items-center justify-between cursor-pointer hover:bg-secondary/50 transition-colors rounded-2xl">
               <div className="flex items-center gap-3">
                 <div className="bg-secondary p-2 rounded-lg">
                   <Banknote className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold">HDFC Bank •••• 4291</h4>
+                  <h4 className="text-sm font-normal">HDFC Bank •••• 4291</h4>
                   <p className="text-[10px] text-muted-foreground">Primary Account</p>
                 </div>
               </div>
               <Badge variant="secondary" className="bg-secondary text-primary border-none">Verified</Badge>
             </Card>
-            <Card className="p-4 bg-white border-border/50 shadow-sm flex items-center justify-between cursor-pointer hover:bg-secondary/50 transition-colors">
+            <Card className="p-4 bg-white border-border/50 shadow-sm flex items-center justify-between cursor-pointer hover:bg-secondary/50 transition-colors rounded-2xl">
               <div className="flex items-center gap-3">
                 <div className="bg-secondary p-2 rounded-lg">
                   <CreditCard className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold">UPI ID: Rohan@Ybl</h4>
+                  <h4 className="text-sm font-normal">UPI ID: Rohan@Ybl</h4>
                   <p className="text-[10px] text-muted-foreground">Instant Transfer</p>
                 </div>
               </div>
@@ -126,10 +125,10 @@ export default function WorkerEarningsPage() {
                   {item.type === 'Income' ? <ArrowDownLeft className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4" />}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-xs font-bold truncate">{item.title}</h4>
+                  <h4 className="text-xs font-normal truncate">{item.title}</h4>
                   <p className="text-[10px] text-muted-foreground">{item.date} • {item.status}</p>
                 </div>
-                <div className="text-sm font-black">
+                <div className="text-sm font-normal">
                   {item.type === 'Income' ? '+' : '-'}{item.amount}
                 </div>
               </div>

@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -15,7 +14,7 @@ import {
   DropdownMenuContent, 
   DropdownMenuItem, 
   DropdownMenuTrigger 
-} from '@/components/ui/dropdown-menu';
+} from 'lucide-react';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -96,7 +95,7 @@ export default function HirerJobsPage() {
       <main className="content-area px-6">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Manage Postings</h1>
+            <h1 className="text-2xl font-normal text-foreground">Manage Postings</h1>
             <p className="text-sm text-muted-foreground font-medium">Track Your Listings And Applications In Real-Time.</p>
           </div>
           <Button 
@@ -141,7 +140,7 @@ export default function HirerJobsPage() {
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-bold text-lg text-foreground leading-tight truncate">{job.title}</h3>
+                        <h3 className="font-normal text-lg text-foreground leading-tight truncate">{job.title}</h3>
                         <Badge variant={job.status === 'Active' ? 'secondary' : 'outline'} className={`text-[10px] h-5 font-bold ${job.status === 'Active' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : ''}`}>
                           {job.status}
                         </Badge>
@@ -166,17 +165,17 @@ export default function HirerJobsPage() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="rounded-xl border-none shadow-xl">
-                          <DropdownMenuItem className="font-bold text-sm p-3" onClick={() => router.push(`/hirer/jobs/edit?jobId=${job.id}`)}>Edit Posting</DropdownMenuItem>
-                          <DropdownMenuItem className="font-bold text-sm p-3">View Detailed Stats</DropdownMenuItem>
+                          <DropdownMenuItem className="font-normal text-sm p-3" onClick={() => router.push(`/hirer/jobs/edit?jobId=${job.id}`)}>Edit Posting</DropdownMenuItem>
+                          <DropdownMenuItem className="font-normal text-sm p-3">View Detailed Stats</DropdownMenuItem>
                           <AlertDialogTrigger asChild>
-                            <DropdownMenuItem className="font-bold text-sm p-3 text-destructive">Close Posting</DropdownMenuItem>
+                            <DropdownMenuItem className="font-normal text-sm p-3 text-destructive">Close Posting</DropdownMenuItem>
                           </AlertDialogTrigger>
                         </DropdownMenuContent>
                       </DropdownMenu>
                       
                       <AlertDialogContent className="hirer-theme rounded-[2rem] p-8 max-w-[360px]">
                         <AlertDialogHeader>
-                          <AlertDialogTitle className="text-2xl font-black">Confirm Cancellation?</AlertDialogTitle>
+                          <AlertDialogTitle className="text-2xl font-normal">Confirm Cancellation?</AlertDialogTitle>
                           <AlertDialogDescription className="text-sm font-medium">
                             {job.hasAcceptedHires 
                               ? "Warning: You have already accepted talent for this gig. Cancelling now will incur a 10% platform penalty fee from your escrow."
@@ -184,10 +183,10 @@ export default function HirerJobsPage() {
                           </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter className="mt-6 flex-col gap-3">
-                          <AlertDialogAction className="w-full h-14 bg-destructive text-white rounded-2xl font-bold shadow-lg">
+                          <AlertDialogAction className="w-full h-14 bg-destructive text-white rounded-2xl font-normal shadow-lg">
                             Yes, Cancel Posting
                           </AlertDialogAction>
-                          <AlertDialogCancel className="w-full h-14 bg-secondary text-foreground rounded-2xl font-bold border-none">
+                          <AlertDialogCancel className="w-full h-14 bg-secondary text-foreground rounded-2xl font-normal border-none">
                             Keep Posting
                           </AlertDialogCancel>
                         </AlertDialogFooter>
@@ -200,24 +199,24 @@ export default function HirerJobsPage() {
                       <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Applicants</p>
                       <div className="flex items-center justify-center gap-1.5">
                         <Users className="h-3.5 w-3.5 text-primary" />
-                        <span className="text-base font-bold text-foreground">{job.applicants}</span>
+                        <span className="text-base font-normal text-foreground">{job.applicants}</span>
                       </div>
                     </div>
                     <div className="text-center border-x border-muted/50">
                       <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Views</p>
                       <div className="flex items-center justify-center gap-1.5">
                         <Eye className="h-3.5 w-3.5 text-primary" />
-                        <span className="text-base font-bold text-foreground">{job.views}</span>
+                        <span className="text-base font-normal text-foreground">{job.views}</span>
                       </div>
                     </div>
                     <div className="text-center">
                       <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Role Type</p>
-                      <span className="text-xs font-bold text-primary">{job.type}</span>
+                      <span className="text-xs font-normal text-primary">{job.type}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between gap-4">
-                    <span className="text-sm font-bold text-foreground">{job.stipend}</span>
+                    <span className="text-sm font-normal text-foreground">{job.stipend}</span>
                     <Button 
                       className="h-11 px-6 bg-primary text-primary-foreground rounded-2xl text-xs font-medium shadow-md hover:bg-primary/90"
                       onClick={() => router.push(`/hirer/jobs/review?jobId=${job.id}`)}
@@ -232,7 +231,7 @@ export default function HirerJobsPage() {
                 <div className="bg-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Plus className="h-10 w-10 text-muted-foreground opacity-30" />
                 </div>
-                <h3 className="font-bold text-xl text-foreground mb-3">No {activeTab} Postings Found</h3>
+                <h3 className="font-normal text-xl text-foreground mb-3">No {activeTab} Postings Found</h3>
                 <p className="text-sm text-muted-foreground font-medium mb-10 leading-relaxed">
                   Ready To Find Your Next Student Talent? Post A New Internship Or Gig Project To Get Started.
                 </p>

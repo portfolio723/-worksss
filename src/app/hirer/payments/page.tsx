@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -40,7 +39,7 @@ export default function HirerPaymentsPage() {
       
       <main className="content-area px-6">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-foreground">Payment Dashboard</h1>
+          <h1 className="text-2xl font-normal text-foreground">Payment Dashboard</h1>
           <p className="text-sm text-muted-foreground font-medium">Manage Stipends And Platform Billing Securely.</p>
         </div>
 
@@ -49,7 +48,7 @@ export default function HirerPaymentsPage() {
             <div className="flex justify-between items-start mb-6">
               <div>
                 <span className="text-[11px] opacity-90 uppercase font-black tracking-widest">Escrow Balance</span>
-                <h2 className="text-4xl font-bold mt-2 tracking-tight">₹58,400.00</h2>
+                <h2 className="text-4xl font-normal mt-2 tracking-tight">₹58,400.00</h2>
               </div>
               <div className="bg-white/20 p-3 rounded-2xl">
                 <ShieldCheck className="h-7 w-7" />
@@ -94,11 +93,11 @@ export default function HirerPaymentsPage() {
                   <Card key={payment.id} className="p-5 bg-white border-none shadow-sm rounded-2xl">
                     <div className="flex justify-between items-center mb-4">
                       <div>
-                        <h4 className="font-bold text-base text-foreground">{payment.student}</h4>
+                        <h4 className="font-normal text-base text-foreground">{payment.student}</h4>
                         <p className="text-xs text-muted-foreground font-medium">{payment.role}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold text-lg text-primary">{payment.amount}</p>
+                        <p className="font-normal text-lg text-primary">{payment.amount}</p>
                         <p className="text-[10px] text-destructive font-bold uppercase">Due {payment.dueDate}</p>
                       </div>
                     </div>
@@ -131,11 +130,11 @@ export default function HirerPaymentsPage() {
                       {tx.type === 'Stipend' ? <ArrowUpRight className="h-5 w-5" /> : <History className="h-5 w-5" />}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-bold text-foreground truncate">{tx.recipient}</h4>
+                      <h4 className="text-sm font-normal text-foreground truncate">{tx.recipient}</h4>
                       <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-tight">{tx.date} • {tx.type}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-bold text-foreground">{tx.amount}</p>
+                      <p className="text-sm font-normal text-foreground">{tx.amount}</p>
                       <p className={`text-[9px] font-black uppercase tracking-widest ${tx.status === 'Completed' ? 'text-emerald-600' : 'text-amber-600'}`}>{tx.status}</p>
                     </div>
                   </div>
@@ -147,7 +146,7 @@ export default function HirerPaymentsPage() {
           <TabsContent value="history">
             <div className="text-center py-20 px-8 bg-white rounded-3xl shadow-sm">
               <History className="h-16 w-16 text-muted-foreground mx-auto mb-6 opacity-20" />
-              <h3 className="text-lg font-bold text-foreground mb-3">No Detailed History Yet</h3>
+              <h3 className="text-lg font-normal text-foreground mb-3">No Detailed History Yet</h3>
               <p className="text-sm text-muted-foreground font-medium mb-10 leading-relaxed">Your Full Transaction Logs, Filters, And Monthly Statements Will Appear Here.</p>
               <Button 
                 variant="outline" 
@@ -167,7 +166,7 @@ export default function HirerPaymentsPage() {
                     <Smartphone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-foreground">UPI Auto-Pay</h4>
+                    <h4 className="text-base font-normal text-foreground">UPI Auto-Pay</h4>
                     <p className="text-xs text-muted-foreground font-medium">Linked To arjun@hdfc</p>
                   </div>
                 </div>
