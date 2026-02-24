@@ -55,7 +55,7 @@ export function BottomNav({ role }: { role: 'hirer' | 'worker' }) {
       <NavItem href="/worker" icon={<Home className="h-5 w-5" />} label="Dashboard" />
       <NavItem href="/worker/browse" icon={<Search className="h-5 w-5" />} label="Browse" />
       <NavItem href="/worker/messages" icon={<MessageSquare className="h-5 w-5" />} label="Chats" />
-      <NavItem href="/worker/earnings" icon={<Wallet className="h-5 w-5" />} label="Earn" />
+      <NavItem href="/worker/earnings" icon={<Wallet className="h-5 w-5" />} label="Wallet" />
       <NavItem href="/worker/profile" icon={<User className="h-5 w-5" />} label="Profile" />
     </nav>
   );
