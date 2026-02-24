@@ -36,7 +36,7 @@ export default function WorkerEarningsPage() {
 
         <Card className="p-6 bg-accent text-white mb-6 shadow-xl relative overflow-hidden">
           <div className="relative z-10 text-center">
-            <span className="text-xs opacity-80 uppercase font-bold tracking-wider">Available For Withdrawal</span>
+            <span className="text-xs opacity-80 font-bold tracking-wider">Available For Withdrawal</span>
             <h2 className="text-4xl font-bold mt-2 mb-6">₹42,500.00</h2>
             
             <div className="grid grid-cols-2 gap-4">
@@ -56,20 +56,20 @@ export default function WorkerEarningsPage() {
             <div className="bg-blue-50 text-blue-500 p-2 rounded-lg w-fit mb-2">
               <Clock className="h-4 w-4" />
             </div>
-            <p className="text-[10px] text-muted-foreground uppercase font-bold">In Clearance</p>
+            <p className="text-[10px] text-muted-foreground font-bold">In Clearance</p>
             <p className="text-lg font-bold">₹8,400</p>
           </Card>
           <Card className="p-4 bg-white border-none shadow-sm">
             <div className="bg-green-50 text-green-500 p-2 rounded-lg w-fit mb-2">
               <TrendingUp className="h-4 w-4" />
             </div>
-            <p className="text-[10px] text-muted-foreground uppercase font-bold">Total Earned</p>
+            <p className="text-[10px] text-muted-foreground font-bold">Total Earned</p>
             <p className="text-lg font-bold">₹1.2L</p>
           </Card>
         </div>
 
         <section className="mb-8">
-          <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-4">Saved Withdrawal Methods</h3>
+          <h3 className="text-sm font-bold text-muted-foreground tracking-widest mb-4">Saved Withdrawal Methods</h3>
           <div className="space-y-3">
             <Card className="p-4 bg-white border-none shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -100,7 +100,7 @@ export default function WorkerEarningsPage() {
 
         <section>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">History</h3>
+            <h3 className="text-sm font-bold text-muted-foreground tracking-widest">History</h3>
             <Button variant="ghost" className="text-accent text-xs h-auto p-0">Filter</Button>
           </div>
           <div className="space-y-3">

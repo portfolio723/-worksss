@@ -76,7 +76,7 @@ export default function WorkerProfilePage() {
           {profileData.stats.map((stat) => (
             <Card key={stat.label} className="p-3 text-center border-none shadow-sm bg-white rounded-2xl">
               <p className="text-sm font-bold text-accent">{stat.value}</p>
-              <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider">{stat.label}</p>
+              <p className="text-[10px] text-muted-foreground font-bold tracking-wider">{stat.label}</p>
             </Card>
           ))}
         </div>
@@ -119,7 +119,7 @@ export default function WorkerProfilePage() {
               </div>
               <div className="flex items-start gap-3">
                 <div className="bg-primary/20 p-2 rounded-xl">
-                  <GraduationCap className="h-5 w-5 text-accent" />
+                  <graduationcap className="h-5 w-5 text-accent" />
                 </div>
                 <div>
                   <p className="text-sm font-bold">Bachelor Of Technology</p>
@@ -137,7 +137,7 @@ export default function WorkerProfilePage() {
                 </div>
                 <div>
                   <h3 className="font-bold">Trust Badge</h3>
-                  <p className="text-[10px] text-muted-foreground uppercase font-bold">Verification Center</p>
+                  <p className="text-[10px] text-muted-foreground font-bold">Verification Center</p>
                 </div>
               </div>
 

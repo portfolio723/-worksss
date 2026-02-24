@@ -117,7 +117,7 @@ export default function BrowseJobs() {
               <div className="space-y-8 overflow-y-auto max-h-[calc(100vh-200px)] pr-2 no-scrollbar">
                 {/* Work Type */}
                 <div className="space-y-4">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Work Type</h3>
+                  <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Work Type</h3>
                   <RadioGroup defaultValue="remote" className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <RadioGroupItem value="remote" id="r-remote" />
@@ -137,7 +137,7 @@ export default function BrowseJobs() {
                 {/* Stipend Range */}
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Min Stipend</h3>
+                    <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Min Stipend</h3>
                     <span className="text-sm font-bold text-accent">₹{stipendValue[0].toLocaleString()}</span>
                   </div>
                   <Slider 
@@ -155,7 +155,7 @@ export default function BrowseJobs() {
 
                 {/* Skills */}
                 <div className="space-y-4">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Skills Required</h3>
+                  <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Skills Required</h3>
                   <div className="grid grid-cols-1 gap-3">
                     {skillOptions.map((skill) => (
                       <div key={skill} className="flex items-center space-x-3">
@@ -168,7 +168,7 @@ export default function BrowseJobs() {
 
                 {/* Duration */}
                 <div className="space-y-4">
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Duration</h3>
+                  <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Duration</h3>
                   <div className="flex flex-wrap gap-2">
                     {['1 Month', '3 Months', '6 Months'].map(d => (
                       <Badge key={d} variant="outline" className="px-3 py-1 cursor-pointer hover:bg-accent hover:text-white border-muted">

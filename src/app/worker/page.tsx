@@ -38,7 +38,7 @@ export default function WorkerDashboard() {
           onClick={() => router.push('/worker/earnings')}
         >
           <div className="relative z-10">
-            <span className="text-sm opacity-80 mb-1 block font-bold uppercase tracking-wider">Total Earnings</span>
+            <span className="text-sm opacity-80 mb-1 block font-bold tracking-wider">Total Earnings</span>
             <div className="flex items-center justify-between mb-4">
               <span className="text-3xl font-bold">₹42,500.00</span>
               <div className="bg-white/20 p-2 rounded-xl">
@@ -56,7 +56,7 @@ export default function WorkerDashboard() {
           </div>
           <ProgressUI value={75} className="h-2 bg-primary/20" />
           <div className="flex items-center justify-between mt-2">
-            <p className="text-[10px] text-muted-foreground uppercase font-bold">Add Your College ID And Portfolio To Get Verified.</p>
+            <p className="text-[10px] text-muted-foreground font-bold">Add Your College ID And Portfolio To Get Verified.</p>
             <Button 
               size="sm" 
               variant="link" 

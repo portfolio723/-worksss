@@ -104,14 +104,14 @@ export default function JobDetailPage() {
 
           <div className="grid grid-cols-2 gap-4 pt-4 border-t">
             <div className="space-y-1">
-              <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Stipend</p>
+              <p className="text-[10px] text-muted-foreground font-bold tracking-wider">Stipend</p>
               <div className="flex items-center gap-1 text-sm font-bold text-accent">
                 <Wallet className="h-4 w-4" />
                 {job.stipend}
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider">Duration</p>
+              <p className="text-[10px] text-muted-foreground font-bold tracking-wider">Duration</p>
               <div className="flex items-center gap-1 text-sm font-bold">
                 <Clock className="h-4 w-4 text-muted-foreground" />
                 {job.duration}
