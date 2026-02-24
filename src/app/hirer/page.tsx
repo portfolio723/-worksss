@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { useRouter } from 'next/navigation';
 
 const stats = [
-  { label: 'Active Internships', value: 2, icon: Clock, color: 'text-blue-600', bg: 'bg-blue-100' },
+  { label: 'Active Jobs', value: 2, icon: Clock, color: 'text-blue-600', bg: 'bg-blue-100' },
   { label: 'Total Applicants', value: 24, icon: Users, color: 'text-indigo-600', bg: 'bg-indigo-100' },
   { label: 'Completed Gigs', value: 18, icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-100' },
 ];
@@ -45,7 +45,7 @@ export default function HirerDashboard() {
             onClick={() => router.push('/hirer/jobs/create')}
           >
             <Plus className="mr-2 h-5 w-5" />
-            Post New Internship
+            Post New Job
           </Button>
           <Button 
             variant="outline"
