@@ -2,6 +2,7 @@
 "use client"
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Input } from '@/components/ui/input';
@@ -48,6 +49,7 @@ const quickFilters = [
 
 const jobs = [
   {
+    id: '1',
     title: 'React Native Intern',
     company: 'GoMobile India',
     budget: '₹25,000 /mo',
@@ -56,6 +58,7 @@ const jobs = [
     tags: ['Mobile', 'React Native', 'Expo']
   },
   {
+    id: '2',
     title: 'Graphic Design Project',
     company: 'Creatives Hub',
     budget: '₹8,000 Fixed',
@@ -64,6 +67,7 @@ const jobs = [
     tags: ['Branding', 'Social Media', 'Photoshop']
   },
   {
+    id: '3',
     title: 'Marketing Campus Lead',
     company: 'EduScale',
     budget: '₹10,000 + Perks',
@@ -72,6 +76,7 @@ const jobs = [
     tags: ['Leadership', 'Marketing', 'Events']
   },
   {
+    id: '4',
     title: 'Technical Content Writer',
     company: 'BlogProwess',
     budget: '₹2 per word',
@@ -84,6 +89,7 @@ const jobs = [
 const skillOptions = ['React', 'Next.js', 'Node.js', 'Python', 'Figma', 'Marketing', 'Writing'];
 
 export default function BrowseJobs() {
+  const router = useRouter();
   const [stipendValue, setStipendValue] = useState([5000]);
 
   return (
@@ -208,7 +214,7 @@ export default function BrowseJobs() {
         <div className="space-y-4">
           <h2 className="text-lg font-bold mb-4">Available Opportunities</h2>
           {jobs.map((job) => (
-            <Card key={job.title} className="p-4 bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+            <Card key={job.id} className="p-4 bg-white border-none shadow-sm hover:shadow-md transition-shadow">
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <h3 className="font-bold text-base">{job.title}</h3>
@@ -243,8 +249,21 @@ export default function BrowseJobs() {
               </div>
 
               <div className="flex gap-2 pt-2 border-t">
-                <Button size="sm" variant="outline" className="flex-1 h-10 rounded-xl border-accent text-accent">View Details</Button>
-                <Button size="sm" className="flex-1 h-10 rounded-xl bg-accent">Apply Now</Button>
+                <Button 
+                  size="sm" 
+                  variant="outline" 
+                  className="flex-1 h-10 rounded-xl border-accent text-accent font-bold"
+                  onClick={() => router.push(`/worker/jobs/${job.id}`)}
+                >
+                  View Details
+                </Button>
+                <Button 
+                  size="sm" 
+                  className="flex-1 h-10 rounded-xl bg-accent font-bold"
+                  onClick={() => router.push(`/worker/jobs/${job.id}`)}
+                >
+                  Apply Now
+                </Button>
               </div>
             </Card>
           ))}
