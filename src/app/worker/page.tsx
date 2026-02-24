@@ -1,3 +1,4 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -14,7 +15,8 @@ import {
   Send,
   Briefcase,
   Activity,
-  Zap
+  Zap,
+  Heart
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -47,9 +49,15 @@ const savedJobs = [
   { id: 'sj1', title: 'Senior UX Researcher', company: 'Google', stipend: '₹50,000/mo', type: 'Remote' },
 ];
 
-const reviews = [
-  { id: 'r1', client: 'Arjun Mehta', company: 'TechShastra', rating: 5, comment: "Exceptional Quality Of Work And Timely Delivery. Highly Recommended!", date: 'Oct 12' },
-];
+const latestReview = { 
+  id: 'r1', 
+  client: 'Arjun Mehta', 
+  company: 'TechShastra', 
+  rating: 5, 
+  metrics: { quality: 5, timeline: 5, behaviour: 5 },
+  comment: "Exceptional Quality Of Work And Timely Delivery. Highly Recommended!", 
+  date: 'Oct 12' 
+};
 
 export default function WorkerDashboard() {
   const router = useRouter();
@@ -146,7 +154,7 @@ export default function WorkerDashboard() {
           </div>
         </section>
 
-        {/* NEW: Recommended Jobs Carousel */}
+        {/* 4. Recommended Jobs Carousel */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
@@ -193,7 +201,7 @@ export default function WorkerDashboard() {
           </Carousel>
         </section>
 
-        {/* 4. Applied Jobs */}
+        {/* 5. Applied Jobs */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
@@ -221,62 +229,53 @@ export default function WorkerDashboard() {
           </div>
         </section>
 
-        {/* 5. Saved Jobs */}
-        <section className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
-              <Bookmark className="h-4 w-4 text-primary" /> Saved
-            </h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/saved-jobs')}>
-              See All
-            </Button>
-          </div>
-          <div className="space-y-3">
-            {savedJobs.map((job) => (
-              <Card key={job.id} className="p-4 border-none bg-white shadow-sm rounded-2xl hover:bg-primary/5 cursor-pointer group transition-colors" onClick={() => router.push(`/worker/jobs/${job.id}`)}>
-                <div className="flex justify-between items-center gap-3">
-                  <div className="min-w-0 flex-1">
-                    <h3 className="font-bold text-base group-hover:text-primary transition-colors truncate">{job.title}</h3>
-                    <p className="text-xs text-muted-foreground font-bold">{job.company} • {job.type}</p>
-                  </div>
-                  <span className="text-[10px] font-black text-primary shrink-0">{job.stipend}</span>
-                  <ChevronRight className="h-3 w-3 text-muted-foreground" />
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* 6. Reviews Section */}
+        {/* 6. Client Feedback Section */}
         <section className="space-y-4 pt-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
-              <Star className="h-4 w-4 text-primary fill-primary" /> Client Feedback
+              <Star className="h-4 w-4 text-primary fill-primary" /> Performance Report
             </h2>
+            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/reviews')}>
+              View Report
+            </Button>
           </div>
           <div className="space-y-3">
-            {reviews.map((review) => (
-              <Card key={review.id} className="p-5 border-none bg-white shadow-sm rounded-3xl relative overflow-hidden">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center">
-                    <Star className="h-5 w-5 text-primary fill-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-sm">{review.client}</h3>
-                    <p className="text-xs text-muted-foreground font-medium">{review.company}</p>
-                  </div>
-                  <div className="ml-auto flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-2.5 w-2.5 text-primary fill-primary" />
-                    ))}
-                  </div>
+            <Card className="p-5 border-none bg-white shadow-sm rounded-3xl relative overflow-hidden">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-10 w-10 rounded-xl bg-secondary flex items-center justify-center">
+                  <Star className="h-5 w-5 text-primary fill-primary" />
                 </div>
-                <p className="text-xs text-muted-foreground italic leading-relaxed font-medium">
-                  "{review.comment}"
-                </p>
-                <p className="mt-3 text-[10px] font-black text-primary/40 tracking-widest">{review.date}</p>
-              </Card>
-            ))}
+                <div>
+                  <h3 className="font-bold text-sm">{latestReview.client}</h3>
+                  <p className="text-xs text-muted-foreground font-medium">{latestReview.company}</p>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-2.5 w-2.5 text-primary fill-primary" />
+                  ))}
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="bg-secondary/30 p-2 rounded-xl text-center">
+                  <p className="text-[8px] font-black uppercase text-muted-foreground">Quality</p>
+                  <p className="text-xs font-black text-primary">{latestReview.metrics.quality}/5</p>
+                </div>
+                <div className="bg-secondary/30 p-2 rounded-xl text-center">
+                  <p className="text-[8px] font-black uppercase text-muted-foreground">Timeline</p>
+                  <p className="text-xs font-black text-primary">{latestReview.metrics.timeline}/5</p>
+                </div>
+                <div className="bg-secondary/30 p-2 rounded-xl text-center">
+                  <p className="text-[8px] font-black uppercase text-muted-foreground">Behaviour</p>
+                  <p className="text-xs font-black text-primary">{latestReview.metrics.behaviour}/5</p>
+                </div>
+              </div>
+
+              <p className="text-xs text-muted-foreground italic leading-relaxed font-medium">
+                "{latestReview.comment}"
+              </p>
+              <p className="mt-3 text-[10px] font-black text-primary/40 tracking-widest">{latestReview.date}</p>
+            </Card>
           </div>
         </section>
       </main>

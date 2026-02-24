@@ -6,12 +6,12 @@ import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowLeft, Star, Quote, MessageSquare } from 'lucide-react';
+import { ArrowLeft, Star, Quote, MessageSquare, GraduationCap } from 'lucide-react';
 
 const reviews = [
-  { id: 'r1', worker: 'Rohan Gupta', role: 'React Dev Intern', rating: 5, comment: "Arjun Is A Great Mentor. The Requirements Were Clear And Payments Were Released On Time. Highly Recommended Hirer!", date: 'Oct 15, 2023' },
-  { id: 'r2', worker: 'Priya Das', role: 'UI/UX Designer', rating: 5, comment: "Professional Environment And Exciting Projects. Happy To Work With TechShastra Again.", date: 'Sep 28, 2023' },
-  { id: 'r3', worker: 'Amit Singh', role: 'Backend Intern', rating: 4, comment: "Good Projects, Though The Deadlines Were A Bit Tight. Overall A Great Experience.", date: 'Aug 12, 2023' },
+  { id: 'r1', worker: 'Rohan Gupta', college: 'IIT Hyderabad', rating: 5, comment: "Arjun Is A Great Mentor. The Requirements Were Clear And Payments Were Released On Time. Highly Recommended Hirer!", date: 'Oct 15, 2023' },
+  { id: 'r2', worker: 'Priya Das', college: 'DTU Delhi', rating: 5, comment: "Professional Environment And Exciting Projects. Happy To Work With TechShastra Again.", date: 'Sep 28, 2023' },
+  { id: 'r3', worker: 'Amit Singh', college: 'Anna University', rating: 4, comment: "Good Projects, Though The Deadlines Were A Bit Tight. Overall A Great Experience.", date: 'Aug 12, 2023' },
 ];
 
 export default function HirerReviewsPage() {
@@ -26,12 +26,15 @@ export default function HirerReviewsPage() {
           <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl" onClick={() => router.back()}>
             <ArrowLeft className="h-5 w-5" />
           </Button>
-          <h1 className="text-2xl font-black text-foreground">Employer Feedback</h1>
+          <div>
+            <h1 className="text-2xl font-black text-foreground tracking-tight">Talent Feedback</h1>
+            <p className="text-sm text-muted-foreground font-medium">Ratings from students who worked with you.</p>
+          </div>
         </div>
 
         <div className="space-y-6">
           <Card className="p-8 bg-primary text-primary-foreground rounded-[2.5rem] text-center border-none shadow-xl">
-            <h2 className="text-4xl font-black mb-2">4.9</h2>
+            <h2 className="text-4xl font-black mb-2 tracking-tighter">4.9</h2>
             <div className="flex justify-center gap-1 mb-3">
               {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-white text-white" />)}
             </div>
@@ -48,22 +51,31 @@ export default function HirerReviewsPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-sm text-foreground">{review.worker}</h3>
-                    <p className="text-[10px] text-muted-foreground font-black uppercase tracking-tight">{review.role}</p>
+                    <div className="flex items-center gap-1 text-[10px] text-muted-foreground font-bold uppercase tracking-tight">
+                      <GraduationCap className="h-3 w-3" />
+                      {review.college}
+                    </div>
                   </div>
                 </div>
+                
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className={`h-3.5 w-3.5 ${i < review.rating ? 'text-primary fill-primary' : 'text-muted/20 fill-muted/20'}`} />
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed font-medium italic mb-6">
-                  "{review.comment}"
-                </p>
-                <div className="flex justify-between items-center pt-4 border-t border-muted/50">
+
+                <div className="space-y-3">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-primary/60">Worker Description</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed font-medium italic">
+                    "{review.comment}"
+                  </p>
+                </div>
+
+                <div className="flex justify-between items-center pt-6 mt-6 border-t border-muted/50">
                   <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{review.date}</span>
                   <Button variant="ghost" size="sm" className="h-8 text-[10px] font-bold text-primary gap-1.5 rounded-lg hover:bg-primary/5">
                     <MessageSquare className="h-3 w-3" />
-                    Thank Worker
+                    Thank Student
                   </Button>
                 </div>
               </Card>
