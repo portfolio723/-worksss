@@ -22,52 +22,58 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen bg-white p-6 flex flex-col">
-      <Button 
-        variant="ghost" 
-        size="icon" 
-        className="mb-8"
-        onClick={() => router.push('/')}
-      >
-        <ArrowLeft className="h-6 w-6" />
-      </Button>
+      <header className="mb-8">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="h-10 w-10 rounded-xl hover:bg-secondary"
+          onClick={() => router.push('/')}
+        >
+          <ArrowLeft className="h-6 w-6 text-foreground" />
+        </Button>
+      </header>
 
       <div className="flex-1">
-        <h1 className="text-3xl font-bold mb-2">
+        <h1 className="text-3xl font-black tracking-tight mb-2">
           {isLogin ? 'Namaste!' : 'Create Account'}
         </h1>
-        <p className="text-muted-foreground mb-6">
+        <p className="text-sm text-muted-foreground font-medium mb-8">
           {isLogin ? 'Login To Find Your Next Internship' : 'Join The Community Of Ambitious Indian Students'}
         </p>
 
         {isLogin && (
-          <Alert className="mb-6 bg-accent/5 border-accent/20">
-            <Info className="h-4 w-4 text-accent" />
-            <AlertTitle className="text-accent font-bold">Student Demo</AlertTitle>
-            <AlertDescription className="text-accent/80 text-xs">
-              Email: <span className="font-mono font-bold">rohan@college.edu.in</span><br/>
-              Password: <span className="font-mono font-bold">student123</span>
+          <Alert className="mb-8 bg-blue-50 border-blue-100 rounded-2xl py-4">
+            <Info className="h-4 w-4 text-blue-600" />
+            <AlertTitle className="text-blue-700 font-black text-xs uppercase tracking-wider">Demo Access</AlertTitle>
+            <AlertDescription className="text-blue-600/80 text-xs mt-1 font-medium">
+              Email: <span className="font-mono font-bold text-blue-800">rohan@college.edu.in</span><br/>
+              Password: <span className="font-mono font-bold text-blue-800">student123</span>
             </AlertDescription>
           </Alert>
         )}
 
         <form onSubmit={handleAuth} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="email">College Email Or Personal Email</Label>
+            <Label htmlFor="email" className="text-xs font-black uppercase tracking-widest text-muted-foreground">College Or Personal Email</Label>
             <Input 
               id="email" 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Name@Example.In" 
-              className="h-12"
+              placeholder="name@example.in" 
+              className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary"
               required 
             />
           </div>
           
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <Label htmlFor="password">Password</Label>
-              {isLogin && <Button variant="link" className="p-0 h-auto text-xs">Forgot Password?</Button>}
+              <Label htmlFor="password" className="text-xs font-black uppercase tracking-widest text-muted-foreground">Password</Label>
+              {isLogin && (
+                <Button variant="link" className="p-0 h-auto text-xs font-bold text-primary">
+                  Forgot Password?
+                </Button>
+              )}
             </div>
             <Input 
               id="password" 
@@ -75,26 +81,26 @@ export default function AuthPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••" 
-              className="h-12"
+              className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary"
               required 
             />
           </div>
 
-          <Button type="submit" className="w-full h-12 text-lg bg-accent">
+          <Button type="submit" className="w-full h-14 text-lg font-black bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-xl mt-4">
             {isLogin ? 'Login' : 'Sign Up'}
           </Button>
         </form>
 
-        <div className="relative my-8">
+        <div className="relative my-10">
           <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t" />
+            <span className="w-full border-t border-muted" />
           </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-white px-2 text-muted-foreground">Or Continue With</span>
+          <div className="relative flex justify-center text-[10px] font-black uppercase tracking-widest">
+            <span className="bg-white px-4 text-muted-foreground">Or Continue With</span>
           </div>
         </div>
 
-        <Button variant="outline" className="w-full h-12 flex items-center gap-2 mb-4">
+        <Button variant="outline" className="w-full h-14 rounded-2xl border-muted flex items-center justify-center gap-3 font-bold text-foreground hover:bg-secondary/50">
           <svg className="h-5 w-5" viewBox="0 0 24 24">
             <path
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -117,12 +123,12 @@ export default function AuthPage() {
         </Button>
       </div>
 
-      <div className="mt-auto text-center">
-        <p className="text-sm text-muted-foreground">
+      <div className="mt-auto pt-8 text-center">
+        <p className="text-sm text-muted-foreground font-medium">
           {isLogin ? "Don't Have An Account?" : "Already Have An Account?"}{' '}
           <Button 
             variant="link" 
-            className="p-0 h-auto font-bold text-accent"
+            className="p-0 h-auto font-black text-primary"
             onClick={() => setIsLogin(!isLogin)}
           >
             {isLogin ? 'Sign Up' : 'Login'}

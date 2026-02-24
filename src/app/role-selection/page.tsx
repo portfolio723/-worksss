@@ -17,47 +17,58 @@ export default function RoleSelectionPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6 flex flex-col">
-      <h1 className="text-3xl font-bold mt-12 mb-2">Who Are You?</h1>
-      <p className="text-muted-foreground mb-12">Select Your Role To Personalize Your Experience.</p>
+    <div className="min-h-screen bg-white p-6 flex flex-col">
+      <h1 className="text-3xl font-black tracking-tight mt-12 mb-2">Who Are You?</h1>
+      <p className="text-sm text-muted-foreground font-medium mb-12">Select Your Role To Personalize Your Experience.</p>
 
       <div className="space-y-4">
         <Card 
-          className={`p-6 border-2 transition-all cursor-pointer flex items-center gap-4 ${role === 'hirer' ? 'border-accent bg-accent/5' : 'border-transparent'}`}
+          className={`p-6 border-2 transition-all duration-300 cursor-pointer flex items-center gap-5 rounded-3xl ${
+            role === 'hirer' 
+              ? 'border-primary bg-primary/5 shadow-lg' 
+              : 'border-muted bg-white hover:border-muted-foreground'
+          }`}
           onClick={() => setRole('hirer')}
         >
-          <div className={`p-3 rounded-2xl ${role === 'hirer' ? 'bg-accent text-white' : 'bg-primary/20 text-accent'}`}>
+          <div className={`p-4 rounded-2xl transition-colors ${role === 'hirer' ? 'bg-primary text-white' : 'bg-secondary text-muted-foreground'}`}>
             <Users className="h-8 w-8" />
           </div>
           <div className="flex-1">
-            <h3 className="text-xl font-bold">I Want To Hire</h3>
-            <p className="text-sm text-muted-foreground">Find Top Talent For Your Projects And Scale Your Business.</p>
+            <h3 className="text-xl font-black tracking-tight mb-1">I Want To Hire</h3>
+            <p className="text-xs text-muted-foreground font-medium leading-relaxed">Find Top Talent For Your Projects And Scale Your Business.</p>
           </div>
         </Card>
 
         <Card 
-          className={`p-6 border-2 transition-all cursor-pointer flex items-center gap-4 ${role === 'worker' ? 'border-accent bg-accent/5' : 'border-transparent'}`}
+          className={`p-6 border-2 transition-all duration-300 cursor-pointer flex items-center gap-5 rounded-3xl ${
+            role === 'worker' 
+              ? 'border-primary bg-primary/5 shadow-lg' 
+              : 'border-muted bg-white hover:border-muted-foreground'
+          }`}
           onClick={() => setRole('worker')}
         >
-          <div className={`p-3 rounded-2xl ${role === 'worker' ? 'bg-accent text-white' : 'bg-primary/20 text-accent'}`}>
+          <div className={`p-4 rounded-2xl transition-colors ${role === 'worker' ? 'bg-primary text-white' : 'bg-secondary text-muted-foreground'}`}>
             <Briefcase className="h-8 w-8" />
           </div>
           <div className="flex-1">
-            <h3 className="text-xl font-bold">I Want To Work</h3>
-            <p className="text-sm text-muted-foreground">Browse Projects, Find Opportunities, And Earn Money.</p>
+            <h3 className="text-xl font-black tracking-tight mb-1">I Want To Work</h3>
+            <p className="text-xs text-muted-foreground font-medium leading-relaxed">Browse Projects, Find Opportunities, And Earn Money.</p>
           </div>
         </Card>
       </div>
 
-      <div className="mt-auto pb-8">
+      <div className="mt-auto pb-12">
         <Button 
           disabled={!role} 
-          className="w-full h-12 text-lg bg-accent font-bold"
+          className="w-full h-16 text-lg font-black bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-2xl transition-all"
           onClick={handleContinue}
         >
           Continue
-          <ChevronRight className="ml-2 h-5 w-5" />
+          <ChevronRight className="ml-2 h-6 w-6" />
         </Button>
+        <p className="text-center text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-6">
+          You Can Switch Roles Later In Settings
+        </p>
       </div>
     </div>
   );

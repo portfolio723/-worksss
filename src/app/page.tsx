@@ -38,11 +38,11 @@ export default function EntryPage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-background p-8 animate-in fade-in duration-500">
-        <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mb-6 overflow-hidden">
-          <div className="w-16 h-16 bg-accent rounded-xl animate-bounce" />
+        <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6 overflow-hidden">
+          <div className="w-16 h-16 bg-primary rounded-xl animate-bounce" />
         </div>
-        <h1 className="text-4xl font-bold text-accent tracking-tighter">#WorkWave</h1>
-        <p className="text-muted-foreground mt-2">Career Simplified.</p>
+        <h1 className="text-4xl font-black text-primary tracking-tighter">#works</h1>
+        <p className="text-muted-foreground mt-2 font-bold">Career Simplified.</p>
       </div>
     );
   }
@@ -60,11 +60,11 @@ export default function EntryPage() {
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="flex justify-end p-4">
-        <Button variant="ghost" onClick={() => router.push('/auth')}>Skip</Button>
+        <Button variant="ghost" className="font-bold text-muted-foreground" onClick={() => router.push('/auth')}>Skip</Button>
       </div>
       
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-        <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden mb-8 shadow-xl border border-muted">
+        <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden mb-10 shadow-2xl border border-muted/30">
           <img 
             src={currentStep.image?.imageUrl} 
             alt={currentStep.title} 
@@ -73,10 +73,10 @@ export default function EntryPage() {
           />
         </div>
         
-        <h2 className="text-3xl font-bold mb-4 px-4 leading-tight">
+        <h2 className="text-3xl font-black mb-4 px-2 leading-tight tracking-tight text-foreground">
           {currentStep.title}
         </h2>
-        <p className="text-muted-foreground px-8 mb-8">
+        <p className="text-sm text-muted-foreground px-4 mb-8 font-medium leading-relaxed">
           {currentStep.description}
         </p>
 
@@ -84,7 +84,7 @@ export default function EntryPage() {
           {onboardingSteps.map((_, i) => (
             <div 
               key={i} 
-              className={`h-2 rounded-full transition-all ${i === step ? 'w-8 bg-accent' : 'w-2 bg-muted'}`} 
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === step ? 'w-10 bg-primary' : 'w-2 bg-muted'}`} 
             />
           ))}
         </div>
@@ -92,7 +92,7 @@ export default function EntryPage() {
 
       <div className="p-8 pb-12">
         <Button 
-          className="w-full h-12 text-lg rounded-xl bg-accent hover:bg-accent/90" 
+          className="w-full h-14 text-lg font-black rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl" 
           onClick={handleNext}
         >
           {step === onboardingSteps.length - 1 ? 'Get Started' : 'Next Step'}
