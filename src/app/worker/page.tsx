@@ -54,7 +54,7 @@ export default function WorkerDashboard() {
 
         <section className="mb-10">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Profile Progress</h2>
+            <h2 className="text-xs font-bold text-muted-foreground tracking-tight">Profile Progress</h2>
             <span className="text-xs font-bold">75%</span>
           </div>
           <ProgressUI value={75} className="h-1.5 bg-secondary" />

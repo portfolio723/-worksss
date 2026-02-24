@@ -64,17 +64,17 @@ export default function HirerDashboard() {
                 <stat.icon className="h-5 w-5" />
               </div>
               <span className="text-3xl font-bold">{stat.value}</span>
-              <span className="text-[10px] text-muted-foreground font-black uppercase tracking-widest">{stat.label}</span>
+              <span className="text-[10px] text-muted-foreground font-black tracking-tight">{stat.label}</span>
             </Card>
           ))}
         </div>
 
         <section className="mb-10">
-          <h2 className="text-xs font-black text-muted-foreground tracking-widest uppercase mb-4">Live Listings</h2>
+          <h2 className="text-xs font-black text-muted-foreground tracking-tight mb-4">Live Listings</h2>
           <Card className="p-5 border-l-4 border-l-accent bg-white shadow-sm mb-4 rounded-2xl">
             <div className="flex justify-between items-start mb-3">
               <h3 className="font-bold text-base">React Dev Intern (Summer)</h3>
-              <Badge variant="secondary" className="bg-green-100 text-green-700 font-bold uppercase text-[9px]">Active</Badge>
+              <Badge variant="secondary" className="bg-green-100 text-green-700 font-bold text-[9px]">Active</Badge>
             </div>
             <div className="flex justify-between items-center mt-6">
               <span className="text-xs text-muted-foreground font-medium">14 Students Applied</span>
@@ -100,7 +100,7 @@ export default function HirerDashboard() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xs font-black text-muted-foreground tracking-widest uppercase mb-4">Top Matches</h2>
+          <h2 className="text-xs font-black text-muted-foreground tracking-tight mb-4">Top Matches</h2>
           {recentApplicants.map((applicant) => (
             <Card key={applicant.name} className="p-5 bg-white border-none shadow-sm rounded-2xl">
               <div className="flex gap-4">
