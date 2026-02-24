@@ -24,7 +24,6 @@ export default function CreateJobPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would save to Firestore
     setIsSubmitted(true);
     setTimeout(() => {
       router.push('/hirer/jobs');
@@ -33,48 +32,48 @@ export default function CreateJobPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
-        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-          <CheckCircle2 className="h-10 w-10 text-green-600" />
+      <div className="hirer-theme min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
+        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+          <CheckCircle2 className="h-10 w-10 text-emerald-600" />
         </div>
-        <h1 className="text-2xl font-bold mb-2">Internship Posted!</h1>
-        <p className="text-muted-foreground mb-8">
-          Your requirement has been sent to matching students. You'll hear from them soon.
+        <h1 className="text-2xl font-bold text-foreground mb-2">Internship Posted Successfully!</h1>
+        <p className="text-muted-foreground font-medium mb-8">
+          Your Requirement Has Been Sent To Matching Students. You'll Hear From Them Soon.
         </p>
-        <p className="text-sm text-accent animate-pulse font-medium">Redirecting to your dashboard...</p>
+        <p className="text-sm text-primary animate-pulse font-bold">Redirecting To Your Dashboard...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="hirer-theme min-h-screen bg-background pb-20">
       <TopNav />
       
-      <main className="content-area max-w-lg mx-auto">
-        <div className="flex items-center gap-4 mb-6">
+      <main className="content-area max-w-lg mx-auto px-6">
+        <div className="flex items-center gap-4 mb-8">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-xl hover:bg-secondary"
             onClick={() => router.back()}
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <h1 className="text-2xl font-bold">Post Internship</h1>
+          <h1 className="text-2xl font-bold text-foreground">Post New Internship</h1>
         </div>
 
-        <Card className="p-6 bg-white border-none shadow-sm rounded-2xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="title">Internship Title</Label>
-              <Input id="title" placeholder="e.g. Social Media Marketing Intern" required className="h-12" />
+        <Card className="p-8 bg-white border-none shadow-sm rounded-3xl">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="space-y-3">
+              <Label htmlFor="title" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Internship Title</Label>
+              <Input id="title" placeholder="e.g. Social Media Marketing Intern" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="category">Category</Label>
+              <div className="space-y-3">
+                <Label htmlFor="category" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Category</Label>
                 <Select required>
-                  <SelectTrigger id="category" className="h-12">
+                  <SelectTrigger id="category" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
@@ -86,37 +85,37 @@ export default function CreateJobPage() {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="type">Work Type</Label>
+              <div className="space-y-3">
+                <Label htmlFor="type" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Work Type</Label>
                 <Select required>
-                  <SelectTrigger id="type" className="h-12">
+                  <SelectTrigger id="type" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="remote">Remote</SelectItem>
-                    <SelectItem value="onsite">On-site</SelectItem>
+                    <SelectItem value="onsite">On-Site</SelectItem>
                     <SelectItem value="hybrid">Hybrid</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="location">Location (City)</Label>
-              <Input id="location" placeholder="e.g. Bangalore, Remote" className="h-12" />
+            <div className="space-y-3">
+              <Label htmlFor="location" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Location (City)</Label>
+              <Input id="location" placeholder="e.g. Bangalore, Remote" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="stipend">Stipend (per month)</Label>
-              <Input id="stipend" placeholder="e.g. ₹15,000" required className="h-12" />
-              <p className="text-[10px] text-muted-foreground">Fixed amount or range preferred by Indian students.</p>
+            <div className="space-y-3">
+              <Label htmlFor="stipend" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Stipend (Per Month)</Label>
+              <Input id="stipend" placeholder="e.g. ₹15,000" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
+              <p className="text-[10px] text-muted-foreground font-bold italic">Fixed Amount Or Range Preferred By Indian Students.</p>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="duration">Duration</Label>
+            <div className="space-y-3">
+              <Label htmlFor="duration" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Duration</Label>
               <Select required>
-                <SelectTrigger id="duration" className="h-12">
-                  <SelectValue placeholder="Select duration" />
+                <SelectTrigger id="duration" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
+                  <SelectValue placeholder="Select Duration" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="1">1 Month</SelectItem>
@@ -127,24 +126,24 @@ export default function CreateJobPage() {
               </Select>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="skills">Required Skills (Comma separated)</Label>
-              <Input id="skills" placeholder="e.g. React, Canva, SEO" className="h-12" />
+            <div className="space-y-3">
+              <Label htmlFor="skills" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Required Skills (Comma Separated)</Label>
+              <Input id="skills" placeholder="e.g. React, Canva, SEO" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="description">Job Description</Label>
+            <div className="space-y-3">
+              <Label htmlFor="description" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Job Description</Label>
               <Textarea 
                 id="description" 
-                placeholder="What will the student be doing? What are the expectations?" 
-                className="min-h-[120px] rounded-xl"
+                placeholder="What Will The Student Be Doing? What Are The Expectations?" 
+                className="min-h-[140px] rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary p-4"
                 required
               />
             </div>
 
-            <div className="pt-4">
-              <Button type="submit" className="w-full h-14 text-lg bg-accent rounded-2xl shadow-lg">
-                Post Now
+            <div className="pt-6">
+              <Button type="submit" className="w-full h-16 text-lg bg-primary text-primary-foreground font-bold rounded-2xl shadow-xl hover:bg-primary/90">
+                Post Internship Now
               </Button>
             </div>
           </form>

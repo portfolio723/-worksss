@@ -9,13 +9,13 @@ import { Badge } from '@/components/ui/badge';
 import { 
   CreditCard, 
   ArrowUpRight, 
-  ArrowDownLeft, 
   Plus, 
   Download, 
   History,
   ShieldCheck,
   Smartphone,
-  Info
+  Info,
+  ChevronRight
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -26,84 +26,86 @@ const transactions = [
 ];
 
 const pendingPayments = [
-  { id: 'pp1', student: 'Amit Singh', role: 'Backend Intern', amount: '₹12,000', dueDate: 'In 4 days' },
-  { id: 'pp2', student: 'Ananya Sharma', role: 'Fullstack Intern', amount: '₹15,000', dueDate: 'In 12 days' },
+  { id: 'pp1', student: 'Amit Singh', role: 'Backend Intern', amount: '₹12,000', dueDate: 'In 4 Days' },
+  { id: 'pp2', student: 'Ananya Sharma', role: 'Fullstack Intern', amount: '₹15,000', dueDate: 'In 12 Days' },
 ];
 
 export default function HirerPaymentsPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="hirer-theme min-h-screen bg-background pb-20">
       <TopNav />
       
-      <main className="content-area">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold">Payments</h1>
-          <p className="text-sm text-muted-foreground">Manage stipends and platform billing</p>
+      <main className="content-area px-6">
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold text-foreground">Payment Dashboard</h1>
+          <p className="text-sm text-muted-foreground font-medium">Manage Stipends And Platform Billing Securely.</p>
         </div>
 
-        <Card className="p-6 bg-accent text-white mb-6 shadow-xl relative overflow-hidden">
+        <Card className="p-8 bg-primary text-primary-foreground mb-8 shadow-xl relative overflow-hidden rounded-3xl border-none">
           <div className="relative z-10">
-            <div className="flex justify-between items-start mb-4">
+            <div className="flex justify-between items-start mb-6">
               <div>
-                <span className="text-xs opacity-80 uppercase font-bold tracking-wider">Escrow Balance</span>
-                <h2 className="text-3xl font-bold mt-1">₹58,400.00</h2>
+                <span className="text-[11px] opacity-90 uppercase font-black tracking-widest">Escrow Balance</span>
+                <h2 className="text-4xl font-bold mt-2 tracking-tight">₹58,400.00</h2>
               </div>
-              <div className="bg-white/20 p-2 rounded-xl">
-                <ShieldCheck className="h-6 w-6" />
+              <div className="bg-white/20 p-3 rounded-2xl">
+                <ShieldCheck className="h-7 w-7" />
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               <Button 
-                className="flex-1 bg-white text-accent hover:bg-white/90 h-10 font-bold rounded-xl"
+                className="flex-1 bg-white text-primary hover:bg-white/90 h-12 font-bold rounded-xl shadow-md"
                 onClick={() => router.push('/hirer/payments/add-funds')}
               >
-                <Plus className="h-4 w-4 mr-1" />
+                <Plus className="h-4 w-4 mr-2" />
                 Add Funds
               </Button>
               <Button 
                 variant="ghost" 
-                className="flex-1 border border-white/30 hover:bg-white/10 text-white h-10 font-bold rounded-xl"
+                className="flex-1 border border-white/40 hover:bg-white/10 text-white h-12 font-bold rounded-xl"
                 onClick={() => router.push('/hirer/payments/invoices')}
               >
-                <Download className="h-4 w-4 mr-1" />
+                <Download className="h-4 w-4 mr-2" />
                 Invoices
               </Button>
             </div>
           </div>
-          <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full" />
+          <div className="absolute -right-12 -bottom-12 w-40 h-40 bg-white/10 rounded-full" />
         </Card>
 
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="w-full bg-white/50 p-1 rounded-xl mb-6">
-            <TabsTrigger value="overview" className="flex-1 rounded-lg">Overview</TabsTrigger>
-            <TabsTrigger value="history" className="flex-1 rounded-lg">History</TabsTrigger>
-            <TabsTrigger value="methods" className="flex-1 rounded-lg">Methods</TabsTrigger>
+          <TabsList className="w-full bg-secondary/50 p-1 rounded-2xl mb-8">
+            <TabsTrigger value="overview" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Overview</TabsTrigger>
+            <TabsTrigger value="history" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">History</TabsTrigger>
+            <TabsTrigger value="methods" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Saved Methods</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
-            <section className="mb-8">
-              <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-4">Upcoming Stipends</h3>
+            <section className="mb-10">
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-[11px] font-black text-muted-foreground uppercase tracking-widest">Upcoming Stipends</h3>
+                <Badge className="bg-indigo-50 text-indigo-700 font-bold border-indigo-100">2 Pending</Badge>
+              </div>
               <div className="space-y-4">
                 {pendingPayments.map((payment) => (
-                  <Card key={payment.id} className="p-4 bg-white border-none shadow-sm">
-                    <div className="flex justify-between items-center">
+                  <Card key={payment.id} className="p-5 bg-white border-none shadow-sm rounded-2xl">
+                    <div className="flex justify-between items-center mb-4">
                       <div>
-                        <h4 className="font-bold text-sm">{payment.student}</h4>
-                        <p className="text-[10px] text-muted-foreground">{payment.role}</p>
+                        <h4 className="font-bold text-base text-foreground">{payment.student}</h4>
+                        <p className="text-xs text-muted-foreground font-medium">{payment.role}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold text-accent">{payment.amount}</p>
-                        <p className="text-[10px] text-destructive font-medium">Due {payment.dueDate}</p>
+                        <p className="font-bold text-lg text-primary">{payment.amount}</p>
+                        <p className="text-[10px] text-destructive font-bold uppercase">Due {payment.dueDate}</p>
                       </div>
                     </div>
                     <Button 
-                      size="sm" 
-                      className="w-full mt-3 h-8 text-[10px] bg-secondary text-accent hover:bg-secondary/80 font-bold"
+                      className="w-full h-11 text-xs bg-secondary text-primary hover:bg-secondary/80 font-bold rounded-xl transition-colors"
                       onClick={() => router.push(`/hirer/payments/review/${payment.id}`)}
                     >
-                      Review & Release
+                      Review Report & Release Stipend
                     </Button>
                   </Card>
                 ))}
@@ -111,29 +113,29 @@ export default function HirerPaymentsPage() {
             </section>
 
             <section>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Recent Activity</h3>
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-[11px] font-black text-muted-foreground uppercase tracking-widest">Recent Activity</h3>
                 <Button 
                   variant="link" 
-                  className="text-accent text-xs h-auto p-0"
+                  className="text-primary text-xs font-bold h-auto p-0"
                   onClick={() => router.push('/hirer/payments/history')}
                 >
-                  See all
+                  See Full History <ChevronRight className="h-3 w-3 ml-1" />
                 </Button>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {transactions.map((tx) => (
-                  <div key={tx.id} className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm">
-                    <div className={`p-2 rounded-lg ${tx.status === 'Completed' ? 'bg-green-100 text-green-600' : 'bg-yellow-100 text-yellow-600'}`}>
-                      {tx.type === 'Stipend' ? <ArrowUpRight className="h-4 w-4" /> : <History className="h-4 w-4" />}
+                  <div key={tx.id} className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-transparent hover:border-primary/10 transition-all">
+                    <div className={`p-2.5 rounded-xl ${tx.status === 'Completed' ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'}`}>
+                      {tx.type === 'Stipend' ? <ArrowUpRight className="h-5 w-5" /> : <History className="h-5 w-5" />}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-xs font-bold truncate">{tx.recipient}</h4>
-                      <p className="text-[10px] text-muted-foreground">{tx.date} • {tx.type}</p>
+                      <h4 className="text-sm font-bold text-foreground truncate">{tx.recipient}</h4>
+                      <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-tight">{tx.date} • {tx.type}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs font-bold">{tx.amount}</p>
-                      <p className={`text-[9px] font-medium ${tx.status === 'Completed' ? 'text-green-600' : 'text-yellow-600'}`}>{tx.status}</p>
+                      <p className="text-sm font-bold text-foreground">{tx.amount}</p>
+                      <p className={`text-[9px] font-black uppercase tracking-widest ${tx.status === 'Completed' ? 'text-emerald-600' : 'text-amber-600'}`}>{tx.status}</p>
                     </div>
                   </div>
                 ))}
@@ -142,41 +144,44 @@ export default function HirerPaymentsPage() {
           </TabsContent>
 
           <TabsContent value="history">
-            <div className="text-center py-12">
-              <History className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-              <p className="text-sm text-muted-foreground mb-6">Detailed transaction logs and filters.</p>
+            <div className="text-center py-20 px-8 bg-white rounded-3xl shadow-sm">
+              <History className="h-16 w-16 text-muted-foreground mx-auto mb-6 opacity-20" />
+              <h3 className="text-lg font-bold text-foreground mb-3">No Detailed History Yet</h3>
+              <p className="text-sm text-muted-foreground font-medium mb-10 leading-relaxed">Your Full Transaction Logs, Filters, And Monthly Statements Will Appear Here.</p>
               <Button 
                 variant="outline" 
-                className="rounded-xl border-accent text-accent"
+                className="rounded-2xl border-primary text-primary font-bold h-12 px-8 hover:bg-primary/5"
                 onClick={() => router.push('/hirer/payments/history')}
               >
-                View Full History
+                View Full Logs
               </Button>
             </div>
           </TabsContent>
 
           <TabsContent value="methods">
-            <div className="space-y-4">
-              <Card className="p-4 border-2 border-accent/20 bg-accent/5 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="bg-white p-2 rounded-lg shadow-sm">
-                    <Smartphone className="h-5 w-5 text-accent" />
+            <div className="space-y-5">
+              <Card className="p-5 border-2 border-primary/20 bg-primary/5 flex items-center justify-between rounded-2xl shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="bg-white p-3 rounded-xl shadow-sm">
+                    <Smartphone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold">UPI Auto-pay</h4>
-                    <p className="text-[10px] text-muted-foreground">Linked to arjun@hdfc</p>
+                    <h4 className="text-base font-bold text-foreground">UPI Auto-Pay</h4>
+                    <p className="text-xs text-muted-foreground font-medium">Linked To arjun@hdfc</p>
                   </div>
                 </div>
-                <Badge variant="secondary" className="text-[10px]">Default</Badge>
+                <Badge variant="secondary" className="bg-primary text-white font-bold text-[10px] rounded-lg">PRIMARY</Badge>
               </Card>
-              <Card className="p-4 border border-dashed border-muted flex items-center justify-center gap-2 text-muted-foreground cursor-pointer hover:bg-muted/10 transition-colors">
-                <Plus className="h-4 w-4" />
-                <span className="text-sm font-bold">Add New Card or UPI</span>
+              
+              <Card className="p-6 border-2 border-dashed border-muted-foreground/20 flex items-center justify-center gap-3 text-muted-foreground cursor-pointer hover:bg-muted/5 hover:border-primary/30 transition-all rounded-2xl group">
+                <Plus className="h-5 w-5 group-hover:text-primary transition-colors" />
+                <span className="text-sm font-bold group-hover:text-primary transition-colors">Add New Payment Method</span>
               </Card>
-              <div className="bg-blue-50 p-4 rounded-xl flex gap-3">
-                <Info className="h-5 w-5 text-blue-500 shrink-0" />
-                <p className="text-[10px] text-blue-700 leading-relaxed">
-                  Stipends are held in our secure escrow. Funds are only released after you approve the student's monthly work report.
+
+              <div className="bg-indigo-50/50 p-5 rounded-2xl flex gap-4 border border-indigo-100">
+                <Info className="h-6 w-6 text-indigo-600 shrink-0" />
+                <p className="text-[11px] text-indigo-800 leading-relaxed font-medium">
+                  Stipends Are Held Securely In Our Escrow System. Funds Are Only Released To Students After You Approve Their Monthly Work Reports.
                 </p>
               </div>
             </div>

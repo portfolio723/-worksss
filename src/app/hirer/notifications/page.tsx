@@ -19,46 +19,46 @@ const hirerNotifications = [
   {
     id: 'n1',
     title: 'New Application Received',
-    description: 'Rohan Gupta applied for React Dev Intern role.',
+    description: 'Rohan Gupta Applied For React Dev Intern Role.',
     time: '10 Mins Ago',
     type: 'application',
     read: false,
     icon: Users,
-    color: 'text-blue-600',
-    bg: 'bg-blue-50'
+    color: 'text-indigo-600',
+    bg: 'bg-indigo-50'
   },
   {
     id: 'n2',
     title: 'Payment Successful',
-    description: '₹15,000 added to your escrow balance via UPI.',
+    description: '₹15,000 Added To Your Escrow Balance Via UPI.',
     time: '2 Hours Ago',
     type: 'payment',
     read: true,
     icon: CreditCard,
-    color: 'text-green-600',
-    bg: 'bg-green-50'
+    color: 'text-emerald-600',
+    bg: 'bg-emerald-50'
   },
   {
     id: 'n3',
     title: 'Milestone Update',
-    description: 'Ananya Sharma submitted work report for Review.',
+    description: 'Ananya Sharma Submitted Work Report For Review.',
     time: '5 Hours Ago',
     type: 'work',
     read: true,
     icon: Clock,
-    color: 'text-orange-600',
-    bg: 'bg-orange-50'
+    color: 'text-amber-600',
+    bg: 'bg-amber-50'
   },
   {
     id: 'n4',
     title: 'Profile Verified',
-    description: 'Your company GST details have been approved.',
+    description: 'Your Company GST Details Have Been Approved.',
     time: 'Yesterday',
     type: 'system',
     read: true,
     icon: CheckCircle2,
-    color: 'text-purple-600',
-    bg: 'bg-purple-50'
+    color: 'text-primary',
+    bg: 'bg-primary/10'
   }
 ];
 
@@ -66,48 +66,48 @@ export default function HirerNotificationsPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="hirer-theme min-h-screen bg-background pb-20">
       <TopNav />
       
-      <main className="content-area max-w-lg mx-auto">
-        <div className="flex items-center gap-4 mb-6">
+      <main className="content-area max-w-lg mx-auto px-6">
+        <div className="flex items-center gap-4 mb-8">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-xl hover:bg-secondary"
             onClick={() => router.back()}
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <h1 className="text-2xl font-bold">Notifications</h1>
+          <h1 className="text-2xl font-bold text-foreground">Notifications</h1>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {hirerNotifications.map((notif) => (
             <Card 
               key={notif.id} 
-              className={`p-4 border-none shadow-sm transition-all cursor-pointer hover:bg-white/80 ${notif.read ? 'bg-white' : 'bg-accent/5 ring-1 ring-accent/10'}`}
+              className={`p-5 border-none shadow-sm transition-all cursor-pointer hover:bg-white/80 rounded-3xl ${notif.read ? 'bg-white' : 'bg-primary/5 ring-1 ring-primary/20 shadow-md'}`}
             >
-              <div className="flex gap-4">
-                <div className={`p-3 rounded-2xl h-fit ${notif.bg} ${notif.color}`}>
-                  <notif.icon className="h-5 w-5" />
+              <div className="flex gap-5">
+                <div className={`p-4 rounded-2xl h-fit ${notif.bg} ${notif.color}`}>
+                  <notif.icon className="h-6 w-6" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex justify-between items-start mb-1">
-                    <h3 className={`text-sm font-bold truncate ${notif.read ? 'text-foreground' : 'text-accent'}`}>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className={`text-base font-bold truncate ${notif.read ? 'text-foreground' : 'text-primary'}`}>
                       {notif.title}
                     </h3>
-                    <span className="text-[10px] text-muted-foreground whitespace-nowrap ml-2">
+                    <span className="text-[10px] text-muted-foreground font-black uppercase tracking-tight whitespace-nowrap ml-3 mt-1">
                       {notif.time}
                     </span>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed font-medium">
                     {notif.description}
                   </p>
                   {!notif.read && (
-                    <div className="mt-3 flex gap-2">
-                      <Button size="sm" className="h-7 text-[10px] bg-accent rounded-lg">View Details</Button>
-                      <Button size="sm" variant="ghost" className="h-7 text-[10px] rounded-lg">Mark Read</Button>
+                    <div className="mt-5 flex gap-3">
+                      <Button size="sm" className="h-9 px-5 text-xs bg-primary text-primary-foreground font-bold rounded-xl shadow-md">View Details</Button>
+                      <Button size="sm" variant="ghost" className="h-9 px-5 text-xs font-bold rounded-xl hover:bg-primary/5">Mark Read</Button>
                     </div>
                   )}
                 </div>
@@ -117,9 +117,11 @@ export default function HirerNotificationsPage() {
         </div>
 
         {hirerNotifications.length === 0 && (
-          <div className="text-center py-20">
-            <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
-            <p className="text-muted-foreground font-medium">No Notifications Yet.</p>
+          <div className="text-center py-24 px-8 bg-white rounded-3xl shadow-sm">
+            <div className="bg-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <AlertCircle className="h-10 w-10 text-muted-foreground opacity-20" />
+            </div>
+            <p className="text-muted-foreground font-bold text-lg">No Notifications Yet.</p>
           </div>
         )}
       </main>

@@ -31,7 +31,7 @@ const myPostings = [
   },
   {
     id: '2',
-    title: 'UI/UX Designer (Part-time)',
+    title: 'UI/UX Designer (Part-Time)',
     stipend: '₹12,000 /mo',
     postedOn: 'Sep 28, 2023',
     status: 'Active',
@@ -74,103 +74,102 @@ export default function HirerJobsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="hirer-theme min-h-screen bg-background pb-20">
       <TopNav />
       
-      <main className="content-area">
-        <div className="flex items-center justify-between mb-6">
+      <main className="content-area px-6">
+        <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-bold">Manage Postings</h1>
-            <p className="text-sm text-muted-foreground">Track your listings and applications</p>
+            <h1 className="text-2xl font-bold text-foreground">Manage Postings</h1>
+            <p className="text-sm text-muted-foreground font-medium">Track Your Listings And Applications In Real-Time.</p>
           </div>
           <Button 
             size="icon" 
-            className="h-10 w-10 rounded-full bg-accent shadow-lg"
+            className="h-12 w-12 rounded-2xl bg-primary text-primary-foreground shadow-lg hover:bg-primary/90"
             onClick={() => router.push('/hirer/jobs/create')}
           >
-            <Plus className="h-5 w-5" />
+            <Plus className="h-6 w-6" />
           </Button>
         </div>
 
-        <div className="relative mb-6">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <div className="relative mb-8">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input 
-            className="pl-10 h-12 bg-white border-none shadow-sm rounded-xl" 
-            placeholder="Search your postings..." 
+            className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-medium focus:ring-primary" 
+            placeholder="Search Your Postings..." 
           />
         </div>
 
-        <Tabs defaultValue="active" className="w-full mb-6" onValueChange={setActiveTab}>
-          <TabsList className="w-full bg-white/50 p-1 rounded-xl">
-            <TabsTrigger value="active" className="flex-1 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Active</TabsTrigger>
-            <TabsTrigger value="closed" className="flex-1 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Closed</TabsTrigger>
-            <TabsTrigger value="draft" className="flex-1 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">Drafts</TabsTrigger>
-            <TabsTrigger value="all" className="flex-1 rounded-lg data-[state=active]:bg-white data-[state=active]:shadow-sm">All</TabsTrigger>
+        <Tabs defaultValue="active" className="w-full mb-8" onValueChange={setActiveTab}>
+          <TabsList className="w-full bg-secondary/50 p-1 rounded-2xl">
+            <TabsTrigger value="active" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Active</TabsTrigger>
+            <TabsTrigger value="closed" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Closed</TabsTrigger>
+            <TabsTrigger value="draft" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Drafts</TabsTrigger>
+            <TabsTrigger value="all" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">All</TabsTrigger>
           </TabsList>
 
-          <div className="mt-6 space-y-4">
+          <div className="mt-8 space-y-6">
             {filteredJobs.length > 0 ? (
               filteredJobs.map((job) => (
-                <Card key={job.id} className="p-4 bg-white border-none shadow-sm overflow-hidden">
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-bold text-base leading-tight">{job.title}</h3>
-                        <Badge variant={job.status === 'Active' ? 'secondary' : 'outline'} className="text-[10px] h-4">
+                <Card key={job.id} className="p-5 bg-white border-none shadow-sm overflow-hidden rounded-3xl">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="font-bold text-lg text-foreground leading-tight truncate">{job.title}</h3>
+                        <Badge variant={job.status === 'Active' ? 'secondary' : 'outline'} className={`text-[10px] h-5 font-bold ${job.status === 'Active' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : ''}`}>
                           {job.status}
                         </Badge>
                       </div>
-                      <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-3 w-3" />
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground font-medium">
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="h-3.5 w-3.5" />
                           {job.location}
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="h-3.5 w-3.5" />
                           {job.postedOn}
                         </div>
                       </div>
                     </div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-8 w-8 -mr-2">
-                          <MoreVertical className="h-4 w-4" />
+                        <Button variant="ghost" size="icon" className="h-10 w-10 -mr-2 rounded-xl">
+                          <MoreVertical className="h-5 w-5" />
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem>Edit Posting</DropdownMenuItem>
-                        <DropdownMenuItem>View Stats</DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive">Close Posting</DropdownMenuItem>
+                      <DropdownMenuContent align="end" className="rounded-xl border-none shadow-xl">
+                        <DropdownMenuItem className="font-bold text-sm p-3" onClick={() => router.push(`/hirer/jobs/edit?jobId=${job.id}`)}>Edit Posting</DropdownMenuItem>
+                        <DropdownMenuItem className="font-bold text-sm p-3">View Detailed Stats</DropdownMenuItem>
+                        <DropdownMenuItem className="font-bold text-sm p-3 text-destructive">Close Posting</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
 
-                  <div className="bg-secondary/30 rounded-lg p-3 my-4 grid grid-cols-3 gap-2">
+                  <div className="bg-secondary/30 rounded-2xl p-4 mb-6 grid grid-cols-3 gap-4">
                     <div className="text-center">
-                      <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider mb-1">Applicants</p>
-                      <div className="flex items-center justify-center gap-1">
-                        <Users className="h-3 w-3 text-accent" />
-                        <span className="text-sm font-bold">{job.applicants}</span>
+                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Applicants</p>
+                      <div className="flex items-center justify-center gap-1.5">
+                        <Users className="h-3.5 w-3.5 text-primary" />
+                        <span className="text-base font-bold text-foreground">{job.applicants}</span>
                       </div>
                     </div>
-                    <div className="text-center border-x border-muted">
-                      <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider mb-1">Views</p>
-                      <div className="flex items-center justify-center gap-1">
-                        <Eye className="h-3 w-3 text-accent" />
-                        <span className="text-sm font-bold">{job.views}</span>
+                    <div className="text-center border-x border-muted/50">
+                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Views</p>
+                      <div className="flex items-center justify-center gap-1.5">
+                        <Eye className="h-3.5 w-3.5 text-primary" />
+                        <span className="text-base font-bold text-foreground">{job.views}</span>
                       </div>
                     </div>
                     <div className="text-center">
-                      <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-wider mb-1">Type</p>
-                      <span className="text-[11px] font-bold text-accent">{job.type}</span>
+                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1.5">Role Type</p>
+                      <span className="text-xs font-bold text-primary">{job.type}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-foreground">{job.stipend}</span>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-sm font-bold text-foreground">{job.stipend}</span>
                     <Button 
-                      size="sm" 
-                      className="h-9 px-6 bg-accent rounded-xl text-xs font-bold"
+                      className="h-11 px-6 bg-primary text-primary-foreground rounded-2xl text-xs font-bold shadow-md hover:bg-primary/90"
                       onClick={() => router.push(`/hirer/jobs/review?jobId=${job.id}`)}
                     >
                       Review Applicants
@@ -179,19 +178,19 @@ export default function HirerJobsPage() {
                 </Card>
               ))
             ) : (
-              <div className="text-center py-12 px-8">
-                <div className="bg-muted w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Plus className="h-8 w-8 text-muted-foreground opacity-50" />
+              <div className="text-center py-20 px-8 bg-white rounded-3xl shadow-sm">
+                <div className="bg-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Plus className="h-10 w-10 text-muted-foreground opacity-30" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">No {activeTab} postings</h3>
-                <p className="text-sm text-muted-foreground mb-6">
-                  Ready to find your next student talent? Post a new job or internship.
+                <h3 className="font-bold text-xl text-foreground mb-3">No {activeTab} Postings Found</h3>
+                <p className="text-sm text-muted-foreground font-medium mb-10 leading-relaxed">
+                  Ready To Find Your Next Student Talent? Post A New Internship Or Gig Project To Get Started.
                 </p>
                 <Button 
-                  className="bg-accent rounded-xl px-8"
+                  className="bg-primary text-primary-foreground rounded-2xl px-10 h-14 text-base font-bold shadow-xl"
                   onClick={() => router.push('/hirer/jobs/create')}
                 >
-                  Create Posting
+                  Create New Posting
                 </Button>
               </div>
             )}
