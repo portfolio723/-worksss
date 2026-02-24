@@ -13,8 +13,9 @@ import {
   MapPin, 
   Clock, 
   Bookmark,
-  X,
-  ChevronRight
+  Star,
+  Zap,
+  Navigation
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -32,6 +33,13 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Slider } from '@/components/ui/slider';
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from '@/components/ui/select';
 
 const quickFilters = [
   'Remote', 
@@ -87,11 +95,12 @@ const jobs = [
   }
 ];
 
-const skillOptions = ['React', 'Next.js', 'Node.js', 'Python', 'Figma', 'Marketing', 'Writing'];
+const categories = ['Development', 'Design', 'Marketing', 'Writing', 'Sales', 'Admin'];
 
 export default function BrowseJobs() {
   const router = useRouter();
-  const [stipendValue, setStipendValue] = useState([5000]);
+  const [budgetRange, setBudgetRange] = useState([5000]);
+  const [distance, setDistance] = useState([10]);
 
   return (
     <div className="worker-theme min-h-screen bg-background pb-20">
@@ -100,14 +109,14 @@ export default function BrowseJobs() {
       <main className="content-area">
         <div className="mb-6">
           <h1 className="text-3xl font-black">Browse Jobs</h1>
-          <p className="text-sm text-muted-foreground mt-1">Find Your Next Big Opportunity.</p>
+          <p className="text-sm text-muted-foreground mt-1 font-medium">Find Your Next Big Opportunity.</p>
         </div>
 
         <div className="flex gap-3 mb-6">
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input 
-              className="pl-12 h-14 rounded-2xl bg-white border-border shadow-sm text-base focus:ring-primary" 
+              className="pl-12 h-14 rounded-2xl bg-white border-border shadow-sm text-base focus:ring-primary font-medium" 
               placeholder="Search Roles..." 
             />
           </div>
@@ -121,54 +130,127 @@ export default function BrowseJobs() {
                 <SlidersHorizontal className="h-6 w-6 text-primary group-hover:text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="worker-theme w-[320px] sm:w-[400px] p-6 border-l">
-              <SheetHeader className="mb-8">
+            <SheetContent side="right" className="worker-theme w-[340px] sm:w-[400px] p-0 flex flex-col border-l">
+              <SheetHeader className="p-6 border-b">
                 <SheetTitle className="text-2xl font-black">Filters</SheetTitle>
               </SheetHeader>
               
-              <div className="space-y-10 overflow-y-auto max-h-[calc(100vh-220px)] pr-2 no-scrollbar">
-                <div className="space-y-5">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Work Mode</h3>
-                  <RadioGroup defaultValue="remote" className="space-y-4">
-                    {['Remote', 'On-Site', 'Hybrid'].map(mode => (
-                      <div key={mode} className="flex items-center space-x-3">
-                        <RadioGroupItem value={mode.toLowerCase()} id={mode} />
-                        <Label htmlFor={mode} className="font-bold text-sm">{mode}</Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                </div>
-
-                <div className="space-y-5">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Stipend</h3>
-                    <span className="text-sm font-black">₹{stipendValue[0].toLocaleString()}</span>
+              <ScrollArea className="flex-1 px-6">
+                <div className="space-y-10 py-8">
+                  {/* Category */}
+                  <div className="space-y-4">
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <Bookmark className="h-3 w-3" /> Category
+                    </h3>
+                    <div className="grid grid-cols-2 gap-2">
+                      {categories.map((cat) => (
+                        <div key={cat} className="flex items-center space-x-2 bg-secondary/30 p-3 rounded-xl">
+                          <Checkbox id={`cat-${cat}`} />
+                          <Label htmlFor={`cat-${cat}`} className="text-xs font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                            {cat}
+                          </Label>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <Slider 
-                    defaultValue={[5000]} 
-                    max={50000} 
-                    step={1000} 
-                    onValueChange={setStipendValue}
-                    className="py-4"
-                  />
-                </div>
 
-                <div className="space-y-5">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Skills</h3>
-                  <div className="space-y-3">
-                    {skillOptions.map((skill) => (
-                      <div key={skill} className="flex items-center space-x-3">
-                        <Checkbox id={`skill-${skill}`} />
-                        <Label htmlFor={`skill-${skill}`} className="font-bold text-sm">{skill}</Label>
-                      </div>
-                    ))}
+                  {/* Budget Range */}
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                        <Zap className="h-3 w-3" /> Budget Range
+                      </h3>
+                      <span className="text-xs font-black text-primary">₹{budgetRange[0].toLocaleString()}+</span>
+                    </div>
+                    <Slider 
+                      defaultValue={[5000]} 
+                      max={50000} 
+                      step={1000} 
+                      onValueChange={setBudgetRange}
+                      className="py-2"
+                    />
+                  </div>
+
+                  {/* Distance */}
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                        <Navigation className="h-3 w-3" /> Distance (km)
+                      </h3>
+                      <span className="text-xs font-black text-primary">{distance[0]} km</span>
+                    </div>
+                    <Slider 
+                      defaultValue={[10]} 
+                      max={50} 
+                      step={1} 
+                      onValueChange={setDistance}
+                      className="py-2"
+                    />
+                  </div>
+
+                  {/* Rating */}
+                  <div className="space-y-4">
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <Star className="h-3 w-3" /> Minimum Rating
+                    </h3>
+                    <RadioGroup defaultValue="4" className="grid grid-cols-2 gap-3">
+                      {['4.5+', '4.0+', '3.5+', 'Any'].map((rating) => (
+                        <Label
+                          key={rating}
+                          htmlFor={`rating-${rating}`}
+                          className="flex items-center justify-between p-3 rounded-xl border border-border bg-white cursor-pointer hover:bg-secondary/20 transition-all font-bold text-xs"
+                        >
+                          <span className="flex items-center gap-1.5">
+                            {rating} <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                          </span>
+                          <RadioGroupItem value={rating} id={`rating-${rating}`} className="sr-only" />
+                        </Label>
+                      ))}
+                    </RadioGroup>
+                  </div>
+
+                  {/* Work Mode */}
+                  <div className="space-y-4">
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <MapPin className="h-3 w-3" /> Work Mode
+                    </h3>
+                    <RadioGroup defaultValue="remote" className="flex flex-wrap gap-2">
+                      {['Remote', 'On-Site', 'Hybrid'].map(mode => (
+                        <Label
+                          key={mode}
+                          htmlFor={`mode-${mode}`}
+                          className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-border bg-white cursor-pointer hover:bg-primary hover:text-white transition-all font-bold text-xs"
+                        >
+                          <RadioGroupItem value={mode.toLowerCase()} id={`mode-${mode}`} className="sr-only" />
+                          {mode}
+                        </Label>
+                      ))}
+                    </RadioGroup>
+                  </div>
+
+                  {/* Availability/Urgency */}
+                  <div className="space-y-4 pb-10">
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <Clock className="h-3 w-3" /> Availability / Urgency
+                    </h3>
+                    <Select defaultValue="any">
+                      <SelectTrigger className="h-12 rounded-xl bg-secondary/30 border-none font-bold text-xs">
+                        <SelectValue placeholder="Select Urgency" />
+                      </SelectTrigger>
+                      <SelectContent className="rounded-xl border-none shadow-xl">
+                        <SelectItem value="any" className="font-medium text-xs">Any Time</SelectItem>
+                        <SelectItem value="immediate" className="font-medium text-xs">Immediate (Starts Today)</SelectItem>
+                        <SelectItem value="week" className="font-medium text-xs">Next 7 Days</SelectItem>
+                        <SelectItem value="flexible" className="font-medium text-xs">Flexible Start</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
-              </div>
+              </ScrollArea>
 
-              <SheetFooter className="absolute bottom-6 left-6 right-6">
+              <SheetFooter className="p-6 border-t bg-white">
                 <SheetClose asChild>
-                  <Button className="w-full h-14 bg-primary text-primary-foreground rounded-2xl font-medium shadow-2xl">
+                  <Button className="w-full h-14 bg-primary text-white rounded-2xl font-bold shadow-xl">
                     Apply Filters
                   </Button>
                 </SheetClose>
@@ -194,10 +276,10 @@ export default function BrowseJobs() {
 
         <div className="space-y-4">
           {jobs.map((job) => (
-            <Card key={job.id} className="p-5 bg-white border-border/50 hover:border-primary transition-all shadow-sm group">
+            <Card key={job.id} className="p-5 bg-white border-border/50 hover:border-primary transition-all shadow-sm group rounded-[2rem]">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{job.title}</h3>
+                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors tracking-tight">{job.title}</h3>
                   <p className="text-xs font-bold text-muted-foreground">{job.company}</p>
                 </div>
                 <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:bg-secondary rounded-xl font-medium">
@@ -208,21 +290,21 @@ export default function BrowseJobs() {
               <div className="grid grid-cols-2 gap-y-3 text-xs text-muted-foreground mb-6">
                 <div className="flex items-center gap-2">
                   <span className="font-black text-foreground">Stipend:</span>
-                  {job.budget}
+                  <span className="font-medium">{job.budget}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
-                  {job.location}
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <span className="font-medium">{job.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
-                  {job.time}
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span className="font-medium">{job.time}</span>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {job.tags.map(tag => (
-                  <span key={tag} className="text-[10px] bg-secondary text-primary px-3 py-1 rounded-full font-black">
+                  <span key={tag} className="text-[10px] bg-secondary text-primary px-3 py-1 rounded-full font-black uppercase tracking-tighter">
                     {tag}
                   </span>
                 ))}
@@ -231,13 +313,13 @@ export default function BrowseJobs() {
               <div className="flex gap-3 pt-4 border-t border-border/50">
                 <Button 
                   variant="outline"
-                  className="flex-1 h-11 rounded-xl border-border font-medium"
+                  className="flex-1 h-11 rounded-xl border-border font-bold text-xs"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   View Details
                 </Button>
                 <Button 
-                  className="flex-1 h-11 rounded-xl bg-primary text-primary-foreground font-medium shadow-md"
+                  className="flex-1 h-11 rounded-xl bg-primary text-white font-bold text-xs shadow-md"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   Apply Now
