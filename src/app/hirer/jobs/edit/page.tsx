@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, Suspense } from 'react';
@@ -39,7 +38,7 @@ function EditJobContent() {
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="h-10 w-10 text-green-600" />
         </div>
-        <h1 className="text-2xl font-bold mb-2">Changes Saved!</h1>
+        <h1 className="text-2xl font-normal mb-2">Changes Saved!</h1>
         <p className="text-muted-foreground mb-8">
           Your Internship Posting Has Been Updated Successfully.
         </p>
@@ -62,7 +61,7 @@ function EditJobContent() {
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
-          <h1 className="text-2xl font-bold">Edit Internship</h1>
+          <h1 className="text-2xl font-normal">Edit Internship</h1>
         </div>
 
         <Card className="p-6 bg-white border-none shadow-sm rounded-2xl">

@@ -5,7 +5,7 @@ import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, Plus, MoreVertical, Users, Eye, Calendar, MapPin, AlertTriangle, Info } from 'lucide-react';
+import { Search, Plus, MoreVertical, Users, Eye, Calendar, MapPin, Info } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -14,7 +14,7 @@ import {
   DropdownMenuContent, 
   DropdownMenuItem, 
   DropdownMenuTrigger 
-} from 'lucide-react';
+} from '@/components/ui/dropdown-menu';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -127,10 +127,10 @@ export default function HirerJobsPage() {
 
         <Tabs defaultValue="active" className="w-full mb-8" onValueChange={setActiveTab}>
           <TabsList className="w-full bg-secondary/50 p-1 rounded-2xl">
-            <TabsTrigger value="active" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Active</TabsTrigger>
-            <TabsTrigger value="closed" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Closed</TabsTrigger>
-            <TabsTrigger value="draft" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Drafts</TabsTrigger>
-            <TabsTrigger value="all" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">All</TabsTrigger>
+            <TabsTrigger value="active" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Active</TabsTrigger>
+            <TabsTrigger value="closed" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Closed</TabsTrigger>
+            <TabsTrigger value="draft" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Drafts</TabsTrigger>
+            <TabsTrigger value="all" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">All</TabsTrigger>
           </TabsList>
 
           <div className="mt-8 space-y-6">

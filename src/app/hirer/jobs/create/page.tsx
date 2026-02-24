@@ -36,7 +36,7 @@ export default function CreateJobPage() {
         <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="h-10 w-10 text-emerald-600" />
         </div>
-        <h1 className="text-2xl font-bold text-foreground mb-2">Job Posted Successfully!</h1>
+        <h1 className="text-2xl font-normal text-foreground mb-2">Job Posted Successfully!</h1>
         <p className="text-muted-foreground font-medium mb-8">
           Your Requirement Has Been Sent To Matching Students. You'll Hear From Them Soon.
         </p>
@@ -59,7 +59,7 @@ export default function CreateJobPage() {
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <h1 className="text-2xl font-bold text-foreground">Post New Job</h1>
+          <h1 className="text-2xl font-normal text-foreground">Post New Job</h1>
         </div>
 
         <Card className="p-8 bg-white border-none shadow-sm rounded-3xl">

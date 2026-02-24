@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -13,8 +12,7 @@ import {
   MessageSquare, 
   CheckCircle2, 
   XCircle, 
-  GraduationCap,
-  Star
+  GraduationCap
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -67,16 +65,16 @@ export default function ReviewApplicantsPage() {
             <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Review Applicants</h1>
+            <h1 className="text-2xl font-normal text-foreground">Review Applicants</h1>
             <p className="text-xs text-muted-foreground font-bold uppercase tracking-tight">React Dev Intern (Summer)</p>
           </div>
         </div>
 
         <Tabs defaultValue="all" className="w-full mb-8" onValueChange={setActiveTab}>
           <TabsList className="w-full bg-secondary/50 p-1 rounded-2xl">
-            <TabsTrigger value="all" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">All Applicants</TabsTrigger>
-            <TabsTrigger value="shortlisted" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Shortlisted</TabsTrigger>
-            <TabsTrigger value="pending" className="flex-1 rounded-xl text-xs font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Pending</TabsTrigger>
+            <TabsTrigger value="all" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">All Applicants</TabsTrigger>
+            <TabsTrigger value="shortlisted" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Shortlisted</TabsTrigger>
+            <TabsTrigger value="pending" className="flex-1 rounded-xl text-xs font-normal data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm">Pending</TabsTrigger>
           </TabsList>
 
           <div className="mt-8 space-y-6">
@@ -97,7 +95,7 @@ export default function ReviewApplicantsPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-start mb-2">
                       <div className="min-w-0">
-                        <h3 className="font-bold text-lg text-foreground truncate">{applicant.name}</h3>
+                        <h3 className="font-normal text-lg text-foreground truncate">{applicant.name}</h3>
                         <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium mt-0.5">
                           <GraduationCap className="h-3.5 w-3.5" />
                           <span className="truncate">{applicant.college}</span>
