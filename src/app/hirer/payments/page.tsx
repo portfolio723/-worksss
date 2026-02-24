@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
@@ -31,6 +31,8 @@ const pendingPayments = [
 ];
 
 export default function HirerPaymentsPage() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-background pb-20">
       <TopNav />
@@ -53,11 +55,18 @@ export default function HirerPaymentsPage() {
               </div>
             </div>
             <div className="flex gap-3">
-              <Button className="flex-1 bg-white text-accent hover:bg-white/90 h-10 font-bold rounded-xl">
+              <Button 
+                className="flex-1 bg-white text-accent hover:bg-white/90 h-10 font-bold rounded-xl"
+                onClick={() => router.push('/hirer/payments/add-funds')}
+              >
                 <Plus className="h-4 w-4 mr-1" />
                 Add Funds
               </Button>
-              <Button variant="ghost" className="flex-1 border border-white/30 hover:bg-white/10 text-white h-10 font-bold rounded-xl">
+              <Button 
+                variant="ghost" 
+                className="flex-1 border border-white/30 hover:bg-white/10 text-white h-10 font-bold rounded-xl"
+                onClick={() => router.push('/hirer/payments/invoices')}
+              >
                 <Download className="h-4 w-4 mr-1" />
                 Invoices
               </Button>
@@ -89,7 +98,11 @@ export default function HirerPaymentsPage() {
                         <p className="text-[10px] text-destructive font-medium">Due {payment.dueDate}</p>
                       </div>
                     </div>
-                    <Button size="sm" className="w-full mt-3 h-8 text-[10px] bg-secondary text-accent hover:bg-secondary/80 font-bold">
+                    <Button 
+                      size="sm" 
+                      className="w-full mt-3 h-8 text-[10px] bg-secondary text-accent hover:bg-secondary/80 font-bold"
+                      onClick={() => router.push(`/hirer/payments/review/${payment.id}`)}
+                    >
                       Review & Release
                     </Button>
                   </Card>
@@ -100,7 +113,13 @@ export default function HirerPaymentsPage() {
             <section>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Recent Activity</h3>
-                <Button variant="link" className="text-accent text-xs h-auto p-0">See all</Button>
+                <Button 
+                  variant="link" 
+                  className="text-accent text-xs h-auto p-0"
+                  onClick={() => router.push('/hirer/payments/history')}
+                >
+                  See all
+                </Button>
               </div>
               <div className="space-y-2">
                 {transactions.map((tx) => (
@@ -120,6 +139,20 @@ export default function HirerPaymentsPage() {
                 ))}
               </div>
             </section>
+          </TabsContent>
+
+          <TabsContent value="history">
+            <div className="text-center py-12">
+              <History className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-20" />
+              <p className="text-sm text-muted-foreground mb-6">Detailed transaction logs and filters.</p>
+              <Button 
+                variant="outline" 
+                className="rounded-xl border-accent text-accent"
+                onClick={() => router.push('/hirer/payments/history')}
+              >
+                View Full History
+              </Button>
+            </div>
           </TabsContent>
 
           <TabsContent value="methods">
