@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -37,7 +36,7 @@ export default function CreateJobPage() {
         <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="h-10 w-10 text-emerald-600" />
         </div>
-        <h1 className="text-2xl font-bold text-foreground mb-2">Internship Posted Successfully!</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-2">Job Posted Successfully!</h1>
         <p className="text-muted-foreground font-medium mb-8">
           Your Requirement Has Been Sent To Matching Students. You'll Hear From Them Soon.
         </p>
@@ -60,14 +59,14 @@ export default function CreateJobPage() {
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <h1 className="text-2xl font-bold text-foreground">Post New Internship</h1>
+          <h1 className="text-2xl font-bold text-foreground">Post New Job</h1>
         </div>
 
         <Card className="p-8 bg-white border-none shadow-sm rounded-3xl">
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Title */}
             <div className="space-y-3">
-              <Label htmlFor="title" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Internship Title</Label>
+              <Label htmlFor="title" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Job Title</Label>
               <Input id="title" placeholder="e.g. Social Media Marketing Intern" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
             </div>
 
@@ -167,7 +166,7 @@ export default function CreateJobPage() {
 
             <div className="pt-6">
               <Button type="submit" className="w-full h-16 text-lg bg-primary text-primary-foreground font-medium rounded-2xl shadow-xl hover:bg-primary/90">
-                Post Internship Now
+                Post Job Now
               </Button>
             </div>
           </form>
