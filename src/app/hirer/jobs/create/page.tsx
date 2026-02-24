@@ -70,38 +70,38 @@ export default function CreateJobPage() {
               <Input id="title" placeholder="e.g. Social Media Marketing Intern" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
             </div>
 
-            {/* Category & Urgency */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <Label htmlFor="category" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Category</Label>
-                <Select required>
-                  <SelectTrigger id="category" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="tech">Development</SelectItem>
-                    <SelectItem value="design">Design</SelectItem>
-                    <SelectItem value="marketing">Marketing</SelectItem>
-                    <SelectItem value="content">Content Writing</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-3">
-                <Label htmlFor="urgency" className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
-                  <Zap className="h-3 w-3" /> Urgency
-                </Label>
-                <Select required>
-                  <SelectTrigger id="urgency" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="immediate">Immediate</SelectItem>
-                    <SelectItem value="high">High Priority</SelectItem>
-                    <SelectItem value="flexible">Flexible</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            {/* Category */}
+            <div className="space-y-3">
+              <Label htmlFor="category" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Category</Label>
+              <Select required>
+                <SelectTrigger id="category" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="tech">Development</SelectItem>
+                  <SelectItem value="design">Design</SelectItem>
+                  <SelectItem value="marketing">Marketing</SelectItem>
+                  <SelectItem value="content">Content Writing</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Urgency */}
+            <div className="space-y-3">
+              <Label htmlFor="urgency" className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+                <Zap className="h-3 w-3" /> Urgency
+              </Label>
+              <Select required>
+                <SelectTrigger id="urgency" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="immediate">Immediate</SelectItem>
+                  <SelectItem value="high">High Priority</SelectItem>
+                  <SelectItem value="flexible">Flexible</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Description */}
@@ -115,39 +115,39 @@ export default function CreateJobPage() {
               />
             </div>
 
-            {/* Budget & Work Mode */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <Label htmlFor="budget" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Budget (₹/mo)</Label>
-                <Input id="budget" placeholder="e.g. ₹15,000" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
-              </div>
-              <div className="space-y-3">
-                <Label htmlFor="type" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Work Mode</Label>
-                <Select required>
-                  <SelectTrigger id="type" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="remote">Remote</SelectItem>
-                    <SelectItem value="onsite">On-Site</SelectItem>
-                    <SelectItem value="hybrid">Hybrid</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            {/* Budget */}
+            <div className="space-y-3">
+              <Label htmlFor="budget" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Budget (₹/mo)</Label>
+              <Input id="budget" placeholder="e.g. ₹15,000" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
             </div>
 
-            {/* Location & Start Date */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <Label htmlFor="location" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Location</Label>
-                <Input id="location" placeholder="e.g. Bangalore" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
-              </div>
-              <div className="space-y-3">
-                <Label htmlFor="startDate" className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
-                  <Clock className="h-3 w-3" /> Start Date
-                </Label>
-                <Input id="startDate" type="date" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary px-4" />
-              </div>
+            {/* Work Mode */}
+            <div className="space-y-3">
+              <Label htmlFor="type" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Work Mode</Label>
+              <Select required>
+                <SelectTrigger id="type" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="remote">Remote</SelectItem>
+                  <SelectItem value="onsite">On-Site</SelectItem>
+                  <SelectItem value="hybrid">Hybrid</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Location */}
+            <div className="space-y-3">
+              <Label htmlFor="location" className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Location</Label>
+              <Input id="location" placeholder="e.g. Bangalore" className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary" />
+            </div>
+
+            {/* Start Date */}
+            <div className="space-y-3">
+              <Label htmlFor="startDate" className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+                <Clock className="h-3 w-3" /> Start Date
+              </Label>
+              <Input id="startDate" type="date" required className="h-14 rounded-2xl bg-secondary/30 border-none text-base font-medium focus:ring-primary px-4" />
             </div>
 
             {/* Skills & Tools */}
