@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: '#works | Freelance Platform',
+  title: '# Works | Freelance Platform',
   description: 'Connect with talent or find your next project on WorkWave.',
 };
 
