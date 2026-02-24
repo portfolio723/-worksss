@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -50,7 +49,7 @@ export default function WorkerDashboard() {
         {/* Welcome Header */}
         <div className="flex flex-col gap-1">
           <h1 className="text-2xl font-black tracking-tight text-foreground">Namaste, Rohan</h1>
-          <p className="text-xs text-muted-foreground font-medium tracking-wider">Your Career Dashboard</p>
+          <p className="text-sm text-muted-foreground font-medium tracking-tight">Your Career Dashboard</p>
         </div>
 
         {/* 1. Earnings Summary */}
@@ -70,11 +69,11 @@ export default function WorkerDashboard() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-6">
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-xs font-normal opacity-80">Total Earned</p>
+                <p className="text-[10px] font-normal opacity-80">Total Earned</p>
                 <p className="text-sm font-bold">₹1.2L</p>
               </div>
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-xs font-normal opacity-80">In Clearance</p>
+                <p className="text-[10px] font-normal opacity-80">In Clearance</p>
                 <p className="text-sm font-bold">₹8,400</p>
               </div>
             </div>
@@ -106,7 +105,7 @@ export default function WorkerDashboard() {
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
               <Activity className="h-4 w-4 text-primary" /> Active Gigs
             </h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-medium" onClick={() => router.push('/worker/active-jobs')}>
+            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/active-jobs')}>
               See All
             </Button>
           </div>
@@ -140,7 +139,7 @@ export default function WorkerDashboard() {
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
               <Send className="h-4 w-4 text-primary" /> Applications
             </h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-medium" onClick={() => router.push('/worker/applied-jobs')}>
+            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/applied-jobs')}>
               Track
             </Button>
           </div>
@@ -168,7 +167,7 @@ export default function WorkerDashboard() {
             <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
               <Bookmark className="h-4 w-4 text-primary" /> Saved
             </h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-[10px] font-medium" onClick={() => router.push('/worker/saved-jobs')}>
+            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/saved-jobs')}>
               View All
             </Button>
           </div>
