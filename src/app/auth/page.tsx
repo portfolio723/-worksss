@@ -40,18 +40,18 @@ export default function AuthPage() {
         </div>
 
         {/* Tabs Segmented Control (Pill Style) */}
-        <div className="bg-[#F3F4F6] p-1.5 rounded-2xl flex">
+        <div className="bg-[#F3F4F6] p-1.5 rounded-2xl flex border border-slate-100 shadow-sm">
           <button 
             type="button"
             onClick={() => setIsLogin(false)}
-            className={`flex-1 py-3 text-sm font-bold rounded-xl transition-all ${!isLogin ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground'}`}
+            className={`flex-1 py-3 text-sm font-bold rounded-xl transition-all ${!isLogin ? 'bg-white shadow-sm text-foreground border border-slate-100' : 'text-muted-foreground'}`}
           >
             Sign Up
           </button>
           <button 
             type="button"
             onClick={() => setIsLogin(true)}
-            className={`flex-1 py-3 text-sm font-bold rounded-xl transition-all ${isLogin ? 'bg-white shadow-sm text-foreground' : 'text-muted-foreground'}`}
+            className={`flex-1 py-3 text-sm font-bold rounded-xl transition-all ${isLogin ? 'bg-white shadow-sm text-foreground border border-slate-100' : 'text-muted-foreground'}`}
           >
             Log In
           </button>
@@ -66,7 +66,7 @@ export default function AuthPage() {
                 <Input 
                   id="firstName" 
                   placeholder="Lorem" 
-                  className="h-14 rounded-2xl bg-white border-muted/30 text-base font-medium focus:ring-primary px-4"
+                  className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
                   required 
                 />
               </div>
@@ -75,7 +75,7 @@ export default function AuthPage() {
                 <Input 
                   id="lastName" 
                   placeholder="Ipsum" 
-                  className="h-14 rounded-2xl bg-white border-muted/30 text-base font-medium focus:ring-primary px-4"
+                  className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
                   required 
                 />
               </div>
@@ -88,7 +88,7 @@ export default function AuthPage() {
               id="email" 
               type="email" 
               placeholder="username@gmail.com" 
-              className="h-14 rounded-2xl bg-white border-muted/30 text-base font-medium focus:ring-primary px-4"
+              className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
               required 
             />
           </div>
@@ -96,8 +96,8 @@ export default function AuthPage() {
           {!isLogin ? (
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-xs font-bold text-muted-foreground ml-1">Phone Number</Label>
-              <div className="flex h-14 rounded-2xl border border-muted/30 overflow-hidden focus-within:ring-2 focus-within:ring-primary">
-                <div className="w-16 flex items-center justify-center border-r border-muted/30 bg-white">
+              <div className="flex h-14 rounded-2xl border border-slate-200 overflow-hidden focus-within:ring-2 focus-within:ring-primary shadow-sm">
+                <div className="w-16 flex items-center justify-center border-r border-slate-200 bg-white">
                   <ChevronDown className="h-4 w-4 text-muted-foreground" />
                 </div>
                 <Input 
@@ -116,13 +116,13 @@ export default function AuthPage() {
                 id="password" 
                 type="password" 
                 placeholder="*******" 
-                className="h-14 rounded-2xl bg-white border-muted/30 text-base font-medium focus:ring-primary px-4"
+                className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
                 required 
               />
             </div>
           )}
 
-          <Button type="submit" className="w-full h-14 text-base font-black bg-[#222] text-white hover:bg-black rounded-2xl shadow-lg mt-4">
+          <Button type="submit" className="w-full h-14 text-base font-black bg-[#222] text-white hover:bg-black rounded-2xl shadow-lg mt-4 border border-black">
             {isLogin ? 'Log In' : 'Register'}
           </Button>
         </form>
@@ -139,7 +139,7 @@ export default function AuthPage() {
 
         {/* Social Buttons Row */}
         <div className="grid grid-cols-4 gap-3">
-          <Button variant="outline" className="h-14 rounded-2xl border-muted/30 hover:bg-secondary/50 bg-white shadow-sm p-0">
+          <Button variant="outline" className="h-14 rounded-2xl border border-slate-200 hover:bg-secondary/50 bg-white shadow-sm p-0">
             <svg className="h-5 w-5" viewBox="0 0 24 24">
               <path
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -159,13 +159,13 @@ export default function AuthPage() {
               />
             </svg>
           </Button>
-          <Button variant="outline" className="h-14 rounded-2xl border-muted/30 hover:bg-secondary/50 bg-white shadow-sm p-0">
+          <Button variant="outline" className="h-14 rounded-2xl border border-slate-200 hover:bg-secondary/50 bg-white shadow-sm p-0">
             <Facebook className="h-6 w-6 text-[#1877F2] fill-[#1877F2]" />
           </Button>
-          <Button variant="outline" className="h-14 rounded-2xl border-muted/30 hover:bg-secondary/50 bg-white shadow-sm p-0">
+          <Button variant="outline" className="h-14 rounded-2xl border border-slate-200 hover:bg-secondary/50 bg-white shadow-sm p-0">
             <Apple className="h-6 w-6 text-black fill-black" />
           </Button>
-          <Button variant="outline" className="h-14 rounded-2xl border-muted/30 hover:bg-secondary/50 bg-white shadow-sm p-0">
+          <Button variant="outline" className="h-14 rounded-2xl border border-slate-200 hover:bg-secondary/50 bg-white shadow-sm p-0">
             <Smartphone className="h-6 w-6 text-muted-foreground" />
           </Button>
         </div>
