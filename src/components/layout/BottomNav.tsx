@@ -42,8 +42,8 @@ export function BottomNav({ role }: { role: 'hirer' | 'worker' }) {
     return (
       <nav className="bottom-nav hirer-theme border-t border-border/50 shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
         <NavItem href="/hirer" icon={<Home className="h-5 w-5" />} label="Home" />
-        <NavItem href="/hirer/jobs" icon={<Briefcase className="h-5 w-5" />} label="Jobs" />
         <NavItem href="/hirer/messages" icon={<MessageSquare className="h-5 w-5" />} label="Chats" />
+        <NavItem href="/hirer/jobs" icon={<Briefcase className="h-5 w-5" />} label="Jobs" />
         <NavItem href="/hirer/payments" icon={<CreditCard className="h-5 w-5" />} label="Pay" />
         <NavItem href="/hirer/profile" icon={<User className="h-5 w-5" />} label="Profile" />
       </nav>
