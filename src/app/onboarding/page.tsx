@@ -20,7 +20,11 @@ import {
   Smartphone,
   MessageSquare,
   Lock,
-  Search
+  Search,
+  Building2,
+  FileText,
+  CreditCard,
+  AlertCircle
 } from 'lucide-react';
 import {
   Select,
@@ -65,7 +69,7 @@ export default function OnboardingPage() {
           {step === 1 && <RoleSelectionStep onSelect={(r) => { setRole(r); nextStep(); }} />}
           {step === 2 && <ProfileSetupStep role={role} onNext={nextStep} onBack={prevStep} />}
           {step === 3 && <PreferencesStep role={role} onNext={nextStep} onBack={prevStep} />}
-          {step === 4 && <VerificationStep onNext={nextStep} onBack={prevStep} />}
+          {step === 4 && <KYCVerificationStep role={role} onNext={nextStep} onBack={prevStep} />}
           {step === 5 && <WalkthroughStep onNext={nextStep} />}
           {step === 6 && <SuccessStep onFinish={handleFinish} />}
         </main>
@@ -256,57 +260,99 @@ function PreferencesStep({ role, onNext, onBack }: { role: Role, onNext: () => v
   );
 }
 
-// --- Step 4: Verification ---
-function VerificationStep({ onNext, onBack }: { onNext: () => void, onBack: () => void }) {
+// --- Step 4: KYC Verification (Enhanced) ---
+function KYCVerificationStep({ role, onNext, onBack }: { role: Role, onNext: () => void, onBack: () => void }) {
+  const [kycStage, setKycStage] = useState<'id' | 'bank'>('id');
+
   return (
     <div className="space-y-8">
       <div className="text-center space-y-3">
-        <h1 className="text-3xl font-black tracking-tight">Verify Your Account</h1>
-        <p className="text-sm text-muted-foreground font-medium">To ensure safety and trust in our community.</p>
+        <h1 className="text-3xl font-black tracking-tight">Trust & Safety KYC</h1>
+        <p className="text-sm text-muted-foreground font-medium">Verify your identity and setup payments to start {role === 'hirer' ? 'hiring' : 'working'}.</p>
       </div>
 
-      <Card className="p-8 bg-white rounded-3xl space-y-6">
-        <div className="space-y-4">
-          <div className="flex items-center justify-between p-5 bg-emerald-50 rounded-2xl border border-emerald-100">
-            <div className="flex items-center gap-4">
-              <CheckCircle2 className="h-6 w-6 text-emerald-600" />
-              <div>
-                <p className="text-sm font-bold text-emerald-900">Email Verified</p>
-                <p className="text-[10px] text-emerald-700 font-medium">arjun@techshastra.in</p>
-              </div>
-            </div>
-            <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-          </div>
-
-          <div className="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100">
-            <div className="flex items-center gap-4">
-              <Smartphone className="h-6 w-6 text-slate-400" />
-              <div>
-                <p className="text-sm font-bold text-slate-900">Phone Verification</p>
-                <p className="text-[10px] text-slate-500 font-medium">Verify via OTP</p>
-              </div>
-            </div>
-            <Button size="sm" variant="ghost" className="text-xs font-bold text-primary">Verify</Button>
-          </div>
-
-          <div className="flex items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100">
-            <div className="flex items-center gap-4">
-              <ShieldCheck className="h-6 w-6 text-slate-400" />
-              <div>
-                <p className="text-sm font-bold text-slate-900">ID Verification</p>
-                <p className="text-[10px] text-slate-500 font-medium">Aadhar or PAN (Recommended)</p>
-              </div>
-            </div>
-            <Button size="sm" variant="ghost" className="text-xs font-bold text-primary">Verify</Button>
-          </div>
+      <Card className="p-8 bg-white rounded-[2.5rem] shadow-xl space-y-8 border-none overflow-hidden relative">
+        {/* Payment Required Info Banner */}
+        <div className="bg-primary/5 -mx-8 -mt-8 p-5 flex items-start gap-3 border-b border-primary/10">
+          <AlertCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+          <p className="text-[11px] text-primary/80 font-bold leading-relaxed">
+            <span className="text-primary font-black uppercase">Escrow Notice:</span> {role === 'hirer' ? 'Payment is required to be held in escrow before work starts to ensure talent security.' : 'All projects require hirers to deposit funds into escrow before you begin working.'}
+          </p>
         </div>
 
-        <div className="flex gap-4 pt-6">
-          <Button variant="ghost" className="flex-1 h-14 rounded-2xl font-medium" onClick={onBack}>Back</Button>
-          <Button className="flex-2 h-14 rounded-2xl bg-primary text-white font-medium shadow-xl px-10" onClick={onNext}>Verify Now</Button>
-        </div>
-        <Button variant="link" className="w-full text-xs text-muted-foreground font-bold" onClick={onNext}>Skip for Later</Button>
+        {kycStage === 'id' ? (
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-emerald-500" /> Identity Verification
+              </h3>
+              
+              <div className="space-y-2">
+                <Label className="text-[10px] font-black uppercase text-muted-foreground ml-1">Government ID (Aadhar/PAN)</Label>
+                <div className="h-16 rounded-2xl bg-slate-50 border-2 border-dashed border-slate-200 flex items-center justify-center gap-3 cursor-pointer hover:bg-slate-100 transition-colors">
+                  <FileText className="h-5 w-5 text-slate-400" />
+                  <span className="text-sm font-bold text-slate-500">Upload ID Front & Back</span>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-[10px] font-black uppercase text-muted-foreground ml-1">Selfie Verification</Label>
+                <Button variant="outline" className="w-full h-16 rounded-2xl gap-3 border-2 hover:bg-primary/5 hover:border-primary transition-all">
+                  <Camera className="h-5 w-5 text-primary" />
+                  <span className="font-bold">Take Live Selfie</span>
+                </Button>
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-[10px] font-black uppercase text-muted-foreground ml-1">Phone Number</Label>
+                <div className="flex h-14 rounded-2xl bg-slate-50 overflow-hidden border border-transparent focus-within:border-primary transition-all">
+                  <div className="w-16 flex items-center justify-center font-black text-sm border-r border-slate-200 text-slate-500 bg-slate-100/50">+91</div>
+                  <Input placeholder="Enter Mobile Number" className="border-none bg-transparent h-full px-4 font-bold text-sm" />
+                </div>
+              </div>
+            </div>
+
+            <Button className="w-full h-14 rounded-2xl bg-primary text-white font-bold shadow-lg" onClick={() => setKycStage('bank')}>
+              Continue to Bank Setup
+            </Button>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                <Building2 className="h-4 w-4 text-primary" /> {role === 'hirer' ? 'Payment Source' : 'Withdrawal Account'}
+              </h3>
+              
+              <div className="space-y-2">
+                <Label className="text-[10px] font-black uppercase text-muted-foreground ml-1">Bank Name</Label>
+                <Input placeholder="e.g. HDFC Bank" className="h-14 rounded-2xl bg-slate-50 border-none px-5 font-medium" />
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-[10px] font-black uppercase text-muted-foreground ml-1">Account Number</Label>
+                <div className="relative">
+                  <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                  <Input placeholder="•••• •••• •••• 4291" className="h-14 rounded-2xl bg-slate-50 border-none pl-12 font-medium" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-[10px] font-black uppercase text-muted-foreground ml-1">IFSC Code</Label>
+                <Input placeholder="HDFC0001234" className="h-14 rounded-2xl bg-slate-50 border-none px-5 font-medium" />
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <Button variant="ghost" className="flex-1 h-14 rounded-2xl font-bold" onClick={() => setKycStage('id')}>Back</Button>
+              <Button className="flex-2 h-14 rounded-2xl bg-primary text-white font-bold shadow-lg px-10" onClick={onNext}>Verify & Finish</Button>
+            </div>
+          </div>
+        )}
       </Card>
+      
+      <p className="text-center text-[10px] text-muted-foreground font-black uppercase tracking-widest px-10 leading-relaxed">
+        Your Data is Encrypted with AES-256 and stored securely in India.
+      </p>
     </div>
   );
 }
