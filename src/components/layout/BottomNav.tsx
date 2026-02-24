@@ -41,7 +41,7 @@ export function BottomNav({ role }: { role: 'hirer' | 'worker' }) {
   if (role === 'hirer') {
     return (
       <nav className="bottom-nav hirer-theme border-t border-border/50 shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
-        <NavItem href="/hirer" icon={<Home className="h-5 w-5" />} label="Home" />
+        <NavItem href="/hirer" icon={<Home className="h-5 w-5" />} label="Dashboard" />
         <NavItem href="/hirer/messages" icon={<MessageSquare className="h-5 w-5" />} label="Chats" />
         <NavItem href="/hirer/jobs/create" icon={<Plus className="h-5 w-5" />} label="Post" />
         <NavItem href="/hirer/payments" icon={<CreditCard className="h-5 w-5" />} label="Pay" />
@@ -52,7 +52,7 @@ export function BottomNav({ role }: { role: 'hirer' | 'worker' }) {
 
   return (
     <nav className="bottom-nav worker-theme border-t border-border/40 shadow-[0_-4px_10px_rgba(0,0,0,0.04)]">
-      <NavItem href="/worker" icon={<Home className="h-5 w-5" />} label="Home" />
+      <NavItem href="/worker" icon={<Home className="h-5 w-5" />} label="Dashboard" />
       <NavItem href="/worker/browse" icon={<Search className="h-5 w-5" />} label="Browse" />
       <NavItem href="/worker/messages" icon={<MessageSquare className="h-5 w-5" />} label="Chats" />
       <NavItem href="/worker/earnings" icon={<Wallet className="h-5 w-5" />} label="Earn" />
