@@ -1,3 +1,4 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -7,6 +8,7 @@ import { Wallet, Briefcase, Bookmark, Star, MapPin, Progress } from 'lucide-reac
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress as ProgressUI } from '@/components/ui/progress';
+import { useRouter } from 'next/navigation';
 
 const recommendedJobs = [
   {
@@ -26,6 +28,8 @@ const recommendedJobs = [
 ];
 
 export default function WorkerDashboard() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-background pb-20">
       <TopNav />
@@ -38,7 +42,10 @@ export default function WorkerDashboard() {
           </div>
         </div>
 
-        <Card className="p-6 bg-accent text-white mb-8 shadow-xl overflow-hidden relative">
+        <Card 
+          className="p-6 bg-accent text-white mb-8 shadow-xl overflow-hidden relative cursor-pointer active:scale-95 transition-transform"
+          onClick={() => router.push('/worker/earnings')}
+        >
           <div className="relative z-10">
             <span className="text-sm opacity-80 mb-1 block">Total Earnings</span>
             <div className="flex items-center justify-between mb-4">
@@ -78,7 +85,7 @@ export default function WorkerDashboard() {
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-bold">Curated for Students</h2>
             </div>
-            <Button variant="link" className="text-accent h-auto p-0">Filter</Button>
+            <Button variant="link" className="text-accent h-auto p-0" onClick={() => router.push('/worker/browse')}>Filter</Button>
           </div>
           
           <div className="space-y-4">

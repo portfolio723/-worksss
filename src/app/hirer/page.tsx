@@ -1,9 +1,10 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
-import { Plus, Clock, Users, CheckCircle2, Star, MapPin } from 'lucide-react';
+import { Plus, Clock, Users, CheckCircle2, Star, MapPin, CreditCard } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useRouter } from 'next/navigation';
@@ -48,13 +49,23 @@ export default function HirerDashboard() {
           <p className="text-muted-foreground">You have 5 new student applications today.</p>
         </div>
 
-        <Button 
-          className="w-full h-14 rounded-2xl bg-accent mb-8 shadow-lg text-lg"
-          onClick={() => router.push('/hirer/jobs/create')}
-        >
-          <Plus className="mr-2 h-5 w-5" />
-          Post an Internship
-        </Button>
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          <Button 
+            className="h-14 rounded-2xl bg-accent shadow-lg text-sm flex-1"
+            onClick={() => router.push('/hirer/jobs/create')}
+          >
+            <Plus className="mr-2 h-4 w-4" />
+            Post Internship
+          </Button>
+          <Button 
+            variant="outline"
+            className="h-14 rounded-2xl bg-white border-none shadow-md text-sm flex-1 text-accent"
+            onClick={() => router.push('/hirer/payments')}
+          >
+            <CreditCard className="mr-2 h-4 w-4" />
+            Pay Stipends
+          </Button>
+        </div>
 
         <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 mb-6">
           {stats.map((stat) => (
