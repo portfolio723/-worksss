@@ -16,6 +16,7 @@ const stats = [
 
 const recentApplicants = [
   {
+    id: 'a1',
     name: 'Ananya Sharma',
     role: 'Fullstack Intern',
     rating: 4.9,
@@ -24,6 +25,7 @@ const recentApplicants = [
     avatar: 'https://picsum.photos/seed/s1/100/100'
   },
   {
+    id: 'a2',
     name: 'Vikram Malhotra',
     role: 'Content Writer',
     rating: 4.7,
@@ -142,7 +144,13 @@ export default function HirerDashboard() {
                     </div>
                     <div className="flex gap-2">
                       <Button size="sm" variant="outline" className="flex-1 h-8 text-xs">Profile</Button>
-                      <Button size="sm" className="flex-1 h-8 text-xs bg-accent">Message</Button>
+                      <Button 
+                        size="sm" 
+                        className="flex-1 h-8 text-xs bg-accent"
+                        onClick={() => router.push(`/messages/${applicant.id}`)}
+                      >
+                        Message
+                      </Button>
                     </div>
                   </div>
                 </div>

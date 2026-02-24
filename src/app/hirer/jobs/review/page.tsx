@@ -167,7 +167,7 @@ export default function ReviewApplicantsPage() {
                   <Button 
                     variant="ghost" 
                     className="h-10 text-xs gap-2 text-accent"
-                    onClick={() => router.push(`/messages?userId=${applicant.id}`)}
+                    onClick={() => router.push(`/messages/${applicant.id}`)}
                   >
                     <MessageSquare className="h-4 w-4" />
                     Chat
