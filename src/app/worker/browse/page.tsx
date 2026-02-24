@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -13,7 +12,8 @@ import {
   MapPin, 
   Clock, 
   Bookmark,
-  X
+  X,
+  ChevronRight
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -93,16 +93,21 @@ export default function BrowseJobs() {
   const [stipendValue, setStipendValue] = useState([5000]);
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="worker-theme min-h-screen bg-background pb-20">
       <TopNav />
       
       <main className="content-area">
-        <div className="flex gap-2 mb-4">
+        <div className="mb-6">
+          <h1 className="text-3xl font-black">Browse Jobs</h1>
+          <p className="text-sm text-muted-foreground mt-1">Find Your Next Big Opportunity.</p>
+        </div>
+
+        <div className="flex gap-3 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input 
-              className="pl-10 h-12 rounded-xl bg-white border-none shadow-sm" 
-              placeholder="Search Internships Or Projects..." 
+              className="pl-12 h-14 rounded-2xl bg-white border-border shadow-sm text-base focus:ring-primary" 
+              placeholder="Search Roles..." 
             />
           </div>
           
@@ -110,41 +115,33 @@ export default function BrowseJobs() {
             <SheetTrigger asChild>
               <Button 
                 variant="outline" 
-                className="h-12 w-12 rounded-xl bg-white border-none shadow-sm hover:bg-accent hover:text-white transition-all group"
+                className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-primary hover:text-white transition-all group"
               >
-                <SlidersHorizontal className="h-5 w-5 text-accent group-hover:text-white" />
+                <SlidersHorizontal className="h-6 w-6 text-primary group-hover:text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] rounded-l-3xl p-6">
-              <SheetHeader className="mb-6">
-                <SheetTitle className="text-xl font-bold">Advanced Filters</SheetTitle>
+            <SheetContent side="right" className="worker-theme w-[320px] sm:w-[400px] p-6 border-l">
+              <SheetHeader className="mb-8">
+                <SheetTitle className="text-2xl font-black">Filters</SheetTitle>
               </SheetHeader>
               
-              <div className="space-y-8 overflow-y-auto max-h-[calc(100vh-200px)] pr-2 no-scrollbar">
-                {/* Work Type */}
-                <div className="space-y-4">
-                  <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Work Type</h3>
-                  <RadioGroup defaultValue="remote" className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <RadioGroupItem value="remote" id="r-remote" />
-                      <Label htmlFor="r-remote" className="font-medium">Remote Work</Label>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <RadioGroupItem value="onsite" id="r-onsite" />
-                      <Label htmlFor="r-onsite" className="font-medium">On-Site Work</Label>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <RadioGroupItem value="hybrid" id="r-hybrid" />
-                      <Label htmlFor="r-hybrid" className="font-medium">Hybrid Model</Label>
-                    </div>
+              <div className="space-y-10 overflow-y-auto max-h-[calc(100vh-220px)] pr-2 no-scrollbar">
+                <div className="space-y-5">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Work Mode</h3>
+                  <RadioGroup defaultValue="remote" className="space-y-4">
+                    {['Remote', 'On-Site', 'Hybrid'].map(mode => (
+                      <div key={mode} className="flex items-center space-x-3">
+                        <RadioGroupItem value={mode.toLowerCase()} id={mode} />
+                        <Label htmlFor={mode} className="font-bold text-sm">{mode}</Label>
+                      </div>
+                    ))}
                   </RadioGroup>
                 </div>
 
-                {/* Stipend Range */}
-                <div className="space-y-4">
+                <div className="space-y-5">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Min Stipend</h3>
-                    <span className="text-sm font-bold text-accent">₹{stipendValue[0].toLocaleString()}</span>
+                    <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Stipend</h3>
+                    <span className="text-sm font-black">₹{stipendValue[0].toLocaleString()}</span>
                   </div>
                   <Slider 
                     defaultValue={[5000]} 
@@ -153,33 +150,16 @@ export default function BrowseJobs() {
                     onValueChange={setStipendValue}
                     className="py-4"
                   />
-                  <div className="flex justify-between text-[10px] text-muted-foreground font-bold">
-                    <span>₹0</span>
-                    <span>₹50,000+</span>
-                  </div>
                 </div>
 
-                {/* Skills */}
-                <div className="space-y-4">
-                  <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Skills Required</h3>
-                  <div className="grid grid-cols-1 gap-3">
+                <div className="space-y-5">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Skills</h3>
+                  <div className="space-y-3">
                     {skillOptions.map((skill) => (
                       <div key={skill} className="flex items-center space-x-3">
                         <Checkbox id={`skill-${skill}`} />
-                        <Label htmlFor={`skill-${skill}`} className="font-medium">{skill}</Label>
+                        <Label htmlFor={`skill-${skill}`} className="font-bold text-sm">{skill}</Label>
                       </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Duration */}
-                <div className="space-y-4">
-                  <h3 className="text-sm font-bold tracking-wider text-muted-foreground">Duration</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {['1 Month', '3 Months', '6 Months'].map(d => (
-                      <Badge key={d} variant="outline" className="px-3 py-1 cursor-pointer hover:bg-accent hover:text-white border-muted">
-                        {d}
-                      </Badge>
                     ))}
                   </div>
                 </div>
@@ -187,8 +167,8 @@ export default function BrowseJobs() {
 
               <SheetFooter className="absolute bottom-6 left-6 right-6">
                 <SheetClose asChild>
-                  <Button className="w-full h-12 bg-accent rounded-xl font-bold shadow-lg">
-                    Apply Better Findings
+                  <Button className="w-full h-14 bg-primary text-primary-foreground rounded-2xl font-black shadow-2xl">
+                    Apply Filters
                   </Button>
                 </SheetClose>
               </SheetFooter>
@@ -196,13 +176,13 @@ export default function BrowseJobs() {
           </Sheet>
         </div>
 
-        <ScrollArea className="w-full whitespace-nowrap mb-6 -mx-4 px-4">
+        <ScrollArea className="w-full whitespace-nowrap mb-8 -mx-4 px-4">
           <div className="flex gap-2 pb-2">
             {quickFilters.map(filter => (
               <Badge 
                 key={filter} 
                 variant="secondary" 
-                className="px-4 py-1.5 rounded-full bg-white shadow-sm border-none font-medium cursor-pointer hover:bg-accent hover:text-accent-foreground transition-all"
+                className="px-5 py-2 rounded-full bg-white shadow-sm border border-border font-bold text-xs cursor-pointer hover:bg-primary hover:text-white transition-all"
               >
                 {filter}
               </Badge>
@@ -212,54 +192,51 @@ export default function BrowseJobs() {
         </ScrollArea>
 
         <div className="space-y-4">
-          <h2 className="text-lg font-bold mb-4">Available Opportunities</h2>
           {jobs.map((job) => (
-            <Card key={job.id} className="p-4 bg-white border-none shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex justify-between items-start mb-2">
+            <Card key={job.id} className="p-5 bg-white border-border/50 hover:border-primary transition-all shadow-sm group">
+              <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="font-bold text-base">{job.title}</h3>
-                  <p className="text-xs text-accent font-medium">{job.company}</p>
+                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{job.title}</h3>
+                  <p className="text-xs font-bold text-muted-foreground">{job.company}</p>
                 </div>
-                <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground">
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:bg-secondary rounded-xl">
                   <Bookmark className="h-5 w-5" />
                 </Button>
               </div>
               
-              <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground mb-4">
-                <div className="flex items-center gap-1">
-                  <span className="font-bold text-foreground">Stipend:</span>
+              <div className="grid grid-cols-2 gap-y-3 text-xs text-muted-foreground mb-6">
+                <div className="flex items-center gap-2">
+                  <span className="font-black text-foreground">Stipend:</span>
                   {job.budget}
                 </div>
-                <div className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
                   {job.location}
                 </div>
-                <div className="flex items-center gap-1">
-                  <Clock className="h-3 w-3" />
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4" />
                   {job.time}
                 </div>
               </div>
 
-              <div className="flex gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {job.tags.map(tag => (
-                  <span key={tag} className="text-[10px] bg-primary/10 text-accent px-2 py-0.5 rounded-full font-bold">
+                  <span key={tag} className="text-[10px] bg-secondary text-primary px-3 py-1 rounded-full font-black">
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="flex gap-2 pt-2 border-t">
+              <div className="flex gap-3 pt-4 border-t border-border/50">
                 <Button 
-                  size="sm" 
-                  variant="outline" 
-                  className="flex-1 h-10 rounded-xl border-accent text-accent font-bold"
+                  variant="outline"
+                  className="flex-1 h-11 rounded-xl border-border font-bold"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   View Details
                 </Button>
                 <Button 
-                  size="sm" 
-                  className="flex-1 h-10 rounded-xl bg-accent font-bold"
+                  className="flex-1 h-11 rounded-xl bg-primary text-primary-foreground font-bold shadow-md"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   Apply Now
