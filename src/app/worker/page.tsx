@@ -13,16 +13,29 @@ import {
   Star, 
   Send,
   Briefcase,
-  Activity
+  Activity,
+  Zap
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress as ProgressUI } from '@/components/ui/progress';
 import { useRouter } from 'next/navigation';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const activeJobs = [
   { id: 'aj1', title: 'React Dev Intern', company: 'TechShastra', deadline: 'Next Week', progress: 65 },
   { id: 'aj2', title: 'UI Design Fixes', company: 'Creatives Hub', deadline: '2 Days Left', progress: 40 },
+];
+
+const recommendedJobs = [
+  { id: '1', title: 'UI/UX Designer', company: 'Zomato', stipend: '₹20,000/mo', type: 'Remote', location: 'New Delhi' },
+  { id: '2', title: 'Backend Developer', company: 'Razorpay', stipend: '₹30,000/mo', type: 'Hybrid', location: 'Bangalore' },
+  { id: '3', title: 'Content Writer', company: 'Swiggy', stipend: '₹15,000/mo', type: 'Remote', location: 'Mumbai' },
+  { id: '4', title: 'Marketing Intern', company: 'Zepto', stipend: '₹12,000/mo', type: 'On-site', location: 'Hyderabad' },
 ];
 
 const appliedJobs = [
@@ -133,6 +146,53 @@ export default function WorkerDashboard() {
           </div>
         </section>
 
+        {/* NEW: Recommended Jobs Carousel */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
+              <Zap className="h-4 w-4 text-amber-500 fill-amber-500" /> Recommended Gigs
+            </h2>
+            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/browse')}>
+              Browse More
+            </Button>
+          </div>
+          <Carousel className="w-full overflow-hidden -mx-4 px-4" opts={{ align: "start", dragFree: true }}>
+            <CarouselContent className="-ml-4">
+              {recommendedJobs.map((job) => (
+                <CarouselItem key={job.id} className="pl-4 basis-[280px]">
+                  <Card className="p-5 flex flex-col gap-4 bg-white border-none shadow-sm rounded-3xl h-full justify-between">
+                    <div>
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="font-bold text-base text-foreground leading-tight">{job.title}</h3>
+                        <Badge className="bg-emerald-50 text-emerald-700 text-[9px] font-black uppercase tracking-widest">{job.type}</Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground font-medium mb-4">{job.company}</p>
+                      
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-bold">
+                          <Wallet className="h-3 w-3 text-primary" />
+                          <span>{job.stipend}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-bold">
+                          <MapPin className="h-3 w-3 text-primary" />
+                          <span>{job.location}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <Button 
+                      className="w-full h-10 rounded-xl bg-primary text-white text-xs font-medium shadow-md mt-2"
+                      onClick={() => router.push(`/worker/jobs/${job.id}`)}
+                    >
+                      Apply Now
+                    </Button>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </section>
+
         {/* 4. Applied Jobs */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
@@ -140,7 +200,7 @@ export default function WorkerDashboard() {
               <Send className="h-4 w-4 text-primary" /> Applications
             </h2>
             <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/applied-jobs')}>
-              Track
+              See All
             </Button>
           </div>
           <div className="space-y-3">
@@ -168,7 +228,7 @@ export default function WorkerDashboard() {
               <Bookmark className="h-4 w-4 text-primary" /> Saved
             </h2>
             <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/saved-jobs')}>
-              View All
+              See All
             </Button>
           </div>
           <div className="space-y-3">
