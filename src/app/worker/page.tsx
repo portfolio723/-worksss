@@ -85,7 +85,7 @@ export default function WorkerDashboard() {
         {/* 2. Profile Completion Tracker */}
         <Card className="p-5 border-none bg-white shadow-sm rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xs font-black text-foreground tracking-tight">Profile Completion</h2>
+            <h2 className="text-sm font-black text-foreground tracking-tight">Profile Completion</h2>
             <Badge variant="secondary" className="bg-primary/10 text-primary font-black text-[10px]">75%</Badge>
           </div>
           <ProgressUI value={75} className="h-2 bg-secondary rounded-full" />
