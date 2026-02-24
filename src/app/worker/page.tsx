@@ -70,11 +70,11 @@ export default function WorkerDashboard() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-6">
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[10px] font-normal opacity-80">Total Earned</p>
+                <p className="text-xs font-normal opacity-80">Total Earned</p>
                 <p className="text-sm font-bold">₹1.2L</p>
               </div>
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[10px] font-normal opacity-80">In Clearance</p>
+                <p className="text-xs font-normal opacity-80">In Clearance</p>
                 <p className="text-sm font-bold">₹8,400</p>
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function WorkerDashboard() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-base truncate">{job.title}</h3>
-                  <p className="text-[10px] text-muted-foreground font-medium">{job.company} • {job.date}</p>
+                  <p className="text-xs text-muted-foreground font-medium">{job.company} • {job.date}</p>
                 </div>
                 <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 font-bold text-[10px]">
                   {job.status}
