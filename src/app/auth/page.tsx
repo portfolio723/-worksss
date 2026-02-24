@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -5,10 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useRouter } from 'next/navigation';
-import { Facebook, Apple, Smartphone, ChevronDown } from 'lucide-react';
+import { Facebook, Apple, Smartphone, ChevronDown, Info } from 'lucide-react';
 
 export default function AuthPage() {
-  const [isLogin, setIsLogin] = useState(false); // Default to Sign Up as per image
+  const [isLogin, setIsLogin] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -21,6 +22,23 @@ export default function AuthPage() {
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
     router.push('/role-selection');
+  };
+
+  const handleDemoFill = (role: 'student' | 'recruiter') => {
+    setIsLogin(true);
+    if (role === 'student') {
+      setFormData({
+        ...formData,
+        email: 'student@workwave.in',
+        password: 'password123'
+      });
+    } else {
+      setFormData({
+        ...formData,
+        email: 'hr@techshastra.in',
+        password: 'password123'
+      });
+    }
   };
 
   return (
@@ -57,6 +75,34 @@ export default function AuthPage() {
           </button>
         </div>
 
+        {/* Demo Credentials Box */}
+        <div className="p-4 bg-primary/5 border border-primary/10 rounded-2xl text-left space-y-3">
+          <div className="flex items-center gap-2 text-primary">
+            <Info className="h-4 w-4" />
+            <span className="text-[10px] font-black uppercase tracking-widest">Demo Access</span>
+          </div>
+          <div className="flex gap-2">
+            <Button 
+              type="button"
+              variant="outline" 
+              size="sm" 
+              className="flex-1 h-9 text-[10px] font-bold bg-white border-slate-200 rounded-xl"
+              onClick={() => handleDemoFill('student')}
+            >
+              Student
+            </Button>
+            <Button 
+              type="button"
+              variant="outline" 
+              size="sm" 
+              className="flex-1 h-9 text-[10px] font-bold bg-white border-slate-200 rounded-xl"
+              onClick={() => handleDemoFill('recruiter')}
+            >
+              Recruiter
+            </Button>
+          </div>
+        </div>
+
         {/* Form */}
         <form onSubmit={handleAuth} className="space-y-5 text-left">
           {!isLogin && (
@@ -66,6 +112,8 @@ export default function AuthPage() {
                 <Input 
                   id="firstName" 
                   placeholder="Lorem" 
+                  value={formData.firstName}
+                  onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                   className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
                   required 
                 />
@@ -75,6 +123,8 @@ export default function AuthPage() {
                 <Input 
                   id="lastName" 
                   placeholder="Ipsum" 
+                  value={formData.lastName}
+                  onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                   className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
                   required 
                 />
@@ -88,6 +138,8 @@ export default function AuthPage() {
               id="email" 
               type="email" 
               placeholder="username@gmail.com" 
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
               className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
               required 
             />
@@ -105,6 +157,8 @@ export default function AuthPage() {
                   id="phone" 
                   type="tel" 
                   placeholder="98876543210" 
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   className="border-none h-full text-base font-medium focus-visible:ring-0 px-4"
                   required 
                 />
@@ -117,6 +171,8 @@ export default function AuthPage() {
                 id="password" 
                 type="password" 
                 placeholder="*******" 
+                value={formData.password}
+                onChange={(e) => setFormData({...formData, password: e.target.value})}
                 className="h-14 rounded-2xl bg-white border border-slate-200 text-base font-medium focus:ring-primary px-4 shadow-sm"
                 required 
               />
