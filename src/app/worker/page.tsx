@@ -36,7 +36,7 @@ const savedJobs = [
 ];
 
 const reviews = [
-  { id: 'r1', client: 'Arjun Mehta', company: 'TechShastra', rating: 5, comment: "Exceptional quality of work and timely delivery. Highly recommended!", date: 'Oct 12' },
+  { id: 'r1', client: 'Arjun Mehta', company: 'TechShastra', rating: 5, comment: "Exceptional Quality Of Work And Timely Delivery. Highly Recommended!", date: 'Oct 12' },
 ];
 
 export default function WorkerDashboard() {
@@ -90,7 +90,7 @@ export default function WorkerDashboard() {
           </div>
           <ProgressUI value={75} className="h-2 bg-secondary rounded-full" />
           <p className="text-[10px] text-muted-foreground leading-relaxed font-medium">
-            Verify your college ID to unlock premium high-stipend internships.
+            Verify Your College ID To Unlock Premium High-Stipend Internships.
           </p>
           <Button 
             className="w-full h-10 rounded-xl bg-secondary text-primary hover:bg-primary hover:text-white transition-all text-xs font-medium"
