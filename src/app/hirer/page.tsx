@@ -37,7 +37,6 @@ export default function HirerDashboard() {
       <main className="content-area">
         <div className="mb-6">
           <h1 className="text-2xl font-bold">Namaste, Arjun</h1>
-          <p className="text-muted-foreground">You Have 5 New Student Applications Today.</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-8">

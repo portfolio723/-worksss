@@ -1,6 +1,7 @@
+
 "use client"
 
-import { Bell, Menu } from 'lucide-react';
+import { Bell } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
@@ -14,9 +15,6 @@ export function TopNav() {
   return (
     <nav className="top-nav">
       <div className="flex items-center gap-1">
-        <Button variant="ghost" size="icon" className="h-10 w-10 text-accent md:hidden hover:bg-accent/10 rounded-xl">
-          <Menu className="h-5 w-5" />
-        </Button>
         <Link 
           href={isHirer ? "/hirer" : "/worker"} 
           className="text-2xl font-black text-accent tracking-tighter hover:opacity-80 transition-opacity px-2"
