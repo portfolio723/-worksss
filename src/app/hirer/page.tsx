@@ -64,7 +64,7 @@ export default function HirerDashboard() {
                 <stat.icon className="h-5 w-5" />
               </div>
               <span className="text-3xl font-bold text-foreground mt-2">{stat.value}</span>
-              <span className="text-[11px] text-muted-foreground font-bold uppercase tracking-tight">{stat.label}</span>
+              <span className="text-[11px] text-muted-foreground font-bold tracking-tight">{stat.label}</span>
             </Card>
           ))}
         </div>

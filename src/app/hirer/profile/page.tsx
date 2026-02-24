@@ -75,7 +75,7 @@ export default function HirerProfilePage() {
           {profileData.stats.map((stat) => (
             <Card key={stat.label} className="p-4 text-center border-none shadow-sm bg-white rounded-2xl">
               <p className="text-lg font-bold text-primary">{stat.value}</p>
-              <p className="text-[10px] text-muted-foreground font-black uppercase tracking-tight mt-1">{stat.label}</p>
+              <p className="text-[10px] text-muted-foreground font-black tracking-tight mt-1">{stat.label}</p>
             </Card>
           ))}
         </div>
