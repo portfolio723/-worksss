@@ -9,7 +9,20 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
-const filters = ['Remote', 'Internship', 'High Stipend', 'Tech', 'Marketing', 'Writing'];
+const filters = [
+  'Remote', 
+  'Internship', 
+  'Part-time',
+  'React', 
+  'Figma', 
+  'Python', 
+  'Node.js',
+  '₹5k - ₹10k', 
+  '₹10k - ₹20k', 
+  '₹20k+',
+  'Marketing', 
+  'Content Writing'
+];
 
 const jobs = [
   {
@@ -55,17 +68,27 @@ export default function BrowseJobs() {
         <div className="flex gap-2 mb-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input className="pl-10 h-12 rounded-xl bg-white border-none shadow-sm" placeholder="Search internships or projects..." />
+            <Input 
+              className="pl-10 h-12 rounded-xl bg-white border-none shadow-sm" 
+              placeholder="Search Internships or Projects..." 
+            />
           </div>
-          <Button variant="outline" className="h-12 w-12 rounded-xl bg-white border-none shadow-sm">
-            <SlidersHorizontal className="h-5 w-5 text-accent" />
+          <Button 
+            variant="outline" 
+            className="h-12 w-12 rounded-xl bg-white border-none shadow-sm hover:bg-accent hover:text-white transition-all group"
+          >
+            <SlidersHorizontal className="h-5 w-5 text-accent group-hover:text-white" />
           </Button>
         </div>
 
         <ScrollArea className="w-full whitespace-nowrap mb-6 -mx-4 px-4">
           <div className="flex gap-2 pb-2">
             {filters.map(filter => (
-              <Badge key={filter} variant="secondary" className="px-4 py-1.5 rounded-full bg-white shadow-sm border-none font-medium cursor-pointer hover:bg-accent hover:text-white transition-colors">
+              <Badge 
+                key={filter} 
+                variant="secondary" 
+                className="px-4 py-1.5 rounded-full bg-white shadow-sm border-none font-medium cursor-pointer hover:bg-accent hover:text-accent-foreground transition-all"
+              >
                 {filter}
               </Badge>
             ))}
@@ -74,6 +97,7 @@ export default function BrowseJobs() {
         </ScrollArea>
 
         <div className="space-y-4">
+          <h2 className="text-lg font-bold mb-4">Available Opportunities</h2>
           {jobs.map((job) => (
             <Card key={job.title} className="p-4 bg-white border-none shadow-sm hover:shadow-md transition-shadow">
               <div className="flex justify-between items-start mb-2">
@@ -110,7 +134,7 @@ export default function BrowseJobs() {
               </div>
 
               <div className="flex gap-2 pt-2 border-t">
-                <Button size="sm" variant="outline" className="flex-1 h-10 rounded-xl border-accent text-accent">Details</Button>
+                <Button size="sm" variant="outline" className="flex-1 h-10 rounded-xl border-accent text-accent">View Details</Button>
                 <Button size="sm" className="flex-1 h-10 rounded-xl bg-accent">Apply Now</Button>
               </div>
             </Card>
