@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -69,7 +68,7 @@ export default function WorkerDashboard() {
       <main className="content-area px-4 py-6 space-y-8">
         {/* Welcome Header */}
         <div className="flex flex-col gap-1">
-          <h1 className="text-2xl font-black tracking-tight text-foreground">Namaste, Rohan</h1>
+          <h1 className="text-2xl font-normal tracking-tight text-foreground">Namaste, Rohan</h1>
           <p className="text-sm text-muted-foreground font-medium tracking-tight">Your Career Dashboard</p>
         </div>
 
@@ -82,7 +81,7 @@ export default function WorkerDashboard() {
             <div className="flex justify-between items-start mb-4">
               <div>
                 <span className="text-sm opacity-90 font-medium tracking-tight">Available Balance</span>
-                <div className="text-3xl font-black mt-1 tracking-tighter">₹42,500.00</div>
+                <div className="text-3xl font-normal mt-1 tracking-tighter">₹42,500.00</div>
               </div>
               <div className="bg-white/20 p-2.5 rounded-2xl">
                 <Wallet className="h-6 w-6" />
@@ -105,7 +104,7 @@ export default function WorkerDashboard() {
         {/* 2. Profile Completion Tracker */}
         <Card className="p-5 border-none bg-white shadow-sm rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-black text-foreground tracking-tight">Profile Completion</h2>
+            <h2 className="text-sm font-normal text-foreground tracking-tight">Profile Completion</h2>
             <Badge variant="secondary" className="bg-primary/10 text-primary font-black text-[10px]">75%</Badge>
           </div>
           <ProgressUI value={75} className="h-2 bg-secondary rounded-full" />
@@ -123,7 +122,7 @@ export default function WorkerDashboard() {
         {/* 3. Active Jobs */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
+            <h2 className="text-sm font-normal tracking-tight flex items-center gap-2">
               <Activity className="h-4 w-4 text-primary" /> Active Gigs
             </h2>
             <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/active-jobs')}>
@@ -135,7 +134,7 @@ export default function WorkerDashboard() {
               <Card key={job.id} className="p-4 border-none bg-white shadow-sm rounded-2xl space-y-3">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="font-bold text-base leading-tight">{job.title}</h3>
+                    <h3 className="font-normal text-base leading-tight">{job.title}</h3>
                     <p className="text-xs text-muted-foreground font-medium">{job.company}</p>
                   </div>
                   <Badge variant="outline" className="text-[10px] font-black text-primary border-primary/20">
@@ -157,7 +156,7 @@ export default function WorkerDashboard() {
         {/* 4. Recommended Jobs Carousel */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
+            <h2 className="text-sm font-normal tracking-tight flex items-center gap-2">
               <Zap className="h-4 w-4 text-amber-500 fill-amber-500" /> Recommended Gigs
             </h2>
             <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/browse')}>
@@ -171,7 +170,7 @@ export default function WorkerDashboard() {
                   <Card className="p-5 flex flex-col gap-4 bg-white border-none shadow-sm rounded-3xl h-full justify-between">
                     <div>
                       <div className="flex justify-between items-start mb-2">
-                        <h3 className="font-bold text-base text-foreground leading-tight">{job.title}</h3>
+                        <h3 className="font-normal text-base text-foreground leading-tight">{job.title}</h3>
                         <Badge className="bg-emerald-50 text-emerald-700 text-[9px] font-black uppercase tracking-widest">{job.type}</Badge>
                       </div>
                       <p className="text-xs text-muted-foreground font-medium mb-4">{job.company}</p>
@@ -204,7 +203,7 @@ export default function WorkerDashboard() {
         {/* 5. Applied Jobs */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
+            <h2 className="text-sm font-normal tracking-tight flex items-center gap-2">
               <Send className="h-4 w-4 text-primary" /> Applications
             </h2>
             <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/applied-jobs')}>
@@ -218,7 +217,7 @@ export default function WorkerDashboard() {
                   <Briefcase className="h-5 w-5 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-base truncate">{job.title}</h3>
+                  <h3 className="font-normal text-base truncate">{job.title}</h3>
                   <p className="text-xs text-muted-foreground font-medium">{job.company} • {job.date}</p>
                 </div>
                 <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 font-bold text-[10px]">
@@ -232,7 +231,7 @@ export default function WorkerDashboard() {
         {/* 6. Client Feedback Section */}
         <section className="space-y-4 pt-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-black tracking-tight flex items-center gap-2">
+            <h2 className="text-sm font-normal tracking-tight flex items-center gap-2">
               <Star className="h-4 w-4 text-primary fill-primary" /> Performance Report
             </h2>
             <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/reviews')}>
@@ -246,7 +245,7 @@ export default function WorkerDashboard() {
                   <Star className="h-5 w-5 text-primary fill-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm">{latestReview.client}</h3>
+                  <h3 className="font-normal text-sm">{latestReview.client}</h3>
                   <p className="text-xs text-muted-foreground font-medium">{latestReview.company}</p>
                 </div>
                 <div className="ml-auto flex gap-0.5">

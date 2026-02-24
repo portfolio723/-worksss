@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -46,11 +45,11 @@ export default function AuthPage() {
     <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6 text-center max-w-md mx-auto">
       <div className="w-full space-y-8">
         <div className="flex justify-center">
-          <span className="text-4xl font-black text-foreground">#</span>
+          <span className="text-4xl font-normal text-foreground">#</span>
         </div>
 
         <div className="space-y-3">
-          <h1 className="text-3xl font-black tracking-tight text-foreground">Get Started now</h1>
+          <h1 className="text-3xl font-normal tracking-tight text-foreground">Get Started now</h1>
           <p className="text-sm text-muted-foreground font-medium px-4 leading-relaxed">
             Create an account or log in to explore about our app
           </p>

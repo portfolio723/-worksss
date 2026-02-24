@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -83,7 +82,7 @@ function RoleSelectionStep({ onSelect }: { onSelect: (r: Role) => void }) {
   return (
     <div className="space-y-8">
       <div className="text-center space-y-3">
-        <h1 className="text-3xl font-black tracking-tight">How will you use the platform?</h1>
+        <h1 className="text-3xl font-normal tracking-tight">How will you use the platform?</h1>
         <p className="text-sm text-muted-foreground font-medium">Choose your primary goal. You can switch later anytime.</p>
       </div>
       <div className="space-y-4">
@@ -96,7 +95,7 @@ function RoleSelectionStep({ onSelect }: { onSelect: (r: Role) => void }) {
               <Users className="h-8 w-8" />
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-black tracking-tight">I Want to Hire</h3>
+              <h3 className="text-xl font-normal tracking-tight">I Want to Hire</h3>
               <p className="text-xs text-muted-foreground font-medium">Post jobs, review candidates, and hire talent.</p>
             </div>
           </div>
@@ -110,7 +109,7 @@ function RoleSelectionStep({ onSelect }: { onSelect: (r: Role) => void }) {
               <Briefcase className="h-8 w-8" />
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-black tracking-tight">I Want to Work</h3>
+              <h3 className="text-xl font-normal tracking-tight">I Want to Work</h3>
               <p className="text-xs text-muted-foreground font-medium">Find jobs, connect with clients, and earn money.</p>
             </div>
           </div>
@@ -125,7 +124,7 @@ function ProfileSetupStep({ role, onNext, onBack }: { role: Role, onNext: () => 
   return (
     <div className="space-y-8">
       <div className="text-center space-y-3">
-        <h1 className="text-3xl font-black tracking-tight">
+        <h1 className="text-3xl font-normal tracking-tight">
           {role === 'hirer' ? 'Set Up Your Hiring Profile' : 'Build Your Professional Profile'}
         </h1>
         <p className="text-sm text-muted-foreground font-medium">
@@ -209,7 +208,7 @@ function PreferencesStep({ role, onNext, onBack }: { role: Role, onNext: () => v
   return (
     <div className="space-y-8">
       <div className="text-center space-y-3">
-        <h1 className="text-3xl font-black tracking-tight">
+        <h1 className="text-3xl font-normal tracking-tight">
           {role === 'hirer' ? 'What Are You Hiring For?' : 'What Jobs Are You Looking For?'}
         </h1>
         <p className="text-sm text-muted-foreground font-medium">Set your preferences to find the best matches.</p>
@@ -267,7 +266,7 @@ function KYCVerificationStep({ role, onNext, onBack }: { role: Role, onNext: () 
   return (
     <div className="space-y-8">
       <div className="text-center space-y-3">
-        <h1 className="text-3xl font-black tracking-tight">Trust & Safety KYC</h1>
+        <h1 className="text-3xl font-normal tracking-tight">Trust & Safety KYC</h1>
         <p className="text-sm text-muted-foreground font-medium">Verify your identity and setup payments to start {role === 'hirer' ? 'hiring' : 'working'}.</p>
       </div>
 
@@ -283,7 +282,7 @@ function KYCVerificationStep({ role, onNext, onBack }: { role: Role, onNext: () 
         {kycStage === 'id' ? (
           <div className="space-y-6">
             <div className="space-y-4">
-              <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+              <h3 className="text-xs font-normal uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-emerald-500" /> Identity Verification
               </h3>
               
@@ -319,7 +318,7 @@ function KYCVerificationStep({ role, onNext, onBack }: { role: Role, onNext: () 
         ) : (
           <div className="space-y-6">
             <div className="space-y-4">
-              <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+              <h3 className="text-xs font-normal uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                 <Building2 className="h-4 w-4 text-primary" /> {role === 'hirer' ? 'Payment Source' : 'Withdrawal Account'}
               </h3>
               
@@ -371,7 +370,7 @@ function WalkthroughStep({ onNext }: { onNext: () => void }) {
   return (
     <div className="space-y-8">
       <div className="text-center space-y-3">
-        <h1 className="text-3xl font-black tracking-tight">Here's How It Works</h1>
+        <h1 className="text-3xl font-normal tracking-tight">Here's How It Works</h1>
       </div>
 
       <Card className="p-8 bg-white rounded-[3rem] shadow-xl text-center space-y-8 min-h-[400px] flex flex-col justify-center">
@@ -381,7 +380,7 @@ function WalkthroughStep({ onNext }: { onNext: () => void }) {
           </div>
         </div>
         <div className="space-y-3">
-          <h2 className="text-2xl font-black tracking-tight">{current.title}</h2>
+          <h2 className="text-2xl font-normal tracking-tight">{current.title}</h2>
           <p className="text-sm text-muted-foreground font-medium leading-relaxed px-4">{current.desc}</p>
         </div>
         
@@ -416,7 +415,7 @@ function SuccessStep({ onFinish }: { onFinish: () => void }) {
           </div>
         </div>
         <div className="space-y-3">
-          <h1 className="text-3xl font-black tracking-tight">You're All Set!</h1>
+          <h1 className="text-3xl font-normal tracking-tight">You're All Set!</h1>
           <p className="text-sm text-muted-foreground font-medium px-4 leading-relaxed">
             Your dashboard is ready. Start exploring opportunities now.
           </p>

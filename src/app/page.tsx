@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect } from 'react';
@@ -41,7 +40,7 @@ export default function EntryPage() {
         <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6 overflow-hidden">
           <div className="w-16 h-16 bg-primary rounded-xl animate-bounce" />
         </div>
-        <h1 className="text-4xl font-black text-primary tracking-tighter">#works</h1>
+        <h1 className="text-4xl font-normal text-primary tracking-tighter">#works</h1>
         <p className="text-muted-foreground mt-2 font-bold">Career Simplified.</p>
       </div>
     );
@@ -73,7 +72,7 @@ export default function EntryPage() {
           />
         </div>
         
-        <h2 className="text-3xl font-black mb-4 px-2 leading-tight tracking-tight text-foreground">
+        <h2 className="text-3xl font-normal mb-4 px-2 leading-tight tracking-tight text-foreground">
           {currentStep.title}
         </h2>
         <p className="text-sm text-muted-foreground px-4 mb-8 font-medium leading-relaxed">
