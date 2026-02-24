@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "splash-logo",
+      "description": "Clean modern logo with waves and a work icon",
+      "imageUrl": "https://images.unsplash.com/photo-1743812342748-fe2f4a681094?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsb2dvJTIwd2F2ZXN8ZW58MHx8fHwxNzcxOTE1NjczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo waves"
+    },
+    {
+      "id": "onboarding-1",
+      "description": "Earn While You Learn Asset",
+      "imageUrl": "/W1.svg",
+      "imageHint": "student working"
+    },
+    {
+      "id": "onboarding-2",
+      "description": "Launch Your Career Asset",
+      "imageUrl": "/W2.svg",
+      "imageHint": "career collaboration"
+    },
+    {
+      "id": "onboarding-3",
+      "description": "Secure Stipends Asset",
+      "imageUrl": "/W3.jpeg",
+      "imageHint": "financial success"
+    },
+    {
+      "id": "avatar-worker-default",
+      "description": "Professional portrait of a young Indian student",
+      "imageUrl": "https://images.unsplash.com/photo-1637589308599-3478cc55510d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxpbmRpYW4lMjBzdHVkZW50fGVufDB8fHx8MTc3MTkxNTY3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian student"
+    },
+    {
+      "id": "avatar-worker-female",
+      "description": "Professional portrait of a female Indian student",
+      "imageUrl": "https://images.unsplash.com/photo-1622049605334-72e1e4432346?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjBnaXJsfGVufDB8fHx8MTc3MTkxNTY3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian girl"
+    },
+    {
+      "id": "avatar-hirer-default",
+      "description": "Professional portrait of an Indian entrepreneur",
+      "imageUrl": "https://images.unsplash.com/photo-1656221009071-f48d220be74e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aW5kaWFuJTIwYnVzaW5lc3NtYW58ZW58MHx8fHwxNzcxOTE1NjcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian businessman"
+    }
+  ]
 }
