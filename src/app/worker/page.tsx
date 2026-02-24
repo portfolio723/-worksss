@@ -40,7 +40,6 @@ export default function WorkerDashboard() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-bold">Hi, Rohan</h1>
-            <p className="text-muted-foreground">Found 12 internships matching your profile.</p>
           </div>
         </div>
 
@@ -58,11 +57,11 @@ export default function WorkerDashboard() {
             </div>
             <div className="flex gap-4">
               <div className="flex-1">
-                <span className="text-[10px] opacity-80 uppercase font-bold tracking-wider">Active Gigs</span>
+                <span className="text-[10px] opacity-80 font-bold tracking-wider">Active Gigs</span>
                 <p className="text-xl font-bold">2</p>
               </div>
               <div className="flex-1 border-l border-white/20 pl-4">
-                <span className="text-[10px] opacity-80 uppercase font-bold tracking-wider">Rating</span>
+                <span className="text-[10px] opacity-80 font-bold tracking-wider">Rating</span>
                 <div className="flex items-center gap-1">
                   <p className="text-xl font-bold">4.8</p>
                   <Star className="h-4 w-4 fill-white text-white" />
@@ -75,24 +74,34 @@ export default function WorkerDashboard() {
 
         <section className="mb-8">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Profile Completion</h2>
+            <h2 className="text-sm font-bold text-muted-foreground tracking-widest">Profile Completion</h2>
             <span className="text-sm font-bold text-accent">75%</span>
           </div>
           <ProgressUI value={75} className="h-2 bg-primary/20" />
-          <p className="text-[10px] text-muted-foreground mt-2">Add your college ID & portfolio to get verified.</p>
+          <div className="flex items-center justify-between mt-2">
+            <p className="text-[10px] text-muted-foreground">Add your college ID & portfolio to get verified.</p>
+            <Button 
+              size="sm" 
+              variant="link" 
+              className="text-accent h-auto p-0 text-[10px] font-bold"
+              onClick={() => router.push('/profile?role=worker')}
+            >
+              Complete Profile
+            </Button>
+          </div>
         </section>
 
         <section className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <h2 className="text-lg font-bold">Curated for Students</h2>
+              <h2 className="text-lg font-bold">Curated For Students</h2>
             </div>
             <Button 
               variant="link" 
               className="text-accent h-auto p-0" 
               onClick={() => router.push('/worker/browse')}
             >
-              Filter
+              View All
             </Button>
           </div>
           
