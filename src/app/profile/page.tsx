@@ -47,11 +47,11 @@ function ProfileContent() {
 
   const profileData = isWorker ? {
     name: "Rohan Gupta",
-    sub: "Final Year Student • IIT Bombay",
-    email: "rohan.g@iitb.ac.in",
+    sub: "Final Year Student • IIT Hyderabad",
+    email: "rohan.g@iith.ac.in",
     avatar: "https://picsum.photos/seed/avatar_in_2/200/200",
     bio: "Passionate Frontend Developer specializing in React and Next.js. Looking for summer internships and remote gigs.",
-    location: "Mumbai, MH",
+    location: "Hyderabad, TS",
     skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Figma"],
     education: "B.Tech in Computer Science (2020 - 2024)",
     stats: [
@@ -65,7 +65,7 @@ function ProfileContent() {
     email: "arjun@techshastra.in",
     avatar: "https://picsum.photos/seed/avatar_in_1/200/200",
     bio: "Building the next generation of fintech solutions. Always looking for ambitious student developers to join our growing team.",
-    location: "Bangalore, KA",
+    location: "Hyderabad, TS",
     company: "TechShastra Solutions Pvt Ltd",
     industry: "Financial Technology",
     stats: [
@@ -157,7 +157,7 @@ function ProfileContent() {
                     </div>
                     <div>
                       <p className="text-sm font-bold">Bachelor of Technology</p>
-                      <p className="text-xs text-muted-foreground">IIT Bombay • 2020-2024</p>
+                      <p className="text-xs text-muted-foreground">IIT Hyderabad • 2020-2024</p>
                     </div>
                   </div>
                 </Card>

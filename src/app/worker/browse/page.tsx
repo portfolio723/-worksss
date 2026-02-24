@@ -51,9 +51,9 @@ const jobs = [
   {
     id: '1',
     title: 'React Native Intern',
-    company: 'GoMobile India',
+    company: 'GoMobile Hyderabad',
     budget: '₹25,000 /mo',
-    location: 'Gurgaon / Remote',
+    location: 'Hitech City / Remote',
     time: '4h ago',
     tags: ['Mobile', 'React Native', 'Expo']
   },
@@ -71,7 +71,7 @@ const jobs = [
     title: 'Marketing Campus Lead',
     company: 'EduScale',
     budget: '₹10,000 + Perks',
-    location: 'Mumbai University Area',
+    location: 'Jubilee Hills Area',
     time: '1d ago',
     tags: ['Leadership', 'Marketing', 'Events']
   },

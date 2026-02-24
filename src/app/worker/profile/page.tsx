@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -33,11 +32,11 @@ export default function WorkerProfilePage() {
 
   const profileData = {
     name: "Rohan Gupta",
-    sub: "Final Year Student • IIT Bombay",
-    email: "rohan.g@iitb.ac.in",
+    sub: "Final Year Student • IIT Hyderabad",
+    email: "rohan.g@iith.ac.in",
     avatar: workerAvatar?.imageUrl || "https://picsum.photos/seed/student-male/200/200",
     bio: "Passionate Frontend Developer Specializing In React And Next.js. Looking For Summer Internships And Remote Gigs.",
-    location: "Mumbai, MH",
+    location: "Hyderabad, TS",
     skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Figma"],
     education: "B.Tech In Computer Science (2020 - 2024)",
     stats: [
@@ -78,7 +77,7 @@ export default function WorkerProfilePage() {
           {profileData.stats.map((stat) => (
             <Card key={stat.label} className="p-3 text-center border-border/50 shadow-sm bg-white rounded-2xl">
               <p className="text-sm font-black text-primary">{stat.value}</p>
-              <p className="text-xs text-muted-foreground font-black tracking-tight mt-1">{stat.label}</p>
+              <p className="text-xs text-muted-foreground font-bold tracking-tight mt-1">{stat.label}</p>
             </Card>
           ))}
         </div>
@@ -125,7 +124,7 @@ export default function WorkerProfilePage() {
                 </div>
                 <div>
                   <p className="text-sm font-black">Bachelor Of Technology</p>
-                  <p className="text-xs text-muted-foreground font-bold">IIT Bombay • 2020-2024</p>
+                  <p className="text-xs text-muted-foreground font-bold">IIT Hyderabad • 2020-2024</p>
                 </div>
               </div>
             </Card>

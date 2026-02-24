@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRouter, useParams } from 'next/navigation';
@@ -28,8 +27,8 @@ export default function StudentProfileView() {
   const student = {
     name: "Ananya Sharma",
     role: "Fullstack Developer",
-    college: "IIT Delhi",
-    location: "New Delhi",
+    college: "IIT Hyderabad",
+    location: "Kandi, HYD",
     rating: 4.9,
     bio: "Final Year Computer Science Student With A Passion For Building Scalable Web Applications. Experienced In React, Next.js, And Node.js. Completed 3 Internships With Top Startups.",
     skills: ["React", "Next.js", "Node.js", "Tailwind", "Firebase", "TypeScript"],

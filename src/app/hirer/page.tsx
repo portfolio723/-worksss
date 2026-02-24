@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -21,7 +20,7 @@ const recentApplicants = [
     name: 'Ananya Sharma',
     role: 'Fullstack Intern',
     rating: 4.9,
-    location: 'IIT Delhi',
+    location: 'IIT Hyderabad',
     skills: ['Next.js', 'Firebase', 'Tailwind'],
     avatar: 'https://picsum.photos/seed/s1/100/100'
   }
@@ -72,7 +71,7 @@ export default function HirerDashboard() {
 
         <section className="mb-10">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Live Listings</h2>
+            <h2 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Live Listings</h2>
             <Button variant="link" className="text-xs font-bold text-primary p-0 h-auto" onClick={() => router.push('/hirer/jobs')}>
               View All Postings
             </Button>

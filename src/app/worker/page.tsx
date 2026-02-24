@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -15,7 +14,7 @@ const recommendedJobs = [
     id: '1',
     title: 'Frontend Intern (Next.js)',
     budget: '₹20,000/mo',
-    location: 'Bangalore / Remote',
+    location: 'Hyderabad / Remote',
     skills: ['Next.js', 'Tailwind', 'React'],
     match: '98%'
   }
@@ -26,7 +25,7 @@ const nearbyGigs = [
     id: 'g1',
     title: 'Website Bug Fix',
     budget: '₹2,500',
-    location: 'Indiranagar, BLR',
+    location: 'Gachibowli, HYD',
     distance: '0.8 km away',
     type: 'Gig',
     time: 'Due in 2h'
@@ -35,7 +34,7 @@ const nearbyGigs = [
     id: 'g2',
     title: 'Logo Design Refresh',
     budget: '₹1,200',
-    location: 'Koramangala, BLR',
+    location: 'Madhapur, HYD',
     distance: '1.5 km away',
     type: 'Gig',
     time: 'Starts Today'
@@ -76,7 +75,7 @@ export default function WorkerDashboard() {
 
         <section className="mb-10">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xs font-black text-muted-foreground tracking-widest uppercase">Profile Progress</h2>
+            <h2 className="text-xs font-bold text-muted-foreground tracking-widest">Profile Progress</h2>
             <span className="text-xs font-black">75%</span>
           </div>
           <ProgressUI value={75} className="h-2 bg-secondary rounded-full" />
@@ -145,7 +144,6 @@ export default function WorkerDashboard() {
           </div>
         </section>
 
-        {/* Top Gigs Near Your Surroundings */}
         <section className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">

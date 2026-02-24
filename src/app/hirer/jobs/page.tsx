@@ -37,7 +37,7 @@ const myPostings = [
     status: 'Active',
     applicants: 8,
     views: 92,
-    location: 'Bangalore, KA',
+    location: 'Hitech City, HYD',
     type: 'Gig'
   },
   {
@@ -59,7 +59,7 @@ const myPostings = [
     status: 'Draft',
     applicants: 0,
     views: 0,
-    location: 'Mumbai, MH',
+    location: 'Banjara Hills, HYD',
     type: 'Internship'
   }
 ];

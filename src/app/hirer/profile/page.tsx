@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -36,7 +35,7 @@ export default function HirerProfilePage() {
     email: "arjun@techshastra.in",
     avatar: "https://picsum.photos/seed/hirer-arjun/200/200",
     bio: "Building The Next Generation Of Fintech Solutions. Always Looking For Ambitious Student Developers To Join Our Growing Team.",
-    location: "Bangalore, KA",
+    location: "Hyderabad, TS",
     company: "TechShastra Solutions Pvt Ltd",
     industry: "Financial Technology",
     stats: [
