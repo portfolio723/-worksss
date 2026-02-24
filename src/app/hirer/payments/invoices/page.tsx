@@ -19,55 +19,55 @@ export default function InvoicesPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="hirer-theme min-h-screen bg-background pb-20">
       <TopNav />
       
-      <main className="content-area max-w-lg mx-auto">
-        <div className="flex items-center gap-4 mb-6">
+      <main className="content-area max-w-lg mx-auto px-6">
+        <div className="flex items-center gap-4 mb-8">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-xl hover:bg-secondary"
             onClick={() => router.back()}
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
           <div>
-            <h1 className="text-2xl font-bold">Invoices</h1>
-            <p className="text-xs text-muted-foreground">Download GST compliant bills</p>
+            <h1 className="text-2xl font-bold text-foreground">Invoices</h1>
+            <p className="text-sm text-muted-foreground font-medium">Download GST Compliant Bills</p>
           </div>
         </div>
 
-        <div className="relative mb-6">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input className="pl-10 h-12 bg-white border-none shadow-sm rounded-xl" placeholder="Search by ID or date..." />
+        <div className="relative mb-8">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Input className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-medium focus:ring-primary" placeholder="Search By ID Or Date..." />
         </div>
 
         <div className="space-y-4">
           {mockInvoices.map((inv) => (
-            <Card key={inv.id} className="p-4 bg-white border-none shadow-sm rounded-xl overflow-hidden">
-              <div className="flex gap-4">
-                <div className="bg-secondary/50 p-3 rounded-xl flex items-center justify-center">
-                  <FileText className="h-6 w-6 text-accent" />
+            <Card key={inv.id} className="p-6 bg-white border-none shadow-sm rounded-3xl overflow-hidden">
+              <div className="flex gap-5">
+                <div className="bg-primary/10 p-4 rounded-2xl flex items-center justify-center h-fit">
+                  <FileText className="h-7 w-7 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-bold text-sm truncate">{inv.id}</h3>
-                    <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-bold text-base text-foreground truncate">{inv.id}</h3>
+                    <span className="text-[10px] bg-emerald-500 text-white px-3 py-1 rounded-lg font-black uppercase tracking-widest shadow-sm">
                       {inv.status}
                     </span>
                   </div>
-                  <p className="text-[11px] text-muted-foreground mb-3 flex items-center gap-1">
-                    <Calendar className="h-3 w-3" />
+                  <p className="text-xs text-muted-foreground mb-4 flex items-center gap-1.5 font-medium">
+                    <Calendar className="h-3.5 w-3.5" />
                     {inv.date} • {inv.type}
                   </p>
-                  <div className="flex items-center justify-between pt-3 border-t">
+                  <div className="flex items-center justify-between pt-4 border-t border-muted/50">
                     <div>
-                      <span className="text-sm font-bold">{inv.amount}</span>
-                      <span className="text-[9px] text-muted-foreground ml-2">({inv.tax})</span>
+                      <span className="text-base font-bold text-foreground">{inv.amount}</span>
+                      <span className="text-[10px] text-muted-foreground font-black ml-2">({inv.tax})</span>
                     </div>
-                    <Button variant="ghost" size="sm" className="h-8 text-[10px] font-bold text-accent gap-1">
-                      <Download className="h-3 w-3" />
+                    <Button variant="ghost" size="sm" className="h-10 px-4 text-xs font-bold text-primary gap-1.5 hover:bg-primary/5 rounded-xl">
+                      <Download className="h-4 w-4" />
                       Download
                     </Button>
                   </div>
@@ -77,11 +77,11 @@ export default function InvoicesPage() {
           ))}
         </div>
 
-        <div className="mt-8 text-center bg-blue-50 p-6 rounded-2xl">
-          <p className="text-xs text-blue-700 leading-relaxed font-medium">
-            Need consolidated quarterly reports for tax filing? 
+        <div className="mt-10 text-center bg-primary/5 p-8 rounded-3xl border border-primary/10">
+          <p className="text-sm text-primary leading-relaxed font-bold">
+            Need Consolidated Quarterly Reports For Tax Filing? 
             <br />
-            <Button variant="link" className="text-blue-700 font-bold underline decoration-blue-700 h-auto p-0 mt-2">
+            <Button variant="link" className="text-primary font-black underline decoration-primary h-auto p-0 mt-3 text-sm">
               Email Reports
             </Button>
           </p>

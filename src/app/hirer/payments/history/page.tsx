@@ -33,38 +33,38 @@ export default function PaymentHistoryPage() {
   const [activeFilter, setActiveFilter] = useState('all');
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="hirer-theme min-h-screen bg-background pb-20">
       <TopNav />
       
-      <main className="content-area max-w-lg mx-auto">
-        <div className="flex items-center gap-4 mb-6">
+      <main className="content-area max-w-lg mx-auto px-6">
+        <div className="flex items-center gap-4 mb-8">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-xl hover:bg-secondary"
             onClick={() => router.back()}
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <h1 className="text-2xl font-bold">Transaction History</h1>
+          <h1 className="text-2xl font-bold text-foreground">Transaction History</h1>
         </div>
 
-        <div className="flex gap-2 mb-6">
+        <div className="flex gap-3 mb-8">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input className="pl-10 h-12 bg-white border-none shadow-sm rounded-xl" placeholder="Search by name..." />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-medium focus:ring-primary" placeholder="Search By Name..." />
           </div>
-          <Button variant="outline" className="h-12 w-12 rounded-xl bg-white border-none shadow-sm">
-            <Filter className="h-5 w-5 text-accent" />
+          <Button variant="outline" className="h-14 w-14 rounded-2xl bg-white border-none shadow-sm">
+            <Filter className="h-6 w-6 text-primary" />
           </Button>
         </div>
 
-        <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 mb-2">
+        <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar -mx-6 px-6 mb-4">
           {['All', 'Stipends', 'Deposits', 'Fees'].map(filter => (
             <Badge 
               key={filter} 
               variant={activeFilter === filter.toLowerCase() ? 'default' : 'outline'}
-              className={`px-4 py-1.5 rounded-full cursor-pointer whitespace-nowrap ${activeFilter === filter.toLowerCase() ? 'bg-accent border-accent' : 'bg-white'}`}
+              className={`px-6 py-2 rounded-xl cursor-pointer whitespace-nowrap font-bold text-xs transition-all ${activeFilter === filter.toLowerCase() ? 'bg-primary text-primary-foreground border-primary shadow-md' : 'bg-white border-slate-200 text-muted-foreground'}`}
               onClick={() => setActiveFilter(filter.toLowerCase())}
             >
               {filter}
@@ -72,26 +72,26 @@ export default function PaymentHistoryPage() {
           ))}
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {allTransactions.map((tx) => (
-            <Card key={tx.id} className="p-4 bg-white border-none shadow-sm rounded-xl">
+            <Card key={tx.id} className="p-5 bg-white border-none shadow-sm rounded-3xl hover:bg-secondary/20 transition-colors">
               <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-xl ${tx.type === 'Deposit' ? 'bg-green-100 text-green-600' : 'bg-blue-50 text-accent'}`}>
-                  {tx.type === 'Deposit' ? <ArrowDownLeft className="h-5 w-5" /> : <ArrowUpRight className="h-5 w-5" />}
+                <div className={`p-3.5 rounded-2xl ${tx.type === 'Deposit' ? 'bg-emerald-100 text-emerald-600' : 'bg-primary/10 text-primary'}`}>
+                  {tx.type === 'Deposit' ? <ArrowDownLeft className="h-6 w-6" /> : <ArrowUpRight className="h-6 w-6" />}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-bold text-sm truncate">{tx.recipient}</h3>
-                    <span className="text-sm font-bold">{tx.amount}</span>
+                    <h3 className="font-bold text-sm text-foreground truncate">{tx.recipient}</h3>
+                    <span className="text-base font-bold text-foreground">{tx.amount}</span>
                   </div>
                   <div className="flex justify-between items-end">
-                    <p className="text-[10px] text-muted-foreground flex items-center gap-1">
+                    <p className="text-[10px] text-muted-foreground font-bold flex items-center gap-1 uppercase tracking-tight">
                       <Calendar className="h-3 w-3" />
                       {tx.date} • {tx.type}
                     </p>
-                    <p className={`text-[10px] font-bold ${tx.status === 'Completed' ? 'text-green-600' : 'text-yellow-600'}`}>
+                    <Badge variant="outline" className={`text-[9px] font-black h-5 uppercase tracking-widest ${tx.status === 'Completed' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : 'bg-amber-50 text-amber-700 border-amber-100'}`}>
                       {tx.status}
-                    </p>
+                    </Badge>
                   </div>
                 </div>
               </div>
@@ -99,8 +99,8 @@ export default function PaymentHistoryPage() {
           ))}
         </div>
 
-        <Button className="w-full mt-8 h-12 rounded-xl border-dashed border-2 border-muted bg-transparent text-muted-foreground hover:bg-muted/5 font-bold gap-2">
-          <Download className="h-4 w-4" />
+        <Button className="w-full mt-10 h-16 rounded-2xl border-dashed border-2 border-muted bg-transparent text-muted-foreground hover:bg-primary/5 hover:text-primary transition-all font-bold gap-3 shadow-sm">
+          <Download className="h-5 w-5" />
           Export All Transactions (CSV)
         </Button>
       </main>

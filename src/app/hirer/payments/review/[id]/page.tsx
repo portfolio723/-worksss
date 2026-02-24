@@ -10,9 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { 
   ArrowLeft, 
   CheckCircle2, 
-  Clock, 
   FileText, 
-  ShieldCheck, 
   AlertCircle,
   Calendar,
   IndianRupee
@@ -63,117 +61,117 @@ export default function ReviewPaymentPage() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
-        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-          <CheckCircle2 className="h-10 w-10 text-green-600" />
+      <div className="hirer-theme min-h-screen bg-background flex flex-col items-center justify-center p-6 text-center">
+        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+          <CheckCircle2 className="h-10 w-10 text-emerald-600" />
         </div>
-        <h1 className="text-2xl font-bold mb-2">Stipend Released!</h1>
-        <p className="text-muted-foreground mb-8">
-          The payment of {payment.amount} has been successfully sent to {payment.student}.
+        <h1 className="text-2xl font-bold text-foreground mb-2">Stipend Released!</h1>
+        <p className="text-muted-foreground font-medium mb-8 leading-relaxed">
+          The Payment Of {payment.amount} Has Been Successfully Sent To {payment.student}.
         </p>
-        <p className="text-sm text-accent animate-pulse font-medium">Updating balance...</p>
+        <p className="text-sm text-primary animate-pulse font-bold">Updating Balance...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="hirer-theme min-h-screen bg-background pb-20">
       <TopNav />
       
-      <main className="content-area max-w-lg mx-auto">
-        <div className="flex items-center gap-4 mb-6">
+      <main className="content-area max-w-lg mx-auto px-6">
+        <div className="flex items-center gap-4 mb-8">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-xl hover:bg-secondary"
             onClick={() => router.back()}
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <h1 className="text-2xl font-bold">Review Stipend</h1>
+          <h1 className="text-2xl font-bold text-foreground">Review Stipend</h1>
         </div>
 
-        <Card className="p-6 bg-white border-none shadow-sm rounded-2xl mb-6">
-          <div className="flex items-center gap-4 mb-6">
+        <Card className="p-8 bg-white border-none shadow-sm rounded-3xl mb-8">
+          <div className="flex items-center gap-5 mb-8">
             <img 
               src={payment.avatar} 
               alt={payment.student} 
-              className="w-16 h-16 rounded-2xl object-cover"
+              className="w-20 h-20 rounded-2xl object-cover shadow-md"
               data-ai-hint="indian student"
             />
             <div>
-              <h2 className="text-lg font-bold">{payment.student}</h2>
-              <p className="text-xs text-muted-foreground">{payment.role} • {payment.college}</p>
-              <Badge variant="outline" className="mt-1 text-[10px] text-accent border-accent">
+              <h2 className="text-xl font-bold text-foreground">{payment.student}</h2>
+              <p className="text-sm text-muted-foreground font-medium">{payment.role} • {payment.college}</p>
+              <Badge variant="outline" className="mt-2 text-[10px] text-primary border-primary bg-primary/5 font-black uppercase tracking-widest">
                 {payment.status}
               </Badge>
             </div>
           </div>
 
-          <div className="space-y-4 pt-4 border-t">
+          <div className="space-y-5 pt-6 border-t border-muted/50">
             <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2.5 text-muted-foreground">
                 <Calendar className="h-4 w-4" />
-                <span className="text-xs font-medium">Period</span>
+                <span className="text-xs font-bold uppercase tracking-tight">Period</span>
               </div>
-              <span className="text-xs font-bold">{payment.period}</span>
+              <span className="text-sm font-bold text-foreground">{payment.period}</span>
             </div>
 
             <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2 text-muted-foreground">
+              <div className="flex items-center gap-2.5 text-muted-foreground">
                 <FileText className="h-4 w-4" />
-                <span className="text-xs font-medium">Milestone</span>
+                <span className="text-xs font-bold uppercase tracking-tight">Milestone</span>
               </div>
-              <span className="text-xs font-bold text-right max-w-[150px] truncate">{payment.milestone}</span>
+              <span className="text-sm font-bold text-foreground text-right max-w-[180px] truncate">{payment.milestone}</span>
             </div>
 
-            <div className="flex justify-between items-center py-2 bg-secondary/20 px-3 rounded-lg">
-              <div className="flex items-center gap-2 text-accent">
-                <IndianRupee className="h-4 w-4" />
-                <span className="text-sm font-bold">Release Amount</span>
+            <div className="flex justify-between items-center py-5 bg-primary/5 px-5 rounded-2xl border border-primary/10 mt-4">
+              <div className="flex items-center gap-2.5 text-primary">
+                <IndianRupee className="h-5 w-5" />
+                <span className="text-base font-black uppercase tracking-widest">Release Amount</span>
               </div>
-              <span className="text-lg font-bold text-accent">{payment.amount}</span>
+              <span className="text-2xl font-black text-primary">{payment.amount}</span>
             </div>
           </div>
         </Card>
 
-        <section className="mb-8">
-          <h3 className="text-sm font-bold mb-4">Verification Steps</h3>
-          <div className="space-y-3">
-            <div className="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-muted">
-              <div className="bg-green-100 p-1.5 rounded-full mt-0.5">
-                <CheckCircle2 className="h-3 w-3 text-green-600" />
+        <section className="mb-10 px-2">
+          <h3 className="text-xs font-black text-muted-foreground uppercase tracking-widest mb-4">Verification Steps</h3>
+          <div className="space-y-4">
+            <div className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border border-muted/50">
+              <div className="bg-emerald-100 p-2 rounded-xl mt-0.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600" />
               </div>
               <div>
-                <p className="text-xs font-bold">Work Report Submitted</p>
-                <p className="text-[10px] text-muted-foreground">Student shared documentation on Oct 28.</p>
+                <p className="text-sm font-bold text-foreground">Work Report Submitted</p>
+                <p className="text-[10px] text-muted-foreground font-medium">Student Shared Documentation On Oct 28.</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-muted">
-              <div className="bg-green-100 p-1.5 rounded-full mt-0.5">
-                <CheckCircle2 className="h-3 w-3 text-green-600" />
+            <div className="flex items-start gap-4 p-5 bg-white rounded-2xl shadow-sm border border-muted/50">
+              <div className="bg-emerald-100 p-2 rounded-xl mt-0.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600" />
               </div>
               <div>
-                <p className="text-xs font-bold">Identity Verified</p>
-                <p className="text-[10px] text-muted-foreground">Aadhar and College ID confirmed.</p>
+                <p className="text-sm font-bold text-foreground">Identity Verified</p>
+                <p className="text-[10px] text-muted-foreground font-medium">Aadhar And College ID Confirmed.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="bg-yellow-50 p-4 rounded-xl flex gap-3 mb-8">
-          <AlertCircle className="h-5 w-5 text-yellow-600 shrink-0" />
-          <p className="text-[10px] text-yellow-800 leading-relaxed font-medium">
-            Confirming this release will transfer funds instantly from your escrow to the student's wallet. This action cannot be reversed.
+        <div className="bg-amber-50 p-5 rounded-3xl flex gap-4 mb-10 border border-amber-100">
+          <AlertCircle className="h-6 w-6 text-amber-600 shrink-0" />
+          <p className="text-[11px] text-amber-800 leading-relaxed font-bold">
+            Confirming This Release Will Transfer Funds Instantly From Your Escrow To The Student's Wallet. This Action Cannot Be Reversed.
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <Button variant="outline" className="h-14 rounded-2xl border-accent text-accent">
+          <Button variant="outline" className="h-16 rounded-2xl border-primary text-primary font-bold hover:bg-primary/5">
             Request Edit
           </Button>
           <Button 
-            className="h-14 rounded-2xl bg-accent shadow-lg"
+            className="h-16 rounded-2xl bg-primary text-primary-foreground font-black shadow-xl hover:bg-primary/90"
             disabled={isProcessing}
             onClick={handleRelease}
           >
