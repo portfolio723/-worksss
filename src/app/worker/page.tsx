@@ -50,7 +50,7 @@ export default function WorkerDashboard() {
         {/* Welcome Header */}
         <div className="flex flex-col gap-1">
           <h1 className="text-2xl font-black tracking-tight text-foreground">Namaste, Rohan</h1>
-          <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Your Career Dashboard</p>
+          <p className="text-xs text-muted-foreground font-medium tracking-wider">Your Career Dashboard</p>
         </div>
 
         {/* 1. Earnings Summary */}
@@ -61,7 +61,7 @@ export default function WorkerDashboard() {
           <div className="relative z-10">
             <div className="flex justify-between items-start mb-4">
               <div>
-                <span className="text-[10px] opacity-80 font-black uppercase tracking-widest">Available Balance</span>
+                <span className="text-[10px] opacity-80 font-black tracking-widest">Available Balance</span>
                 <div className="text-3xl font-black mt-1 tracking-tighter">₹42,500.00</div>
               </div>
               <div className="bg-white/20 p-2.5 rounded-2xl">
@@ -70,11 +70,11 @@ export default function WorkerDashboard() {
             </div>
             <div className="grid grid-cols-2 gap-2 mt-6">
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[8px] uppercase font-black opacity-70">Total Earned</p>
+                <p className="text-[8px] font-black opacity-70">Total Earned</p>
                 <p className="text-sm font-bold">₹1.2L</p>
               </div>
               <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-sm">
-                <p className="text-[8px] uppercase font-black opacity-70">In Clearance</p>
+                <p className="text-[8px] font-black opacity-70">In Clearance</p>
                 <p className="text-sm font-bold">₹8,400</p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function WorkerDashboard() {
         {/* 2. Profile Completion Tracker */}
         <Card className="p-5 border-none bg-white shadow-sm rounded-3xl space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xs font-black text-foreground uppercase tracking-tight">Profile Completion</h2>
+            <h2 className="text-xs font-black text-foreground tracking-tight">Profile Completion</h2>
             <Badge variant="secondary" className="bg-primary/10 text-primary font-black text-[10px]">75%</Badge>
           </div>
           <ProgressUI value={75} className="h-2 bg-secondary rounded-full" />
@@ -118,12 +118,12 @@ export default function WorkerDashboard() {
                     <h3 className="font-bold text-base leading-tight">{job.title}</h3>
                     <p className="text-xs text-muted-foreground font-medium">{job.company}</p>
                   </div>
-                  <Badge variant="outline" className="text-[8px] font-black uppercase text-primary border-primary/20">
+                  <Badge variant="outline" className="text-[8px] font-black text-primary border-primary/20">
                     {job.deadline}
                   </Badge>
                 </div>
                 <div className="space-y-1.5">
-                  <div className="flex justify-between text-[8px] font-black uppercase text-muted-foreground">
+                  <div className="flex justify-between text-[8px] font-black text-muted-foreground">
                     <span>Progress</span>
                     <span>{job.progress}%</span>
                   </div>
@@ -152,7 +152,7 @@ export default function WorkerDashboard() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-base truncate">{job.title}</h3>
-                  <p className="text-[10px] text-muted-foreground font-medium uppercase">{job.company} • {job.date}</p>
+                  <p className="text-[10px] text-muted-foreground font-medium">{job.company} • {job.date}</p>
                 </div>
                 <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 font-bold text-[8px]">
                   {job.status}
@@ -215,7 +215,7 @@ export default function WorkerDashboard() {
                 <p className="text-xs text-muted-foreground italic leading-relaxed font-medium">
                   "{review.comment}"
                 </p>
-                <p className="mt-3 text-[8px] font-black uppercase text-primary/40 tracking-widest">{review.date}</p>
+                <p className="mt-3 text-[8px] font-black text-primary/40 tracking-widest">{review.date}</p>
               </Card>
             ))}
           </div>
