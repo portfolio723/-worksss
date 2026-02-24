@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Bell, MapPin } from 'lucide-react';
@@ -16,9 +15,9 @@ export function TopNav() {
       <div className="flex items-center gap-1">
         <Link 
           href={isHirer ? "/hirer" : "/worker"} 
-          className="text-2xl font-black text-accent tracking-tighter hover:opacity-80 transition-opacity px-2"
+          className="text-2xl font-black text-foreground tracking-tighter hover:opacity-80 transition-opacity px-2"
         >
-          #works
+          #
         </Link>
       </div>
       
