@@ -5,15 +5,19 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Info } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('demo@workwave.com');
+  const [password, setPassword] = useState('password123');
   const router = useRouter();
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate auth
+    // In a real app, we would validate against Firebase Auth here.
+    // For this prototype, any non-empty submission proceeds.
     router.push('/role-selection');
   };
 
@@ -32,9 +36,20 @@ export default function AuthPage() {
         <h1 className="text-3xl font-bold mb-2">
           {isLogin ? 'Welcome Back' : 'Create Account'}
         </h1>
-        <p className="text-muted-foreground mb-8">
+        <p className="text-muted-foreground mb-6">
           {isLogin ? 'Login to continue hiring or working' : 'Join the community of top talent'}
         </p>
+
+        {isLogin && (
+          <Alert className="mb-6 bg-accent/5 border-accent/20">
+            <Info className="h-4 w-4 text-accent" />
+            <AlertTitle className="text-accent font-bold">Demo Credentials</AlertTitle>
+            <AlertDescription className="text-accent/80 text-xs">
+              Email: <span className="font-mono font-bold">demo@workwave.com</span><br/>
+              Password: <span className="font-mono font-bold">password123</span>
+            </AlertDescription>
+          </Alert>
+        )}
 
         <form onSubmit={handleAuth} className="space-y-6">
           <div className="space-y-2">
@@ -42,6 +57,8 @@ export default function AuthPage() {
             <Input 
               id="email" 
               type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="name@example.com" 
               className="h-12"
               required 
@@ -56,6 +73,8 @@ export default function AuthPage() {
             <Input 
               id="password" 
               type="password" 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••" 
               className="h-12"
               required 
