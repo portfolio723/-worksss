@@ -53,7 +53,7 @@ export default function HirerDashboard() {
       <main className="content-area px-6 py-6 space-y-10">
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl font-normal tracking-tight text-foreground">Namaste, Arjun</h1>
-          <p className="text-sm text-muted-foreground font-medium">Recruiter Dashboard • TechShastra</p>
+          <p className="text-sm text-muted-foreground font-medium">Recruiter Dashboard</p>
         </div>
 
         <Card 
