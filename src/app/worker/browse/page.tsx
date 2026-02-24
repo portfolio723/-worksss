@@ -15,7 +15,8 @@ import {
   Bookmark,
   Star,
   Zap,
-  Navigation
+  Navigation,
+  X
 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -107,12 +108,12 @@ export default function BrowseJobs() {
       <TopNav />
       
       <main className="content-area">
-        <div className="mb-6">
+        <div className="mb-6 px-2">
           <h1 className="text-3xl font-black">Browse Jobs</h1>
           <p className="text-sm text-muted-foreground mt-1 font-medium">Find Your Next Big Opportunity.</p>
         </div>
 
-        <div className="flex gap-3 mb-6">
+        <div className="flex gap-3 mb-6 px-2">
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input 
@@ -125,14 +126,22 @@ export default function BrowseJobs() {
             <SheetTrigger asChild>
               <Button 
                 variant="outline" 
-                className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-primary hover:text-white transition-all group font-medium"
+                className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-primary hover:text-white transition-all group font-medium shrink-0"
               >
                 <SlidersHorizontal className="h-6 w-6 text-primary group-hover:text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="worker-theme w-[340px] sm:w-[400px] p-0 flex flex-col border-l">
-              <SheetHeader className="p-6 border-b">
+            <SheetContent 
+              side="bottom" 
+              className="worker-theme h-[92vh] w-full max-w-[390px] mx-auto p-0 flex flex-col border-none rounded-t-[2.5rem] overflow-hidden left-1/2 -translate-x-1/2"
+            >
+              <SheetHeader className="p-6 border-b flex flex-row items-center justify-between">
                 <SheetTitle className="text-2xl font-black">Filters</SheetTitle>
+                <SheetClose asChild>
+                  <Button variant="ghost" size="icon" className="rounded-full h-10 w-10">
+                    <X className="h-6 w-6" />
+                  </Button>
+                </SheetClose>
               </SheetHeader>
               
               <ScrollArea className="flex-1 px-6">
@@ -250,7 +259,7 @@ export default function BrowseJobs() {
 
               <SheetFooter className="p-6 border-t bg-white">
                 <SheetClose asChild>
-                  <Button className="w-full h-14 bg-primary text-white rounded-2xl font-bold shadow-xl">
+                  <Button className="w-full h-16 bg-primary text-white rounded-2xl font-bold shadow-xl">
                     Apply Filters
                   </Button>
                 </SheetClose>
@@ -259,7 +268,7 @@ export default function BrowseJobs() {
           </Sheet>
         </div>
 
-        <ScrollArea className="w-full whitespace-nowrap mb-8 -mx-4 px-4">
+        <ScrollArea className="w-full whitespace-nowrap mb-8 px-2">
           <div className="flex gap-2 pb-2">
             {quickFilters.map(filter => (
               <Badge 
@@ -274,7 +283,7 @@ export default function BrowseJobs() {
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
 
-        <div className="space-y-4">
+        <div className="space-y-4 px-2">
           {jobs.map((job) => (
             <Card key={job.id} className="p-5 bg-white border-border/50 hover:border-primary transition-all shadow-sm group rounded-[2rem]">
               <div className="flex justify-between items-start mb-4">
