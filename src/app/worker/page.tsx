@@ -1,9 +1,10 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
-import { Wallet, Briefcase, Bookmark, Star, MapPin, Sparkles, Progress } from 'lucide-react';
+import { Wallet, Briefcase, Bookmark, Star, MapPin, Progress } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress as ProgressUI } from '@/components/ui/progress';
@@ -13,7 +14,7 @@ const recommendedJobs = [
     title: 'Frontend Engineer (Next.js)',
     budget: '$50/hr',
     location: 'Remote',
-    skills: ['Next.js', 'Tailwind', 'GenAI'],
+    skills: ['Next.js', 'Tailwind', 'React'],
     match: '98%'
   },
   {
@@ -76,8 +77,7 @@ export default function WorkerDashboard() {
         <section className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <h2 className="text-lg font-bold">AI Recommended</h2>
-              <Sparkles className="h-4 w-4 text-accent fill-accent" />
+              <h2 className="text-lg font-bold">Recommended for You</h2>
             </div>
             <Button variant="link" className="text-accent h-auto p-0">Customize</Button>
           </div>
@@ -87,7 +87,7 @@ export default function WorkerDashboard() {
               <Card key={job.title} className="p-4 border-2 border-transparent hover:border-accent transition-all">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="font-bold text-sm">{job.title}</h3>
-                  <Badge className="bg-green-100 text-green-700 hover:bg-green-100 border-none">{job.match} Match</Badge>
+                  <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100 border-none">{job.match} Match</Badge>
                 </div>
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
                   <div className="flex items-center gap-1">
