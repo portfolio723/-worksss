@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -200,7 +199,7 @@ export default function HirerDashboard() {
               <Card key={profile.id} className="p-4 bg-white border-none shadow-sm rounded-3xl text-center flex flex-col items-center">
                 <img src={profile.avatar} className="w-14 h-14 rounded-2xl object-cover mb-3 shadow-sm" alt={profile.name} />
                 <h4 className="text-xs font-bold text-foreground mb-1">{profile.name}</h4>
-                <p className="text-[9px] text-muted-foreground font-medium mb-3">{profile.role}</p>
+                <p className="text-[11px] text-muted-foreground font-medium mb-3">{profile.role}</p>
                 <Button size="sm" variant="secondary" className="w-full h-8 text-[10px] font-bold rounded-lg" onClick={() => router.push(`/worker/profile/${profile.id}`)}>
                   View Profile
                 </Button>
