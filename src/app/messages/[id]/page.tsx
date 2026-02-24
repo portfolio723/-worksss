@@ -46,46 +46,46 @@ export default function ChatConversationPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-secondary/10">
+    <div className="hirer-theme flex flex-col h-screen bg-secondary/10">
       {/* Header */}
       <header className="bg-white border-b px-4 h-16 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" onClick={() => router.back()}>
-            <ArrowLeft className="h-5 w-5" />
+          <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl hover:bg-secondary" onClick={() => router.back()}>
+            <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <div className="relative">
-              <img src={contact.avatar} alt={contact.name} className="w-10 h-10 rounded-full object-cover" />
-              <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full" />
+              <img src={contact.avatar} alt={contact.name} className="w-10 h-10 rounded-2xl object-cover shadow-sm" />
+              <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full" />
             </div>
             <div>
-              <h2 className="text-sm font-bold leading-none">{contact.name}</h2>
-              <p className="text-[10px] text-muted-foreground mt-1">{contact.role}</p>
+              <h2 className="text-sm font-bold leading-none text-foreground">{contact.name}</h2>
+              <p className="text-[10px] text-muted-foreground mt-1 font-bold">{contact.role}</p>
             </div>
           </div>
         </div>
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" className="h-9 w-9 text-accent"><Phone className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="icon" className="h-9 w-9 text-accent"><Video className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="icon" className="h-9 w-9 text-muted-foreground"><MoreVertical className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="icon" className="h-10 w-10 text-primary rounded-xl hover:bg-secondary"><Phone className="h-5 w-5" /></Button>
+          <Button variant="ghost" size="icon" className="h-10 w-10 text-primary rounded-xl hover:bg-secondary"><Video className="h-5 w-5" /></Button>
+          <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground rounded-xl hover:bg-secondary"><MoreVertical className="h-5 w-5" /></Button>
         </div>
       </header>
 
       {/* Messages */}
-      <main ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4">
-        <div className="flex justify-center my-4">
-          <span className="text-[10px] bg-white px-3 py-1 rounded-full text-muted-foreground shadow-sm">TODAY</span>
+      <main ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+        <div className="flex justify-center my-6">
+          <span className="text-[10px] bg-white px-4 py-1.5 rounded-full text-muted-foreground shadow-sm font-bold tracking-widest">TODAY</span>
         </div>
         
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.sent ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 shadow-sm text-sm ${
+            <div className={`max-w-[80%] rounded-2xl px-4 py-3 shadow-sm text-sm font-medium ${
               msg.sent 
-                ? 'bg-accent text-white rounded-tr-none' 
+                ? 'bg-primary text-primary-foreground rounded-tr-none' 
                 : 'bg-white text-foreground rounded-tl-none'
             }`}>
               {msg.text}
-              <div className={`text-[9px] mt-1 text-right ${msg.sent ? 'text-white/70' : 'text-muted-foreground'}`}>
+              <div className={`text-[9px] mt-1.5 text-right ${msg.sent ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
                 {msg.time}
               </div>
             </div>
@@ -94,23 +94,23 @@ export default function ChatConversationPage() {
       </main>
 
       {/* Input */}
-      <footer className="bg-white border-t p-4 pb-8 md:pb-4">
-        <div className="flex items-center gap-2">
+      <footer className="bg-white border-t p-4 pb-8">
+        <div className="flex items-center gap-3">
           <div className="flex-1 relative">
             <Input 
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
               placeholder="Type a message..." 
-              className="pr-12 h-12 bg-secondary/20 border-none rounded-2xl"
+              className="pr-14 h-14 bg-secondary/30 border-none rounded-2xl text-base font-medium focus:ring-primary px-5"
             />
             <Button 
               size="icon" 
               variant="ghost" 
-              className="absolute right-1 top-1 h-10 w-10 text-accent hover:bg-transparent"
+              className="absolute right-1.5 top-1.5 h-11 w-11 text-primary hover:bg-transparent"
               onClick={handleSend}
             >
-              <Send className="h-5 w-5" />
+              <Send className="h-6 w-6" />
             </Button>
           </div>
         </div>
