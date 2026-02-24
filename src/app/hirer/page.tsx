@@ -71,7 +71,7 @@ export default function HirerDashboard() {
         </div>
 
         <section className="mb-8">
-          <h2 className="text-lg font-bold mb-4">Active Postings</h2>
+          <h2 className="text-sm font-bold text-muted-foreground tracking-tight mb-4">Active Postings</h2>
           <Card className="p-4 border-l-4 border-l-accent mb-4">
             <div className="flex justify-between items-start mb-2">
               <h3 className="font-bold text-sm">React Dev Intern (Summer)</h3>
@@ -101,7 +101,7 @@ export default function HirerDashboard() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-lg font-bold mb-4">Top Student Matches</h2>
+          <h2 className="text-sm font-bold text-muted-foreground tracking-tight mb-4">Top Student Matches</h2>
           {recentApplicants.map((applicant) => (
             <Card key={applicant.name} className="p-4">
               <div className="flex gap-4">
@@ -118,7 +118,7 @@ export default function HirerDashboard() {
                       size="sm" 
                       variant="outline" 
                       className="flex-1 h-8 text-xs font-bold"
-                      onClick={() => router.push(`/hirer/students/${applicant.id}`)}
+                      onClick={() => router.push(`/worker/profile/${applicant.id}`)}
                     >
                       View Profile
                     </Button>
