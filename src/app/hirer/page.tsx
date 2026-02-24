@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -49,7 +48,7 @@ export default function HirerDashboard() {
 
         <Button 
           className="w-full h-14 rounded-2xl bg-accent mb-8 shadow-lg text-lg"
-          onClick={() => router.push('/hirer/jobs')}
+          onClick={() => router.push('/hirer/jobs/create')}
         >
           <Plus className="mr-2 h-5 w-5" />
           Post an Internship

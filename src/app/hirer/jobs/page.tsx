@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -16,6 +15,7 @@ import {
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
+import { useRouter } from 'next/navigation';
 
 const myPostings = [
   {
@@ -66,6 +66,7 @@ const myPostings = [
 
 export default function HirerJobsPage() {
   const [activeTab, setActiveTab] = useState('active');
+  const router = useRouter();
 
   const filteredJobs = myPostings.filter(job => {
     if (activeTab === 'all') return true;
@@ -82,7 +83,11 @@ export default function HirerJobsPage() {
             <h1 className="text-2xl font-bold">Manage Postings</h1>
             <p className="text-sm text-muted-foreground">Track your listings and applications</p>
           </div>
-          <Button size="icon" className="h-10 w-10 rounded-full bg-accent shadow-lg">
+          <Button 
+            size="icon" 
+            className="h-10 w-10 rounded-full bg-accent shadow-lg"
+            onClick={() => router.push('/hirer/jobs/create')}
+          >
             <Plus className="h-5 w-5" />
           </Button>
         </div>
@@ -178,7 +183,12 @@ export default function HirerJobsPage() {
                 <p className="text-sm text-muted-foreground mb-6">
                   Ready to find your next student talent? Post a new job or internship.
                 </p>
-                <Button className="bg-accent rounded-xl px-8">Create Posting</Button>
+                <Button 
+                  className="bg-accent rounded-xl px-8"
+                  onClick={() => router.push('/hirer/jobs/create')}
+                >
+                  Create Posting
+                </Button>
               </div>
             )}
           </div>
