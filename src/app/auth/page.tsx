@@ -62,14 +62,14 @@ export default function AuthPage() {
           <button 
             type="button"
             onClick={() => setIsLogin(false)}
-            className={`flex-1 py-3 text-sm font-bold rounded-xl transition-all ${!isLogin ? 'bg-white shadow-sm text-foreground border border-slate-100' : 'text-muted-foreground'}`}
+            className={`flex-1 py-3 text-sm font-medium rounded-xl transition-all ${!isLogin ? 'bg-white shadow-sm text-foreground border border-slate-100' : 'text-muted-foreground'}`}
           >
             Sign Up
           </button>
           <button 
             type="button"
             onClick={() => setIsLogin(true)}
-            className={`flex-1 py-3 text-sm font-bold rounded-xl transition-all ${isLogin ? 'bg-white shadow-sm text-foreground border border-slate-100' : 'text-muted-foreground'}`}
+            className={`flex-1 py-3 text-sm font-medium rounded-xl transition-all ${isLogin ? 'bg-white shadow-sm text-foreground border border-slate-100' : 'text-muted-foreground'}`}
           >
             Log In
           </button>
@@ -86,7 +86,7 @@ export default function AuthPage() {
               type="button"
               variant="outline" 
               size="sm" 
-              className="flex-1 h-9 text-[10px] font-bold bg-white border-slate-200 rounded-xl"
+              className="flex-1 h-9 text-[10px] font-medium bg-white border-slate-200 rounded-xl"
               onClick={() => handleDemoFill('student')}
             >
               Student
@@ -95,7 +95,7 @@ export default function AuthPage() {
               type="button"
               variant="outline" 
               size="sm" 
-              className="flex-1 h-9 text-[10px] font-bold bg-white border-slate-200 rounded-xl"
+              className="flex-1 h-9 text-[10px] font-medium bg-white border-slate-200 rounded-xl"
               onClick={() => handleDemoFill('recruiter')}
             >
               Recruiter
@@ -179,7 +179,7 @@ export default function AuthPage() {
             </div>
           )}
 
-          <Button type="submit" className="w-full h-14 text-base font-black bg-[#222] text-white hover:bg-black rounded-2xl shadow-lg mt-4 border border-black">
+          <Button type="submit" className="w-full h-14 text-base font-medium bg-[#222] text-white hover:bg-black rounded-2xl shadow-lg mt-4 border border-black">
             {isLogin ? 'Log In' : 'Register'}
           </Button>
         </form>

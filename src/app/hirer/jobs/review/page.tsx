@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -60,7 +61,7 @@ export default function ReviewApplicantsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-xl hover:bg-secondary"
+            className="h-10 w-10 rounded-xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
@@ -120,19 +121,19 @@ export default function ReviewApplicantsPage() {
                 </div>
 
                 <div className="grid grid-cols-3 gap-3 mt-6 pt-6 border-t border-muted/50">
-                  <Button variant="ghost" className="h-12 text-xs font-bold gap-2 text-destructive hover:text-destructive hover:bg-destructive/5 rounded-xl">
+                  <Button variant="ghost" className="h-12 text-xs font-medium gap-2 text-destructive hover:text-destructive hover:bg-destructive/5 rounded-xl">
                     <XCircle className="h-4 w-4" />
                     Reject
                   </Button>
                   <Button 
                     variant="ghost" 
-                    className="h-12 text-xs font-bold gap-2 text-primary hover:bg-primary/5 rounded-xl"
+                    className="h-12 text-xs font-medium gap-2 text-primary hover:bg-primary/5 rounded-xl"
                     onClick={() => router.push(`/hirer/messages/${applicant.id}`)}
                   >
                     <MessageSquare className="h-4 w-4" />
                     Chat
                   </Button>
-                  <Button className="h-12 text-xs font-bold gap-2 bg-primary text-primary-foreground shadow-md hover:bg-primary/90 rounded-xl">
+                  <Button className="h-12 text-xs font-medium gap-2 bg-primary text-primary-foreground shadow-md hover:bg-primary/90 rounded-xl">
                     <CheckCircle2 className="h-4 w-4" />
                     Shortlist
                   </Button>

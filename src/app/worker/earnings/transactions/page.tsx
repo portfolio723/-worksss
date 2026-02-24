@@ -48,7 +48,7 @@ export default function WorkerTransactionsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-2xl hover:bg-secondary"
+            className="h-10 w-10 rounded-2xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5" />
@@ -61,7 +61,7 @@ export default function WorkerTransactionsPage() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input className="pl-12 h-14 bg-white border-border shadow-sm rounded-2xl text-base" placeholder="Search Transactions..." />
           </div>
-          <Button variant="outline" className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-secondary transition-all">
+          <Button variant="outline" className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-secondary transition-all font-medium">
             <Filter className="h-6 w-6 text-primary" />
           </Button>
         </div>
@@ -110,7 +110,7 @@ export default function WorkerTransactionsPage() {
           ))}
         </div>
 
-        <Button className="w-full mt-10 h-14 rounded-2xl border-dashed border-2 border-border bg-transparent text-muted-foreground hover:bg-secondary hover:text-primary font-black gap-3 transition-all">
+        <Button className="w-full mt-10 h-14 rounded-2xl border-dashed border-2 border-border bg-transparent text-muted-foreground hover:bg-secondary hover:text-primary font-medium gap-3 transition-all">
           <Download className="h-5 w-5" />
           Export Transaction Statement (PDF)
         </Button>

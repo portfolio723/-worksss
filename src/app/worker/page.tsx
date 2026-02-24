@@ -1,3 +1,4 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -66,7 +67,7 @@ export default function WorkerDashboard() {
                 <Wallet className="h-6 w-6" />
               </div>
             </div>
-            <Button variant="secondary" size="sm" className="w-full font-black h-12 rounded-xl shadow-sm">
+            <Button variant="secondary" size="sm" className="w-full font-medium h-12 rounded-xl shadow-sm">
               View Wallet <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
           </div>
@@ -86,7 +87,7 @@ export default function WorkerDashboard() {
             </div>
             <Button 
               size="sm" 
-              className="h-10 px-6 text-xs font-black rounded-xl bg-primary text-white shadow-md"
+              className="h-10 px-6 text-xs font-medium rounded-xl bg-primary text-white shadow-md"
               onClick={() => router.push('/worker/profile')}
             >
               Verify
@@ -97,7 +98,7 @@ export default function WorkerDashboard() {
         <section className="mb-10">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-black tracking-tight">Top Picks For You</h2>
-            <Button variant="link" className="text-primary p-0 h-auto text-xs font-black" onClick={() => router.push('/worker/browse')}>
+            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium" onClick={() => router.push('/worker/browse')}>
               See All
             </Button>
           </div>
@@ -127,13 +128,13 @@ export default function WorkerDashboard() {
                 <div className="flex gap-3">
                   <Button 
                     variant="outline"
-                    className="flex-1 h-12 rounded-2xl font-black border-slate-200 text-sm shadow-sm"
+                    className="flex-1 h-12 rounded-2xl font-medium border-slate-200 text-sm shadow-sm"
                     onClick={() => router.push(`/worker/jobs/${job.id}`)}
                   >
                     Details
                   </Button>
                   <Button 
-                    className="flex-1 h-12 rounded-2xl bg-primary font-black text-sm shadow-lg"
+                    className="flex-1 h-12 rounded-2xl bg-primary font-medium text-sm shadow-lg"
                     onClick={() => router.push(`/worker/jobs/${job.id}`)}
                   >
                     Apply Now
@@ -150,7 +151,7 @@ export default function WorkerDashboard() {
               <h2 className="text-xl font-black tracking-tight">Gigs Nearby</h2>
               <Badge className="bg-emerald-500 text-white text-[9px] font-black h-4 px-1.5 rounded-sm">LIVE</Badge>
             </div>
-            <Button variant="link" className="text-primary p-0 h-auto text-xs font-black">
+            <Button variant="link" className="text-primary p-0 h-auto text-xs font-medium">
               Map View
             </Button>
           </div>

@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -74,7 +75,7 @@ export default function HirerNotificationsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-xl hover:bg-secondary"
+            className="h-10 w-10 rounded-xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
@@ -106,8 +107,8 @@ export default function HirerNotificationsPage() {
                   </p>
                   {!notif.read && (
                     <div className="mt-5 flex gap-3">
-                      <Button size="sm" className="h-9 px-5 text-xs bg-primary text-primary-foreground font-bold rounded-xl shadow-md">View Details</Button>
-                      <Button size="sm" variant="ghost" className="h-9 px-5 text-xs font-bold rounded-xl hover:bg-primary/5">Mark Read</Button>
+                      <Button size="sm" className="h-9 px-5 text-xs bg-primary text-primary-foreground font-medium rounded-xl shadow-md">View Details</Button>
+                      <Button size="sm" variant="ghost" className="h-9 px-5 text-xs font-medium rounded-xl hover:bg-primary/5">Mark Read</Button>
                     </div>
                   )}
                 </div>

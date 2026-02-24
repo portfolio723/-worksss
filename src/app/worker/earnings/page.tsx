@@ -44,14 +44,14 @@ export default function WorkerEarningsPage() {
             
             <div className="grid grid-cols-2 gap-4">
               <Button 
-                className="bg-white text-black hover:bg-white/90 font-bold rounded-xl h-12"
+                className="bg-white text-black hover:bg-white/90 font-medium rounded-xl h-12"
                 onClick={() => router.push('/worker/earnings/withdraw')}
               >
                 Withdraw Now
               </Button>
               <Button 
                 variant="ghost" 
-                className="border border-white/30 hover:bg-white/10 text-white font-bold rounded-xl h-12"
+                className="border border-white/30 hover:bg-white/10 text-white font-medium rounded-xl h-12"
                 onClick={() => router.push('/worker/earnings/transactions')}
               >
                 Transactions
@@ -113,7 +113,7 @@ export default function WorkerEarningsPage() {
             <h3 className="text-xs font-black text-muted-foreground tracking-tight">Recent Activity</h3>
             <Button 
               variant="ghost" 
-              className="text-primary text-xs h-auto p-0 font-bold"
+              className="text-primary text-xs h-auto p-0 font-medium"
               onClick={() => router.push('/worker/earnings/transactions')}
             >
               See All

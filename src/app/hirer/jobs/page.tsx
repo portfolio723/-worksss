@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -85,7 +86,7 @@ export default function HirerJobsPage() {
           </div>
           <Button 
             size="icon" 
-            className="h-12 w-12 rounded-2xl bg-primary text-primary-foreground shadow-lg hover:bg-primary/90"
+            className="h-12 w-12 rounded-2xl bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 font-medium"
             onClick={() => router.push('/hirer/jobs/create')}
           >
             <Plus className="h-6 w-6" />
@@ -133,7 +134,7 @@ export default function HirerJobsPage() {
                     </div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="h-10 w-10 -mr-2 rounded-xl">
+                        <Button variant="ghost" size="icon" className="h-10 w-10 -mr-2 rounded-xl font-medium">
                           <MoreVertical className="h-5 w-5" />
                         </Button>
                       </DropdownMenuTrigger>
@@ -169,7 +170,7 @@ export default function HirerJobsPage() {
                   <div className="flex items-center justify-between gap-4">
                     <span className="text-sm font-bold text-foreground">{job.stipend}</span>
                     <Button 
-                      className="h-11 px-6 bg-primary text-primary-foreground rounded-2xl text-xs font-bold shadow-md hover:bg-primary/90"
+                      className="h-11 px-6 bg-primary text-primary-foreground rounded-2xl text-xs font-medium shadow-md hover:bg-primary/90"
                       onClick={() => router.push(`/hirer/jobs/review?jobId=${job.id}`)}
                     >
                       Review Applicants
@@ -187,7 +188,7 @@ export default function HirerJobsPage() {
                   Ready To Find Your Next Student Talent? Post A New Internship Or Gig Project To Get Started.
                 </p>
                 <Button 
-                  className="bg-primary text-primary-foreground rounded-2xl px-10 h-14 text-base font-bold shadow-xl"
+                  className="bg-primary text-primary-foreground rounded-2xl px-10 h-14 text-base font-medium shadow-xl"
                   onClick={() => router.push('/hirer/jobs/create')}
                 >
                   Create New Posting

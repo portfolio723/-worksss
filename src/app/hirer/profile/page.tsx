@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -59,7 +60,7 @@ export default function HirerProfilePage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <Button size="icon" className="absolute -bottom-2 -right-2 h-11 w-11 rounded-2xl bg-primary text-primary-foreground shadow-xl border-4 border-background hover:bg-primary/90">
+            <Button size="icon" className="absolute -bottom-2 -right-2 h-11 w-11 rounded-2xl bg-primary text-primary-foreground shadow-xl border-4 border-background hover:bg-primary/90 font-medium">
               <Camera className="h-5 w-5" />
             </Button>
           </div>
@@ -91,7 +92,7 @@ export default function HirerProfilePage() {
             <Card className="p-7 bg-white border-none shadow-sm rounded-3xl">
               <div className="flex items-center justify-between mb-5">
                 <h3 className="text-sm font-bold text-foreground uppercase tracking-widest">About Me</h3>
-                <Button variant="link" className="text-primary h-auto p-0 text-xs font-bold">Edit Bio</Button>
+                <Button variant="link" className="text-primary h-auto p-0 text-xs font-medium">Edit Bio</Button>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed font-medium">
                 {profileData.bio}
@@ -158,7 +159,7 @@ export default function HirerProfilePage() {
 
           <TabsContent value="settings" className="space-y-4">
             <div className="space-y-3">
-              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5">
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
                     <Bell className="h-5 w-5 text-primary group-hover:text-white" />
@@ -167,7 +168,7 @@ export default function HirerProfilePage() {
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
-              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5">
+              <Button variant="ghost" className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 group hover:bg-primary/5 font-medium">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-2.5 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
                     <Lock className="h-5 w-5 text-primary group-hover:text-white" />
@@ -178,7 +179,7 @@ export default function HirerProfilePage() {
               </Button>
               <Button 
                 variant="ghost" 
-                className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5"
+                className="w-full justify-between h-16 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-medium"
                 onClick={handleLogout}
               >
                 <div className="flex items-center gap-4">

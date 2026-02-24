@@ -74,7 +74,7 @@ export default function WorkerNotificationsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-2xl hover:bg-secondary"
+            className="h-10 w-10 rounded-2xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5" />
@@ -106,8 +106,8 @@ export default function WorkerNotificationsPage() {
                   </p>
                   {!notif.read && (
                     <div className="mt-4 flex gap-2">
-                      <Button size="sm" className="h-8 px-4 text-[10px] bg-primary text-white font-black rounded-xl">Check Now</Button>
-                      <Button size="sm" variant="ghost" className="h-8 px-4 text-[10px] font-black rounded-xl hover:bg-secondary">Dismiss</Button>
+                      <Button size="sm" className="h-8 px-4 text-[10px] bg-primary text-white font-medium rounded-xl">Check Now</Button>
+                      <Button size="sm" variant="ghost" className="h-8 px-4 text-[10px] font-medium rounded-xl hover:bg-secondary">Dismiss</Button>
                     </div>
                   )}
                 </div>

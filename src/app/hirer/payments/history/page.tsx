@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -41,7 +42,7 @@ export default function PaymentHistoryPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-xl hover:bg-secondary"
+            className="h-10 w-10 rounded-xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
@@ -54,7 +55,7 @@ export default function PaymentHistoryPage() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input className="pl-12 h-14 bg-white border-none shadow-sm rounded-2xl text-base font-medium focus:ring-primary" placeholder="Search By Name..." />
           </div>
-          <Button variant="outline" className="h-14 w-14 rounded-2xl bg-white border-none shadow-sm">
+          <Button variant="outline" className="h-14 w-14 rounded-2xl bg-white border-none shadow-sm font-medium">
             <Filter className="h-6 w-6 text-primary" />
           </Button>
         </div>
@@ -99,7 +100,7 @@ export default function PaymentHistoryPage() {
           ))}
         </div>
 
-        <Button className="w-full mt-10 h-16 rounded-2xl border-dashed border-2 border-muted bg-transparent text-muted-foreground hover:bg-primary/5 hover:text-primary transition-all font-bold gap-3 shadow-sm">
+        <Button className="w-full mt-10 h-16 rounded-2xl border-dashed border-2 border-muted bg-transparent text-muted-foreground hover:bg-primary/5 hover:text-primary transition-all font-medium gap-3 shadow-sm">
           <Download className="h-5 w-5" />
           Export All Transactions (CSV)
         </Button>

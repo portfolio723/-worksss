@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect, Suspense } from 'react';
@@ -91,7 +92,7 @@ function ProfileContent() {
                 data-ai-hint={isWorker ? "indian student" : "indian businessman"}
               />
             </div>
-            <Button size="icon" className="absolute -bottom-2 -right-2 h-10 w-10 rounded-2xl bg-accent shadow-lg border-4 border-background">
+            <Button size="icon" className="absolute -bottom-2 -right-2 h-10 w-10 rounded-2xl bg-accent shadow-lg border-4 border-background font-medium">
               <Camera className="h-4 w-4" />
             </Button>
           </div>
@@ -124,7 +125,7 @@ function ProfileContent() {
             <Card className="p-6 bg-white border-none shadow-sm rounded-2xl">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold">Bio</h3>
-                <Button variant="link" className="text-accent h-auto p-0 text-xs">Edit</Button>
+                <Button variant="link" className="text-accent h-auto p-0 text-xs font-medium">Edit</Button>
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 {profileData.bio}
@@ -136,7 +137,7 @@ function ProfileContent() {
                 <Card className="p-6 bg-white border-none shadow-sm rounded-2xl">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-bold">Skills</h3>
-                    <Button variant="link" className="text-accent h-auto p-0 text-xs">Manage</Button>
+                    <Button variant="link" className="text-accent h-auto p-0 text-xs font-medium">Manage</Button>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {profileData.skills.map(skill => (
@@ -229,14 +230,14 @@ function ProfileContent() {
 
           <TabsContent value="settings" className="space-y-4">
             <div className="space-y-2">
-              <Button variant="ghost" className="w-full justify-between h-14 bg-white border-none shadow-sm rounded-2xl px-6">
+              <Button variant="ghost" className="w-full justify-between h-14 bg-white border-none shadow-sm rounded-2xl px-6 font-medium">
                 <div className="flex items-center gap-3">
                   <Bell className="h-5 w-5 text-accent" />
                   <span className="text-sm font-bold">Notifications</span>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </Button>
-              <Button variant="ghost" className="w-full justify-between h-14 bg-white border-none shadow-sm rounded-2xl px-6">
+              <Button variant="ghost" className="w-full justify-between h-14 bg-white border-none shadow-sm rounded-2xl px-6 font-medium">
                 <div className="flex items-center gap-3">
                   <Lock className="h-5 w-5 text-accent" />
                   <span className="text-sm font-bold">Privacy & Security</span>
@@ -245,7 +246,7 @@ function ProfileContent() {
               </Button>
               <Button 
                 variant="ghost" 
-                className="w-full justify-between h-14 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5"
+                className="w-full justify-between h-14 bg-white border-none shadow-sm rounded-2xl px-6 text-destructive hover:text-destructive hover:bg-destructive/5 font-medium"
                 onClick={handleLogout}
               >
                 <div className="flex items-center gap-3">

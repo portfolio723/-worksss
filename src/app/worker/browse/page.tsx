@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -115,7 +116,7 @@ export default function BrowseJobs() {
             <SheetTrigger asChild>
               <Button 
                 variant="outline" 
-                className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-primary hover:text-white transition-all group"
+                className="h-14 w-14 rounded-2xl bg-white border-border shadow-sm hover:bg-primary hover:text-white transition-all group font-medium"
               >
                 <SlidersHorizontal className="h-6 w-6 text-primary group-hover:text-white" />
               </Button>
@@ -167,7 +168,7 @@ export default function BrowseJobs() {
 
               <SheetFooter className="absolute bottom-6 left-6 right-6">
                 <SheetClose asChild>
-                  <Button className="w-full h-14 bg-primary text-primary-foreground rounded-2xl font-black shadow-2xl">
+                  <Button className="w-full h-14 bg-primary text-primary-foreground rounded-2xl font-medium shadow-2xl">
                     Apply Filters
                   </Button>
                 </SheetClose>
@@ -199,7 +200,7 @@ export default function BrowseJobs() {
                   <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{job.title}</h3>
                   <p className="text-xs font-bold text-muted-foreground">{job.company}</p>
                 </div>
-                <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:bg-secondary rounded-xl">
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:bg-secondary rounded-xl font-medium">
                   <Bookmark className="h-5 w-5" />
                 </Button>
               </div>
@@ -230,13 +231,13 @@ export default function BrowseJobs() {
               <div className="flex gap-3 pt-4 border-t border-border/50">
                 <Button 
                   variant="outline"
-                  className="flex-1 h-11 rounded-xl border-border font-bold"
+                  className="flex-1 h-11 rounded-xl border-border font-medium"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   View Details
                 </Button>
                 <Button 
-                  className="flex-1 h-11 rounded-xl bg-primary text-primary-foreground font-bold shadow-md"
+                  className="flex-1 h-11 rounded-xl bg-primary text-primary-foreground font-medium shadow-md"
                   onClick={() => router.push(`/worker/jobs/${job.id}`)}
                 >
                   Apply Now

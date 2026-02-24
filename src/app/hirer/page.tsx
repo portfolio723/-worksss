@@ -47,7 +47,7 @@ export default function HirerDashboard() {
 
         <div className="grid grid-cols-2 gap-4 mb-10">
           <Button 
-            className="h-16 rounded-2xl bg-primary text-primary-foreground shadow-lg text-base font-bold flex-1"
+            className="h-16 rounded-2xl bg-primary text-primary-foreground shadow-lg text-base font-medium flex-1"
             onClick={() => router.push('/hirer/jobs/create')}
           >
             <Plus className="mr-2 h-5 w-5" />
@@ -55,7 +55,7 @@ export default function HirerDashboard() {
           </Button>
           <Button 
             variant="outline"
-            className="h-16 rounded-2xl bg-white border-2 border-primary/10 shadow-sm text-base font-bold flex-1 text-primary hover:bg-primary/5"
+            className="h-16 rounded-2xl bg-white border-2 border-primary/10 shadow-sm text-base font-medium flex-1 text-primary hover:bg-primary/5"
             onClick={() => router.push('/hirer/payments')}
           >
             <CreditCard className="mr-2 h-5 w-5" />
@@ -82,7 +82,7 @@ export default function HirerDashboard() {
         <section className="mb-10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-bold text-muted-foreground tracking-tight">Live Listings</h2>
-            <Button variant="link" className="text-xs font-bold text-primary p-0 h-auto" onClick={() => router.push('/hirer/jobs')}>
+            <Button variant="link" className="text-xs font-medium text-primary p-0 h-auto" onClick={() => router.push('/hirer/jobs')}>
               View All Postings
             </Button>
           </div>
@@ -95,13 +95,13 @@ export default function HirerDashboard() {
             <div className="flex gap-3 mt-6">
               <Button 
                 variant="secondary" 
-                className="flex-1 h-10 text-xs font-bold rounded-xl bg-secondary hover:bg-secondary/80 text-foreground"
+                className="flex-1 h-10 text-xs font-medium rounded-xl bg-secondary hover:bg-secondary/80 text-foreground"
                 onClick={() => router.push('/hirer/jobs/edit?jobId=1')}
               >
                 Edit Posting
               </Button>
               <Button 
-                className="flex-1 h-10 bg-primary text-primary-foreground text-xs font-bold rounded-xl shadow-md"
+                className="flex-1 h-10 bg-primary text-primary-foreground text-xs font-medium rounded-xl shadow-md"
                 onClick={() => router.push('/hirer/jobs/review?jobId=1')}
               >
                 Review Applicants
@@ -129,13 +129,13 @@ export default function HirerDashboard() {
                   <div className="flex gap-3">
                     <Button 
                       variant="outline" 
-                      className="flex-1 h-10 text-xs font-bold rounded-xl border-primary text-primary hover:bg-primary/5"
+                      className="flex-1 h-10 text-xs font-medium rounded-xl border-primary text-primary hover:bg-primary/5"
                       onClick={() => router.push(`/worker/profile/${applicant.id}`)}
                     >
                       View Profile
                     </Button>
                     <Button 
-                      className="flex-1 h-10 text-xs bg-primary text-primary-foreground font-bold rounded-xl shadow-md"
+                      className="flex-1 h-10 text-xs bg-primary text-primary-foreground font-medium rounded-xl shadow-md"
                       onClick={() => router.push(`/hirer/messages/${applicant.id}`)}
                     >
                       Chat Now

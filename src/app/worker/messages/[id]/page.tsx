@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useRef, useEffect } from 'react';
@@ -45,7 +46,7 @@ export default function WorkerConversationPage() {
     <div className="worker-theme flex flex-col h-screen bg-background">
       <header className="bg-background/80 backdrop-blur-md border-b border-border/50 px-4 h-16 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-secondary" onClick={() => router.back()}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-secondary font-medium" onClick={() => router.back()}>
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="flex items-center gap-2">
@@ -84,7 +85,7 @@ export default function WorkerConversationPage() {
             placeholder="Type A Message..." 
             className="flex-1 h-12 bg-secondary border-none rounded-2xl text-sm font-medium"
           />
-          <Button size="icon" className="h-12 w-12 rounded-2xl bg-primary text-white shadow-lg" onClick={handleSend}>
+          <Button size="icon" className="h-12 w-12 rounded-2xl bg-primary text-white shadow-lg font-medium" onClick={handleSend}>
             <Send className="h-5 w-5" />
           </Button>
         </div>

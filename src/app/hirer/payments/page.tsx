@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -56,7 +57,7 @@ export default function HirerPaymentsPage() {
             </div>
             <div className="flex gap-4">
               <Button 
-                className="flex-1 bg-white text-primary hover:bg-white/90 h-12 font-bold rounded-xl shadow-md"
+                className="flex-1 bg-white text-primary hover:bg-white/90 h-12 font-medium rounded-xl shadow-md"
                 onClick={() => router.push('/hirer/payments/add-funds')}
               >
                 <Plus className="h-4 w-4 mr-2" />
@@ -64,7 +65,7 @@ export default function HirerPaymentsPage() {
               </Button>
               <Button 
                 variant="ghost" 
-                className="flex-1 border border-white/40 hover:bg-white/10 text-white h-12 font-bold rounded-xl"
+                className="flex-1 border border-white/40 hover:bg-white/10 text-white h-12 font-medium rounded-xl"
                 onClick={() => router.push('/hirer/payments/invoices')}
               >
                 <Download className="h-4 w-4 mr-2" />
@@ -102,7 +103,7 @@ export default function HirerPaymentsPage() {
                       </div>
                     </div>
                     <Button 
-                      className="w-full h-11 text-xs bg-secondary text-primary hover:bg-secondary/80 font-bold rounded-xl transition-colors"
+                      className="w-full h-11 text-xs bg-secondary text-primary hover:bg-secondary/80 font-medium rounded-xl transition-colors"
                       onClick={() => router.push(`/hirer/payments/review/${payment.id}`)}
                     >
                       Review Report & Release Stipend
@@ -117,7 +118,7 @@ export default function HirerPaymentsPage() {
                 <h3 className="text-[11px] font-black text-muted-foreground uppercase tracking-widest">Recent Activity</h3>
                 <Button 
                   variant="link" 
-                  className="text-primary text-xs font-bold h-auto p-0"
+                  className="text-primary text-xs font-medium h-auto p-0"
                   onClick={() => router.push('/hirer/payments/history')}
                 >
                   See Full History <ChevronRight className="h-3 w-3 ml-1" />
@@ -150,7 +151,7 @@ export default function HirerPaymentsPage() {
               <p className="text-sm text-muted-foreground font-medium mb-10 leading-relaxed">Your Full Transaction Logs, Filters, And Monthly Statements Will Appear Here.</p>
               <Button 
                 variant="outline" 
-                className="rounded-2xl border-primary text-primary font-bold h-12 px-8 hover:bg-primary/5"
+                className="rounded-2xl border-primary text-primary font-medium h-12 px-8 hover:bg-primary/5"
                 onClick={() => router.push('/hirer/payments/history')}
               >
                 View Full Logs
@@ -175,7 +176,7 @@ export default function HirerPaymentsPage() {
               
               <Card className="p-6 border-2 border-dashed border-muted-foreground/20 flex items-center justify-center gap-3 text-muted-foreground cursor-pointer hover:bg-muted/5 hover:border-primary/30 transition-all rounded-2xl group">
                 <Plus className="h-5 w-5 group-hover:text-primary transition-colors" />
-                <span className="text-sm font-bold group-hover:text-primary transition-colors">Add New Payment Method</span>
+                <span className="text-sm font-medium group-hover:text-primary transition-colors">Add New Payment Method</span>
               </Card>
 
               <div className="bg-indigo-50/50 p-5 rounded-2xl flex gap-4 border border-indigo-100">

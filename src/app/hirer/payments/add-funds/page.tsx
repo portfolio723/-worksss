@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -55,7 +56,7 @@ export default function AddFundsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-xl hover:bg-secondary"
+            className="h-10 w-10 rounded-xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
@@ -86,7 +87,7 @@ export default function AddFundsPage() {
                     type="button" 
                     variant="outline" 
                     size="sm"
-                    className="flex-1 rounded-xl text-[10px] font-bold h-9 bg-white border-slate-200"
+                    className="flex-1 rounded-xl text-[10px] font-medium h-9 bg-white border-slate-200"
                     onClick={() => setAmount(val)}
                   >
                     +₹{Number(val).toLocaleString('en-IN')}
@@ -144,7 +145,7 @@ export default function AddFundsPage() {
 
             <Button 
               type="submit" 
-              className="w-full h-16 text-lg bg-primary text-primary-foreground font-bold rounded-2xl shadow-xl mt-4 hover:bg-primary/90"
+              className="w-full h-16 text-lg bg-primary text-primary-foreground font-medium rounded-2xl shadow-xl mt-4 hover:bg-primary/90"
               disabled={isProcessing}
             >
               {isProcessing ? 'Processing Payment...' : `Pay ₹${Number(amount).toLocaleString('en-IN')}`}

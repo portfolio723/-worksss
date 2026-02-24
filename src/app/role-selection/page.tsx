@@ -60,7 +60,7 @@ export default function RoleSelectionPage() {
       <div className="mt-auto pb-12">
         <Button 
           disabled={!role} 
-          className="w-full h-16 text-lg font-black bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-2xl transition-all"
+          className="w-full h-16 text-lg font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl shadow-2xl transition-all"
           onClick={handleContinue}
         >
           Continue

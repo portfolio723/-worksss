@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -142,7 +143,7 @@ export default function CreateJobPage() {
             </div>
 
             <div className="pt-6">
-              <Button type="submit" className="w-full h-16 text-lg bg-primary text-primary-foreground font-bold rounded-2xl shadow-xl hover:bg-primary/90">
+              <Button type="submit" className="w-full h-16 text-lg bg-primary text-primary-foreground font-medium rounded-2xl shadow-xl hover:bg-primary/90">
                 Post Internship Now
               </Button>
             </div>

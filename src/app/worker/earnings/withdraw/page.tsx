@@ -55,7 +55,7 @@ export default function WithdrawFundsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-2xl hover:bg-secondary"
+            className="h-10 w-10 rounded-2xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5" />
@@ -85,7 +85,7 @@ export default function WithdrawFundsPage() {
                 <Button 
                   type="button" 
                   variant="link" 
-                  className="h-auto p-0 text-[10px] font-black text-primary"
+                  className="h-auto p-0 text-[10px] font-medium text-primary"
                   onClick={() => setAmount('42500')}
                 >
                   Withdraw All
@@ -128,7 +128,7 @@ export default function WithdrawFundsPage() {
 
             <Button 
               type="submit" 
-              className="w-full h-16 text-lg bg-primary text-white rounded-2xl shadow-2xl mt-6 font-black tracking-tight"
+              className="w-full h-16 text-lg bg-primary text-white rounded-2xl shadow-2xl mt-6 font-medium tracking-tight"
               disabled={isProcessing}
             >
               {isProcessing ? 'Processing Transfer...' : `Confirm Withdrawal`}

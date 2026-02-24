@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -55,7 +56,7 @@ export default function JobDetailPage() {
         <p className="text-muted-foreground mb-8">
           Your Profile Has Been Shared With {job.company}. Keep An Eye On Your Messages!
         </p>
-        <Button className="bg-primary text-white rounded-xl px-8" onClick={() => router.push('/worker')}>
+        <Button className="bg-primary text-white rounded-xl px-8 font-medium" onClick={() => router.push('/worker')}>
           Back To Dashboard
         </Button>
       </div>
@@ -71,16 +72,16 @@ export default function JobDetailPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-full font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="flex gap-2">
-            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full">
+            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full font-medium">
               <Share2 className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full">
+            <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full font-medium">
               <Bookmark className="h-5 w-5" />
             </Button>
           </div>
@@ -153,7 +154,7 @@ export default function JobDetailPage() {
 
         <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] p-6 bg-white border-t border-border/50 z-50">
           <Button 
-            className="w-full h-14 bg-primary text-white text-lg font-black rounded-2xl shadow-lg"
+            className="w-full h-14 bg-primary text-white text-lg font-medium rounded-2xl shadow-lg"
             onClick={handleApply}
           >
             Apply Now

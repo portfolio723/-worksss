@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useRouter, useParams } from 'next/navigation';
@@ -48,7 +49,7 @@ export default function StudentProfileView() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-full"
+            className="h-10 w-10 rounded-full font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5" />
@@ -76,11 +77,11 @@ export default function StudentProfileView() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 mt-6">
-            <Button className="bg-accent h-12 rounded-xl font-bold gap-2" onClick={() => router.push(`/messages/${id}`)}>
+            <Button className="bg-accent h-12 rounded-xl font-medium gap-2" onClick={() => router.push(`/messages/${id}`)}>
               <MessageSquare className="h-4 w-4" />
               Message
             </Button>
-            <Button variant="outline" className="h-12 rounded-xl border-accent text-accent font-bold">
+            <Button variant="outline" className="h-12 rounded-xl border-accent text-accent font-medium">
               Hire Now
             </Button>
           </div>

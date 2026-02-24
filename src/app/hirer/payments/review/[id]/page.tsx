@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from 'react';
@@ -83,7 +84,7 @@ export default function ReviewPaymentPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-xl hover:bg-secondary"
+            className="h-10 w-10 rounded-xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
@@ -167,11 +168,11 @@ export default function ReviewPaymentPage() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <Button variant="outline" className="h-16 rounded-2xl border-primary text-primary font-bold hover:bg-primary/5">
+          <Button variant="outline" className="h-16 rounded-2xl border-primary text-primary font-medium hover:bg-primary/5">
             Request Edit
           </Button>
           <Button 
-            className="h-16 rounded-2xl bg-primary text-primary-foreground font-black shadow-xl hover:bg-primary/90"
+            className="h-16 rounded-2xl bg-primary text-primary-foreground font-medium shadow-xl hover:bg-primary/90"
             disabled={isProcessing}
             onClick={handleRelease}
           >

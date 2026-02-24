@@ -60,7 +60,7 @@ export default function EntryPage() {
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="flex justify-end p-4">
-        <Button variant="ghost" className="font-bold text-muted-foreground" onClick={() => router.push('/auth')}>Skip</Button>
+        <Button variant="ghost" className="font-medium text-muted-foreground" onClick={() => router.push('/auth')}>Skip</Button>
       </div>
       
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
@@ -92,7 +92,7 @@ export default function EntryPage() {
 
       <div className="p-8 pb-12">
         <Button 
-          className="w-full h-14 text-lg font-black rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl" 
+          className="w-full h-14 text-lg font-medium rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl" 
           onClick={handleNext}
         >
           {step === onboardingSteps.length - 1 ? 'Get Started' : 'Next Step'}

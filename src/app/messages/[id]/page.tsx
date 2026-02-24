@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useRef, useEffect } from 'react';
@@ -50,7 +51,7 @@ export default function ChatConversationPage() {
       {/* Header */}
       <header className="bg-white border-b px-4 h-16 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl hover:bg-secondary" onClick={() => router.back()}>
+          <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl hover:bg-secondary font-medium" onClick={() => router.back()}>
             <ArrowLeft className="h-5 w-5 text-foreground" />
           </Button>
           <div className="flex items-center gap-3">
@@ -65,9 +66,9 @@ export default function ChatConversationPage() {
           </div>
         </div>
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" className="h-10 w-10 text-primary rounded-xl hover:bg-secondary"><Phone className="h-5 w-5" /></Button>
-          <Button variant="ghost" size="icon" className="h-10 w-10 text-primary rounded-xl hover:bg-secondary"><Video className="h-5 w-5" /></Button>
-          <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground rounded-xl hover:bg-secondary"><MoreVertical className="h-5 w-5" /></Button>
+          <Button variant="ghost" size="icon" className="h-10 w-10 text-primary rounded-xl hover:bg-secondary font-medium"><Phone className="h-5 w-5" /></Button>
+          <Button variant="ghost" size="icon" className="h-10 w-10 text-primary rounded-xl hover:bg-secondary font-medium"><Video className="h-5 w-5" /></Button>
+          <Button variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground rounded-xl hover:bg-secondary font-medium"><MoreVertical className="h-5 w-5" /></Button>
         </div>
       </header>
 
@@ -107,7 +108,7 @@ export default function ChatConversationPage() {
             <Button 
               size="icon" 
               variant="ghost" 
-              className="absolute right-1.5 top-1.5 h-11 w-11 text-primary hover:bg-transparent"
+              className="absolute right-1.5 top-1.5 h-11 w-11 text-primary hover:bg-transparent font-medium"
               onClick={handleSend}
             >
               <Send className="h-6 w-6" />

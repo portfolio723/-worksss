@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, Suspense } from 'react';
@@ -143,7 +144,7 @@ function EditJobContent() {
             </div>
 
             <div className="pt-4">
-              <Button type="submit" className="w-full h-14 text-lg bg-accent rounded-2xl shadow-lg">
+              <Button type="submit" className="w-full h-14 text-lg bg-accent rounded-2xl shadow-lg font-medium">
                 Save Changes
               </Button>
             </div>

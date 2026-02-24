@@ -22,7 +22,7 @@ export default function LocationAccessPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col p-6">
       <header className="flex items-center gap-4 mb-8">
-        <Button variant="ghost" size="icon" onClick={() => router.back()} className="rounded-xl">
+        <Button variant="ghost" size="icon" onClick={() => router.back()} className="rounded-xl font-medium">
           <ArrowLeft className="h-6 w-6" />
         </Button>
         <h1 className="text-2xl font-black">Location Settings</h1>
@@ -71,14 +71,14 @@ export default function LocationAccessPage() {
         <Button 
           onClick={handleRequest}
           disabled={status === 'granted'}
-          className="w-full h-16 text-lg font-black rounded-2xl bg-primary text-primary-foreground shadow-xl transition-all"
+          className="w-full h-16 text-lg font-medium rounded-2xl bg-primary text-primary-foreground shadow-xl transition-all"
         >
           {status === 'granted' ? 'Location Enabled' : 'Allow Location Access'}
         </Button>
         <Button 
           variant="ghost" 
           onClick={() => router.back()}
-          className="w-full h-12 text-sm font-bold text-muted-foreground"
+          className="w-full h-12 text-sm font-medium text-muted-foreground"
         >
           Maybe Later
         </Button>

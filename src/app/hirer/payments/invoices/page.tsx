@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -27,7 +28,7 @@ export default function InvoicesPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-10 w-10 rounded-xl hover:bg-secondary"
+            className="h-10 w-10 rounded-xl hover:bg-secondary font-medium"
             onClick={() => router.back()}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
@@ -66,7 +67,7 @@ export default function InvoicesPage() {
                       <span className="text-base font-bold text-foreground">{inv.amount}</span>
                       <span className="text-[10px] text-muted-foreground font-black ml-2">({inv.tax})</span>
                     </div>
-                    <Button variant="ghost" size="sm" className="h-10 px-4 text-xs font-bold text-primary gap-1.5 hover:bg-primary/5 rounded-xl">
+                    <Button variant="ghost" size="sm" className="h-10 px-4 text-xs font-medium text-primary gap-1.5 hover:bg-primary/5 rounded-xl">
                       <Download className="h-4 w-4" />
                       Download
                     </Button>
@@ -81,7 +82,7 @@ export default function InvoicesPage() {
           <p className="text-sm text-primary leading-relaxed font-bold">
             Need Consolidated Quarterly Reports For Tax Filing? 
             <br />
-            <Button variant="link" className="text-primary font-black underline decoration-primary h-auto p-0 mt-3 text-sm">
+            <Button variant="link" className="text-primary font-black underline decoration-primary h-auto p-0 mt-3 text-sm font-medium">
               Email Reports
             </Button>
           </p>
