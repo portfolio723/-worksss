@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from 'react';
@@ -58,7 +57,7 @@ export default function HirerPaymentsPage() {
                 <Plus className="h-4 w-4 mr-1" />
                 Add Funds
               </Button>
-              <Button variant="outline" className="flex-1 border-white/30 hover:bg-white/10 text-white h-10 font-bold rounded-xl">
+              <Button variant="ghost" className="flex-1 border border-white/30 hover:bg-white/10 text-white h-10 font-bold rounded-xl">
                 <Download className="h-4 w-4 mr-1" />
                 Invoices
               </Button>

@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -43,7 +42,7 @@ export default function WorkerEarningsPage() {
               <Button className="bg-white text-accent hover:bg-white/90 font-bold rounded-xl h-12">
                 Withdraw Now
               </Button>
-              <Button variant="outline" className="border-white/30 hover:bg-white/10 text-white font-bold rounded-xl h-12">
+              <Button variant="ghost" className="border border-white/30 hover:bg-white/10 text-white font-bold rounded-xl h-12">
                 Transactions
               </Button>
             </div>
