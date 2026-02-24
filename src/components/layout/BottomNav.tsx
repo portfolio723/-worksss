@@ -20,14 +20,19 @@ function NavItem({ href, icon, label }: NavItemProps) {
     <Link 
       href={href} 
       className={cn(
-        "flex flex-col items-center justify-center gap-1 transition-colors",
-        isActive ? "text-accent" : "text-muted-foreground"
+        "flex flex-col items-center justify-center gap-1 transition-all duration-200 group",
+        isActive ? "text-primary scale-105" : "text-muted-foreground hover:text-primary"
       )}
     >
-      <div className={cn("p-1 rounded-lg", isActive && "bg-accent/10")}>
+      <div className={cn(
+        "p-1.5 rounded-xl transition-all duration-200", 
+        isActive ? "bg-primary/10" : "group-hover:bg-secondary"
+      )}>
         {icon}
       </div>
-      <span className="text-[10px] font-medium">{label}</span>
+      <span className={cn("text-[10px] font-bold tracking-tight", isActive ? "opacity-100" : "opacity-80 group-hover:opacity-100")}>
+        {label}
+      </span>
     </Link>
   );
 }
@@ -35,7 +40,7 @@ function NavItem({ href, icon, label }: NavItemProps) {
 export function BottomNav({ role }: { role: 'hirer' | 'worker' }) {
   if (role === 'hirer') {
     return (
-      <nav className="bottom-nav">
+      <nav className="bottom-nav hirer-theme border-t border-border/50 shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
         <NavItem href="/hirer" icon={<Home className="h-5 w-5" />} label="Home" />
         <NavItem href="/hirer/jobs" icon={<Briefcase className="h-5 w-5" />} label="Jobs" />
         <NavItem href="/hirer/messages" icon={<MessageSquare className="h-5 w-5" />} label="Chats" />
@@ -46,7 +51,7 @@ export function BottomNav({ role }: { role: 'hirer' | 'worker' }) {
   }
 
   return (
-    <nav className="bottom-nav">
+    <nav className="bottom-nav worker-theme border-t border-border/40 shadow-[0_-4px_10px_rgba(0,0,0,0.04)]">
       <NavItem href="/worker" icon={<Home className="h-5 w-5" />} label="Home" />
       <NavItem href="/worker/browse" icon={<Search className="h-5 w-5" />} label="Browse" />
       <NavItem href="/worker/messages" icon={<MessageSquare className="h-5 w-5" />} label="Chats" />
