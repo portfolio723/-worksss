@@ -118,12 +118,12 @@ export default function WorkerDashboard() {
                     <h3 className="font-bold text-base leading-tight">{job.title}</h3>
                     <p className="text-xs text-muted-foreground font-medium">{job.company}</p>
                   </div>
-                  <Badge variant="outline" className="text-[8px] font-black text-primary border-primary/20">
+                  <Badge variant="outline" className="text-[10px] font-black text-primary border-primary/20">
                     {job.deadline}
                   </Badge>
                 </div>
                 <div className="space-y-1.5">
-                  <div className="flex justify-between text-[8px] font-black text-muted-foreground">
+                  <div className="flex justify-between text-[10px] font-black text-muted-foreground">
                     <span>Progress</span>
                     <span>{job.progress}%</span>
                   </div>
@@ -154,7 +154,7 @@ export default function WorkerDashboard() {
                   <h3 className="font-bold text-base truncate">{job.title}</h3>
                   <p className="text-[10px] text-muted-foreground font-medium">{job.company} • {job.date}</p>
                 </div>
-                <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 font-bold text-[8px]">
+                <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 font-bold text-[10px]">
                   {job.status}
                 </Badge>
               </Card>
@@ -215,7 +215,7 @@ export default function WorkerDashboard() {
                 <p className="text-xs text-muted-foreground italic leading-relaxed font-medium">
                   "{review.comment}"
                 </p>
-                <p className="mt-3 text-[8px] font-black text-primary/40 tracking-widest">{review.date}</p>
+                <p className="mt-3 text-[10px] font-black text-primary/40 tracking-widest">{review.date}</p>
               </Card>
             ))}
           </div>
