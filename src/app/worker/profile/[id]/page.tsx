@@ -31,7 +31,7 @@ export default function StudentProfileView() {
     college: "IIT Delhi",
     location: "New Delhi",
     rating: 4.9,
-    bio: "Final year Computer Science student with a passion for building scalable web applications. Experienced in React, Next.js, and Node.js. Completed 3 internships with top startups.",
+    bio: "Final Year Computer Science Student With A Passion For Building Scalable Web Applications. Experienced In React, Next.js, And Node.js. Completed 3 Internships With Top Startups.",
     skills: ["React", "Next.js", "Node.js", "Tailwind", "Firebase", "TypeScript"],
     experience: [
       { role: "Frontend Intern", company: "Zomato", period: "May - July 2023" },

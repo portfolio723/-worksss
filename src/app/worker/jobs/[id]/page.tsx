@@ -32,7 +32,7 @@ export default function JobDetailPage() {
     stipend: "₹20,000/mo",
     duration: "3 Months",
     posted: "2 days ago",
-    description: "We are looking for an ambitious React/Next.js developer to join our growing team. You will be responsible for building high-quality UI components and ensuring the best user experience.",
+    description: "We Are Looking For An Ambitious React/Next.js Developer To Join Our Growing Team. You Will Be Responsible For Building High-Quality UI Components And Ensuring The Best User Experience.",
     responsibilities: [
       "Developing and implementing highly responsive user interface components using React.",
       "Developing and implementing front-end architecture to support user interface concepts.",
@@ -54,10 +54,10 @@ export default function JobDetailPage() {
         </div>
         <h1 className="text-2xl font-bold mb-2">Application Sent!</h1>
         <p className="text-muted-foreground mb-8">
-          Your profile has been shared with {job.company}. Keep an eye on your messages!
+          Your Profile Has Been Shared With {job.company}. Keep An Eye On Your Messages!
         </p>
         <Button className="bg-accent rounded-xl px-8" onClick={() => router.push('/worker')}>
-          Back to Dashboard
+          Back To Dashboard
         </Button>
       </div>
     );
@@ -122,7 +122,7 @@ export default function JobDetailPage() {
 
         <section className="space-y-6 px-2">
           <div>
-            <h3 className="font-bold mb-3">About the Internship</h3>
+            <h3 className="font-bold mb-3">About The Internship</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {job.description}
             </p>

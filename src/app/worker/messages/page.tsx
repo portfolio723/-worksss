@@ -39,7 +39,7 @@ export default function WorkerMessagesPage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input 
             className="pl-10 h-12 bg-white border-none shadow-sm rounded-xl" 
-            placeholder="Search recruiters..." 
+            placeholder="Search Recruiters..." 
           />
         </div>
 

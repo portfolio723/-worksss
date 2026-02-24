@@ -34,10 +34,10 @@ export default function WorkerProfilePage() {
     sub: "Final Year Student • IIT Bombay",
     email: "rohan.g@iitb.ac.in",
     avatar: "https://picsum.photos/seed/avatar_in_2/200/200",
-    bio: "Passionate Frontend Developer specializing in React and Next.js. Looking for summer internships and remote gigs.",
+    bio: "Passionate Frontend Developer Specializing In React And Next.js. Looking For Summer Internships And Remote Gigs.",
     location: "Mumbai, MH",
     skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Figma"],
-    education: "B.Tech in Computer Science (2020 - 2024)",
+    education: "B.Tech In Computer Science (2020 - 2024)",
     stats: [
       { label: "Jobs Done", value: "12" },
       { label: "Rating", value: "4.8" },
@@ -122,7 +122,7 @@ export default function WorkerProfilePage() {
                   <GraduationCap className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold">Bachelor of Technology</p>
+                  <p className="text-sm font-bold">Bachelor Of Technology</p>
                   <p className="text-xs text-muted-foreground">IIT Bombay • 2020-2024</p>
                 </div>
               </div>

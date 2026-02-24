@@ -34,7 +34,7 @@ import { Slider } from '@/components/ui/slider';
 const quickFilters = [
   'Remote', 
   'Internship', 
-  'Part-time',
+  'Part-Time',
   'React', 
   'Figma', 
   'Python', 

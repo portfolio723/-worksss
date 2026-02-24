@@ -1,3 +1,4 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -18,7 +19,7 @@ import {
 
 const history = [
   { id: 'h1', title: 'TechShastra Milestone 1', amount: '₹12,500', status: 'Credited', date: 'Oct 12, 2023', type: 'Income' },
-  { id: 'h2', title: 'Withdrawal to Bank', amount: '₹20,000', status: 'Completed', date: 'Oct 08, 2023', type: 'Withdrawal' },
+  { id: 'h2', title: 'Withdrawal To Bank', amount: '₹20,000', status: 'Completed', date: 'Oct 08, 2023', type: 'Withdrawal' },
   { id: 'h3', title: 'Campus Lead Stipend', amount: '₹5,000', status: 'Processing', date: 'Oct 14, 2023', type: 'Income' },
 ];
 
@@ -30,12 +31,12 @@ export default function WorkerEarningsPage() {
       <main className="content-area">
         <div className="mb-6">
           <h1 className="text-2xl font-bold">Your Earnings</h1>
-          <p className="text-sm text-muted-foreground">Track your income and withdraw funds</p>
+          <p className="text-sm text-muted-foreground">Track Your Income And Withdraw Funds</p>
         </div>
 
         <Card className="p-6 bg-accent text-white mb-6 shadow-xl relative overflow-hidden">
           <div className="relative z-10 text-center">
-            <span className="text-xs opacity-80 uppercase font-bold tracking-wider">Available for Withdrawal</span>
+            <span className="text-xs opacity-80 uppercase font-bold tracking-wider">Available For Withdrawal</span>
             <h2 className="text-4xl font-bold mt-2 mb-6">₹42,500.00</h2>
             
             <div className="grid grid-cols-2 gap-4">
@@ -88,7 +89,7 @@ export default function WorkerEarningsPage() {
                   <CreditCard className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold">UPI ID: rohan@ybl</h4>
+                  <h4 className="text-sm font-bold">UPI ID: Rohan@Ybl</h4>
                   <p className="text-[10px] text-muted-foreground">Instant Transfer</p>
                 </div>
               </div>

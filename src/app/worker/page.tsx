@@ -56,7 +56,7 @@ export default function WorkerDashboard() {
           </div>
           <ProgressUI value={75} className="h-2 bg-primary/20" />
           <div className="flex items-center justify-between mt-2">
-            <p className="text-[10px] text-muted-foreground">Add Your College ID And Portfolio To Get Verified.</p>
+            <p className="text-[10px] text-muted-foreground uppercase font-bold">Add Your College ID And Portfolio To Get Verified.</p>
             <Button 
               size="sm" 
               variant="link" 

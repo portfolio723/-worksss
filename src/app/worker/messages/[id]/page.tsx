@@ -82,7 +82,7 @@ export default function WorkerConversationPage() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder="Type a message..." 
+            placeholder="Type A Message..." 
             className="flex-1 h-12 bg-secondary/20 border-none rounded-2xl"
           />
           <Button size="icon" className="h-12 w-12 rounded-2xl bg-accent" onClick={handleSend}>
