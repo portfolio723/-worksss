@@ -94,7 +94,7 @@ export default function HirerDashboard() {
                     <stat.icon className="h-5 w-5" />
                   </div>
                   <span className="text-2xl font-black text-foreground mt-2">{stat.value}</span>
-                  <span className="text-[11px] text-muted-foreground font-bold tracking-tight">{stat.label}</span>
+                  <span className="text-xs text-muted-foreground font-normal tracking-tight">{stat.label}</span>
                 </Card>
               </CarouselItem>
             ))}
