@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useRouter } from 'next/navigation';
@@ -33,7 +34,7 @@ export default function HirerProfilePage() {
     name: "Arjun Mehta",
     sub: "Founder • TechShastra",
     email: "arjun@techshastra.in",
-    avatar: "https://picsum.photos/seed/avatar_in_1/200/200",
+    avatar: "https://picsum.photos/seed/hirer-arjun/200/200",
     bio: "Building The Next Generation Of Fintech Solutions. Always Looking For Ambitious Student Developers To Join Our Growing Team.",
     location: "Bangalore, KA",
     company: "TechShastra Solutions Pvt Ltd",
@@ -75,7 +76,7 @@ export default function HirerProfilePage() {
           {profileData.stats.map((stat) => (
             <Card key={stat.label} className="p-4 text-center border-none shadow-sm bg-white rounded-2xl">
               <p className="text-lg font-bold text-primary">{stat.value}</p>
-              <p className="text-[10px] text-muted-foreground font-black tracking-tight mt-1">{stat.label}</p>
+              <p className="text-xs text-muted-foreground font-black tracking-tight mt-1">{stat.label}</p>
             </Card>
           ))}
         </div>

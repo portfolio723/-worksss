@@ -1,9 +1,10 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
-import { Plus, Clock, Users, CheckCircle2, CreditCard, ChevronRight } from 'lucide-react';
+import { Plus, Clock, Users, CheckCircle2, CreditCard } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useRouter } from 'next/navigation';
@@ -64,7 +65,7 @@ export default function HirerDashboard() {
                 <stat.icon className="h-5 w-5" />
               </div>
               <span className="text-3xl font-bold text-foreground mt-2">{stat.value}</span>
-              <span className="text-[11px] text-muted-foreground font-bold tracking-tight">{stat.label}</span>
+              <span className="text-xs text-muted-foreground font-bold tracking-tight">{stat.label}</span>
             </Card>
           ))}
         </div>

@@ -35,7 +35,7 @@ export default function WorkerProfilePage() {
     name: "Rohan Gupta",
     sub: "Final Year Student • IIT Bombay",
     email: "rohan.g@iitb.ac.in",
-    avatar: workerAvatar?.imageUrl || "https://picsum.photos/seed/avatar_in_2/200/200",
+    avatar: workerAvatar?.imageUrl || "https://picsum.photos/seed/student-male/200/200",
     bio: "Passionate Frontend Developer Specializing In React And Next.js. Looking For Summer Internships And Remote Gigs.",
     location: "Mumbai, MH",
     skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Figma"],
@@ -78,7 +78,7 @@ export default function WorkerProfilePage() {
           {profileData.stats.map((stat) => (
             <Card key={stat.label} className="p-3 text-center border-border/50 shadow-sm bg-white rounded-2xl">
               <p className="text-sm font-black text-primary">{stat.value}</p>
-              <p className="text-[10px] text-muted-foreground font-black tracking-tight">{stat.label}</p>
+              <p className="text-xs text-muted-foreground font-black tracking-tight mt-1">{stat.label}</p>
             </Card>
           ))}
         </div>
@@ -144,14 +144,14 @@ export default function WorkerProfilePage() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-xl">
+                <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-2xl">
                   <div className="flex items-center gap-3">
                     <FileText className="h-4 w-4 text-muted-foreground" />
                     <span className="text-xs font-bold">College ID</span>
                   </div>
                   <Badge variant="secondary" className="bg-primary text-white text-[9px] font-black border-none">VERIFIED</Badge>
                 </div>
-                <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-xl">
+                <div className="flex items-center justify-between p-4 bg-secondary/30 rounded-2xl">
                   <div className="flex items-center gap-3">
                     <User className="h-4 w-4 text-muted-foreground" />
                     <span className="text-xs font-bold">Aadhar Card</span>

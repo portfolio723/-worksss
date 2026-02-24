@@ -15,9 +15,7 @@ import {
   Clock, 
   CheckCircle2,
   TrendingUp,
-  CreditCard,
-  ChevronRight,
-  Filter
+  CreditCard
 } from 'lucide-react';
 
 const history = [
@@ -68,14 +66,14 @@ export default function WorkerEarningsPage() {
             <div className="bg-secondary p-2 rounded-lg w-fit mb-2">
               <Clock className="h-4 w-4 text-primary" />
             </div>
-            <p className="text-[10px] text-muted-foreground font-bold tracking-tight">In Clearance</p>
+            <p className="text-xs text-muted-foreground font-bold tracking-tight">In Clearance</p>
             <p className="text-lg font-black">₹8,400</p>
           </Card>
           <Card className="p-4 bg-white border-border/50 shadow-sm">
             <div className="bg-secondary p-2 rounded-lg w-fit mb-2">
               <TrendingUp className="h-4 w-4 text-primary" />
             </div>
-            <p className="text-[10px] text-muted-foreground font-bold tracking-tight">Total Earned</p>
+            <p className="text-xs text-muted-foreground font-bold tracking-tight">Total Earned</p>
             <p className="text-lg font-black">₹1.2L</p>
           </Card>
         </div>

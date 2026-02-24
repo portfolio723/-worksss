@@ -1,3 +1,4 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -38,7 +39,7 @@ export default function WorkerDashboard() {
           onClick={() => router.push('/worker/earnings')}
         >
           <div className="relative z-10">
-            <span className="text-xs opacity-70 mb-1 block font-bold tracking-tight">Total Balance</span>
+            <span className="text-sm opacity-70 mb-1 block font-bold tracking-tight">Total Balance</span>
             <div className="flex items-center justify-between mb-4">
               <span className="text-3xl font-bold">₹42,500.00</span>
               <div className="bg-white/10 p-2 rounded-xl">
