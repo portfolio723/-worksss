@@ -7,19 +7,19 @@ import { ChevronRight } from 'lucide-react';
 
 const onboardingSteps = [
   {
-    title: "Hire Top Talent",
-    description: "Connect with skilled professionals for your projects in minutes.",
-    image: "https://picsum.photos/seed/work1/600/400"
+    title: "Earn While You Learn",
+    description: "Find part-time gigs and internships that fit your college schedule.",
+    image: "https://picsum.photos/seed/student1/600/400"
   },
   {
-    title: "Find Your Dream Job",
-    description: "Browse thousands of projects and find work that fits your skills.",
-    image: "https://picsum.photos/seed/work2/600/400"
+    title: "Launch Your Career",
+    description: "Connect with India's top startups and agencies looking for fresh talent.",
+    image: "https://picsum.photos/seed/student2/600/400"
   },
   {
-    title: "Secure Payments",
-    description: "Worry-free transactions with our protected milestone system.",
-    image: "https://picsum.photos/seed/work3/600/400"
+    title: "Secure Stipends",
+    description: "Timely payments for every milestone completed, directly to your account.",
+    image: "https://picsum.photos/seed/student3/600/400"
   }
 ];
 
@@ -39,8 +39,8 @@ export default function EntryPage() {
         <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mb-6 overflow-hidden">
           <div className="w-16 h-16 bg-accent rounded-xl animate-bounce" />
         </div>
-        <h1 className="text-4xl font-bold text-accent tracking-tighter">#works</h1>
-        <p className="text-muted-foreground mt-2">Work simplified.</p>
+        <h1 className="text-4xl font-bold text-accent tracking-tighter">#workwave</h1>
+        <p className="text-muted-foreground mt-2">Career simplified.</p>
       </div>
     );
   }
@@ -65,6 +65,7 @@ export default function EntryPage() {
             src={onboardingSteps[step].image} 
             alt={onboardingSteps[step].title} 
             className="w-full h-full object-cover"
+            data-ai-hint="indian student"
           />
         </div>
         

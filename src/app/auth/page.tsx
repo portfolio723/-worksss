@@ -10,14 +10,12 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState('demo@workwave.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('rohan@college.edu.in');
+  const [password, setPassword] = useState('student123');
   const router = useRouter();
 
   const handleAuth = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, we would validate against Firebase Auth here.
-    // For this prototype, any non-empty submission proceeds.
     router.push('/role-selection');
   };
 
@@ -34,32 +32,32 @@ export default function AuthPage() {
 
       <div className="flex-1">
         <h1 className="text-3xl font-bold mb-2">
-          {isLogin ? 'Welcome Back' : 'Create Account'}
+          {isLogin ? 'Namaste!' : 'Create Account'}
         </h1>
         <p className="text-muted-foreground mb-6">
-          {isLogin ? 'Login to continue hiring or working' : 'Join the community of top talent'}
+          {isLogin ? 'Login to find your next internship' : 'Join the community of ambitious Indian students'}
         </p>
 
         {isLogin && (
           <Alert className="mb-6 bg-accent/5 border-accent/20">
             <Info className="h-4 w-4 text-accent" />
-            <AlertTitle className="text-accent font-bold">Demo Credentials</AlertTitle>
+            <AlertTitle className="text-accent font-bold">Student Demo</AlertTitle>
             <AlertDescription className="text-accent/80 text-xs">
-              Email: <span className="font-mono font-bold">demo@workwave.com</span><br/>
-              Password: <span className="font-mono font-bold">password123</span>
+              Email: <span className="font-mono font-bold">rohan@college.edu.in</span><br/>
+              Password: <span className="font-mono font-bold">student123</span>
             </AlertDescription>
           </Alert>
         )}
 
         <form onSubmit={handleAuth} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">College Email / Personal Email</Label>
             <Input 
               id="email" 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="name@example.com" 
+              placeholder="name@example.in" 
               className="h-12"
               required 
             />

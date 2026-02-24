@@ -1,4 +1,3 @@
-
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -11,17 +10,17 @@ import { Progress as ProgressUI } from '@/components/ui/progress';
 
 const recommendedJobs = [
   {
-    title: 'Frontend Engineer (Next.js)',
-    budget: '$50/hr',
-    location: 'Remote',
+    title: 'Frontend Intern (Next.js)',
+    budget: '₹20,000/mo',
+    location: 'Bangalore / Remote',
     skills: ['Next.js', 'Tailwind', 'React'],
     match: '98%'
   },
   {
-    title: 'Landing Page Designer',
-    budget: '$1,200',
-    location: 'USA (Optional)',
-    skills: ['Figma', 'UI/UX', 'Mobile'],
+    title: 'Campus Ambassador',
+    budget: '₹5,000 + Perks',
+    location: 'Delhi NCR',
+    skills: ['Marketing', 'Social Media', 'Events'],
     match: '92%'
   }
 ];
@@ -34,8 +33,8 @@ export default function WorkerDashboard() {
       <main className="content-area">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold">Hello, Jessica</h1>
-            <p className="text-muted-foreground">Ready for your next challenge?</p>
+            <h1 className="text-2xl font-bold">Hi, Rohan</h1>
+            <p className="text-muted-foreground">Found 12 internships matching your profile.</p>
           </div>
         </div>
 
@@ -43,20 +42,20 @@ export default function WorkerDashboard() {
           <div className="relative z-10">
             <span className="text-sm opacity-80 mb-1 block">Total Earnings</span>
             <div className="flex items-center justify-between mb-4">
-              <span className="text-3xl font-bold">$12,450.00</span>
+              <span className="text-3xl font-bold">₹42,500.00</span>
               <div className="bg-white/20 p-2 rounded-xl">
                 <Wallet className="h-6 w-6" />
               </div>
             </div>
             <div className="flex gap-4">
               <div className="flex-1">
-                <span className="text-[10px] opacity-80 uppercase font-bold tracking-wider">Active Jobs</span>
-                <p className="text-xl font-bold">4</p>
+                <span className="text-[10px] opacity-80 uppercase font-bold tracking-wider">Active Gigs</span>
+                <p className="text-xl font-bold">2</p>
               </div>
               <div className="flex-1 border-l border-white/20 pl-4">
                 <span className="text-[10px] opacity-80 uppercase font-bold tracking-wider">Rating</span>
                 <div className="flex items-center gap-1">
-                  <p className="text-xl font-bold">4.9</p>
+                  <p className="text-xl font-bold">4.8</p>
                   <Star className="h-4 w-4 fill-white text-white" />
                 </div>
               </div>
@@ -68,18 +67,18 @@ export default function WorkerDashboard() {
         <section className="mb-8">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Profile Completion</h2>
-            <span className="text-sm font-bold text-accent">85%</span>
+            <span className="text-sm font-bold text-accent">75%</span>
           </div>
-          <ProgressUI value={85} className="h-2 bg-primary/20" />
-          <p className="text-[10px] text-muted-foreground mt-2">Add your portfolio to reach 100% and get more views.</p>
+          <ProgressUI value={75} className="h-2 bg-primary/20" />
+          <p className="text-[10px] text-muted-foreground mt-2">Add your college ID & portfolio to get verified.</p>
         </section>
 
         <section className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <h2 className="text-lg font-bold">Recommended for You</h2>
+              <h2 className="text-lg font-bold">Curated for Students</h2>
             </div>
-            <Button variant="link" className="text-accent h-auto p-0">Customize</Button>
+            <Button variant="link" className="text-accent h-auto p-0">Filter</Button>
           </div>
           
           <div className="space-y-4">
@@ -114,15 +113,15 @@ export default function WorkerDashboard() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-lg font-bold mb-4">Active Projects</h2>
+          <h2 className="text-lg font-bold mb-4">Current Projects</h2>
           <Card className="p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 bg-primary/20 rounded-xl flex items-center justify-center text-accent font-bold">
-                DW
+                TS
               </div>
               <div>
-                <h4 className="text-sm font-bold">Design Wave UI</h4>
-                <p className="text-xs text-muted-foreground">Milestone 2/4</p>
+                <h4 className="text-sm font-bold">TechShastra Landing Page</h4>
+                <p className="text-xs text-muted-foreground">Milestone 1/2</p>
               </div>
             </div>
             <Button variant="ghost" size="icon" className="text-accent">

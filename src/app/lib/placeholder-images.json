@@ -8,33 +8,33 @@
     },
     {
       "id": "onboarding-1",
-      "description": "Person working on a laptop in a bright modern office",
-      "imageUrl": "https://picsum.photos/seed/work1/600/400",
-      "imageHint": "remote work"
+      "description": "Indian student working on a laptop in a cafe",
+      "imageUrl": "https://picsum.photos/seed/student1/600/400",
+      "imageHint": "indian student"
     },
     {
       "id": "onboarding-2",
-      "description": "Two people shaking hands over a digital contract",
-      "imageUrl": "https://picsum.photos/seed/work2/600/400",
-      "imageHint": "business partnership"
+      "description": "Indian professionals collaborating",
+      "imageUrl": "https://picsum.photos/seed/student2/600/400",
+      "imageHint": "indian professionals"
     },
     {
       "id": "onboarding-3",
-      "description": "Growth chart showing success and income",
-      "imageUrl": "https://picsum.photos/seed/work3/600/400",
+      "description": "Success and earnings chart for students",
+      "imageUrl": "https://picsum.photos/seed/student3/600/400",
       "imageHint": "success income"
     },
     {
       "id": "avatar-hirer",
-      "description": "Portrait of a business professional",
-      "imageUrl": "https://picsum.photos/seed/avatar1/150/150",
-      "imageHint": "professional man"
+      "description": "Portrait of an Indian businessman",
+      "imageUrl": "https://picsum.photos/seed/avatar_in_1/150/150",
+      "imageHint": "indian man"
     },
     {
       "id": "avatar-worker",
-      "description": "Portrait of a creative designer",
-      "imageUrl": "https://picsum.photos/seed/avatar2/150/150",
-      "imageHint": "creative woman"
+      "description": "Portrait of an Indian student",
+      "imageUrl": "https://picsum.photos/seed/avatar_in_2/150/150",
+      "imageHint": "indian woman"
     }
   ]
 }

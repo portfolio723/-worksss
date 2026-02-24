@@ -4,37 +4,45 @@ import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Search, SlidersHorizontal, MapPin, DollarSign, Clock } from 'lucide-react';
+import { Search, SlidersHorizontal, MapPin, DollarSign, Clock, Bookmark } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 
-const filters = ['Remote', 'Full-time', 'Price: High-Low', 'Design', 'Development'];
+const filters = ['Remote', 'Internship', 'High Stipend', 'Tech', 'Marketing', 'Writing'];
 
 const jobs = [
   {
-    title: 'Senior Product Designer',
-    company: 'Fintech Solutions',
-    budget: '$6,000 - $8,000',
-    location: 'Remote',
-    time: '2h ago',
-    tags: ['UI/UX', 'Figma', 'FinTech']
-  },
-  {
-    title: 'React Native Expert',
-    company: 'GoMobile Inc',
-    budget: '$45/hr',
-    location: 'Dubai, UAE',
-    time: '5h ago',
+    title: 'React Native Intern',
+    company: 'GoMobile India',
+    budget: '₹25,000 /mo',
+    location: 'Gurgaon / Remote',
+    time: '4h ago',
     tags: ['Mobile', 'React Native', 'Expo']
   },
   {
-    title: 'Logo & Branding Project',
-    company: 'New Start Studio',
-    budget: '$500 Fixed',
+    title: 'Graphic Design Project',
+    company: 'Creatives Hub',
+    budget: '₹8,000 Fixed',
     location: 'Remote',
+    time: '6h ago',
+    tags: ['Branding', 'Social Media', 'Photoshop']
+  },
+  {
+    title: 'Marketing Campus Lead',
+    company: 'EduScale',
+    budget: '₹10,000 + Perks',
+    location: 'Mumbai University Area',
     time: '1d ago',
-    tags: ['Branding', 'Vector', 'Illustrator']
+    tags: ['Leadership', 'Marketing', 'Events']
+  },
+  {
+    title: 'Technical Content Writer',
+    company: 'BlogProwess',
+    budget: '₹2 per word',
+    location: 'Remote',
+    time: '2d ago',
+    tags: ['Writing', 'Tech', 'SEO']
   }
 ];
 
@@ -47,7 +55,7 @@ export default function BrowseJobs() {
         <div className="flex gap-2 mb-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input className="pl-10 h-12 rounded-xl bg-white border-none shadow-sm" placeholder="Search for jobs..." />
+            <Input className="pl-10 h-12 rounded-xl bg-white border-none shadow-sm" placeholder="Search internships or projects..." />
           </div>
           <Button variant="outline" className="h-12 w-12 rounded-xl bg-white border-none shadow-sm">
             <SlidersHorizontal className="h-5 w-5 text-accent" />
@@ -80,7 +88,7 @@ export default function BrowseJobs() {
               
               <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground mb-4">
                 <div className="flex items-center gap-1">
-                  <DollarSign className="h-3 w-3" />
+                  <span className="font-bold text-foreground">Stipend:</span>
                   {job.budget}
                 </div>
                 <div className="flex items-center gap-1">
@@ -103,7 +111,7 @@ export default function BrowseJobs() {
 
               <div className="flex gap-2 pt-2 border-t">
                 <Button size="sm" variant="outline" className="flex-1 h-10 rounded-xl border-accent text-accent">Details</Button>
-                <Button size="sm" className="flex-1 h-10 rounded-xl bg-accent">Apply</Button>
+                <Button size="sm" className="flex-1 h-10 rounded-xl bg-accent">Apply Now</Button>
               </div>
             </Card>
           ))}
@@ -112,22 +120,5 @@ export default function BrowseJobs() {
 
       <BottomNav role="worker" />
     </div>
-  );
-}
-
-function Bookmark({ className }: { className?: string }) {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      className={className}
-    >
-      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-    </svg>
   );
 }
