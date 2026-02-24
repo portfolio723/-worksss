@@ -6,6 +6,7 @@ import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useRouter } from 'next/navigation';
 import { 
   Wallet, 
   ArrowDownLeft, 
@@ -14,7 +15,9 @@ import {
   Clock, 
   CheckCircle2,
   TrendingUp,
-  CreditCard
+  CreditCard,
+  ChevronRight,
+  Filter
 } from 'lucide-react';
 
 const history = [
@@ -24,6 +27,8 @@ const history = [
 ];
 
 export default function WorkerEarningsPage() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-background pb-20">
       <TopNav />
@@ -36,14 +41,21 @@ export default function WorkerEarningsPage() {
 
         <Card className="p-6 bg-accent text-white mb-6 shadow-xl relative overflow-hidden">
           <div className="relative z-10 text-center">
-            <span className="text-xs opacity-80 font-bold tracking-wider">Available For Withdrawal</span>
+            <span className="text-xs opacity-80 font-bold tracking-tight">Available For Withdrawal</span>
             <h2 className="text-4xl font-bold mt-2 mb-6">₹42,500.00</h2>
             
             <div className="grid grid-cols-2 gap-4">
-              <Button className="bg-white text-accent hover:bg-white/90 font-bold rounded-xl h-12">
+              <Button 
+                className="bg-white text-accent hover:bg-white/90 font-bold rounded-xl h-12"
+                onClick={() => router.push('/worker/earnings/withdraw')}
+              >
                 Withdraw Now
               </Button>
-              <Button variant="ghost" className="border border-white/30 hover:bg-white/10 text-white font-bold rounded-xl h-12">
+              <Button 
+                variant="ghost" 
+                className="border border-white/30 hover:bg-white/10 text-white font-bold rounded-xl h-12"
+                onClick={() => router.push('/worker/earnings/transactions')}
+              >
                 Transactions
               </Button>
             </div>
@@ -69,9 +81,9 @@ export default function WorkerEarningsPage() {
         </div>
 
         <section className="mb-8">
-          <h3 className="text-sm font-bold text-muted-foreground tracking-widest mb-4">Saved Withdrawal Methods</h3>
+          <h3 className="text-sm font-bold text-muted-foreground tracking-tight mb-4">Saved Withdrawal Methods</h3>
           <div className="space-y-3">
-            <Card className="p-4 bg-white border-none shadow-sm flex items-center justify-between">
+            <Card className="p-4 bg-white border-none shadow-sm flex items-center justify-between cursor-pointer hover:bg-secondary/20 transition-colors">
               <div className="flex items-center gap-3">
                 <div className="bg-secondary/50 p-2 rounded-lg">
                   <Banknote className="h-5 w-5 text-accent" />
@@ -81,9 +93,9 @@ export default function WorkerEarningsPage() {
                   <p className="text-[10px] text-muted-foreground">Primary Account</p>
                 </div>
               </div>
-              <Badge variant="secondary">Verified</Badge>
+              <Badge variant="secondary" className="bg-green-100 text-green-700">Verified</Badge>
             </Card>
-            <Card className="p-4 bg-white border-none shadow-sm flex items-center justify-between">
+            <Card className="p-4 bg-white border-none shadow-sm flex items-center justify-between cursor-pointer hover:bg-secondary/20 transition-colors">
               <div className="flex items-center gap-3">
                 <div className="bg-secondary/50 p-2 rounded-lg">
                   <CreditCard className="h-5 w-5 text-accent" />
@@ -100,8 +112,14 @@ export default function WorkerEarningsPage() {
 
         <section>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-bold text-muted-foreground tracking-widest">History</h3>
-            <Button variant="ghost" className="text-accent text-xs h-auto p-0">Filter</Button>
+            <h3 className="text-sm font-bold text-muted-foreground tracking-tight">Recent Activity</h3>
+            <Button 
+              variant="ghost" 
+              className="text-accent text-xs h-auto p-0 font-bold"
+              onClick={() => router.push('/worker/earnings/transactions')}
+            >
+              See All
+            </Button>
           </div>
           <div className="space-y-3">
             {history.map((item) => (
