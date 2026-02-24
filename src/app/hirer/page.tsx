@@ -1,3 +1,4 @@
+
 "use client"
 
 import { TopNav } from '@/components/layout/TopNav';
@@ -6,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Plus, Clock, Users, CheckCircle2, Star, MapPin } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useRouter } from 'next/navigation';
 
 const stats = [
   { label: 'Active Internships', value: 2, icon: Clock, color: 'text-blue-500', bg: 'bg-blue-50' },
@@ -33,6 +35,8 @@ const recentApplicants = [
 ];
 
 export default function HirerDashboard() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-background pb-20">
       <TopNav />
@@ -43,7 +47,10 @@ export default function HirerDashboard() {
           <p className="text-muted-foreground">You have 5 new student applications today.</p>
         </div>
 
-        <Button className="w-full h-14 rounded-2xl bg-accent mb-8 shadow-lg text-lg">
+        <Button 
+          className="w-full h-14 rounded-2xl bg-accent mb-8 shadow-lg text-lg"
+          onClick={() => router.push('/hirer/jobs')}
+        >
           <Plus className="mr-2 h-5 w-5" />
           Post an Internship
         </Button>
@@ -63,7 +70,13 @@ export default function HirerDashboard() {
         <section className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold">Active Postings</h2>
-            <Button variant="link" className="text-accent h-auto p-0">View all</Button>
+            <Button 
+              variant="link" 
+              className="text-accent h-auto p-0"
+              onClick={() => router.push('/hirer/jobs')}
+            >
+              View all
+            </Button>
           </div>
           
           <Card className="p-4 border-l-4 border-l-accent mb-4">
