@@ -4,7 +4,7 @@
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Button } from '@/components/ui/button';
-import { Wallet, Briefcase, Bookmark, Star, MapPin, Progress } from 'lucide-react';
+import { Wallet, Briefcase, Bookmark, Star, MapPin, Activity } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress as ProgressUI } from '@/components/ui/progress';
@@ -153,7 +153,7 @@ export default function WorkerDashboard() {
               </div>
             </div>
             <Button variant="ghost" size="icon" className="text-accent">
-              <Progress className="h-5 w-5" />
+              <Activity className="h-5 w-5" />
             </Button>
           </Card>
         </section>
