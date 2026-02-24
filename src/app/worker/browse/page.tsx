@@ -1,15 +1,37 @@
+
 "use client"
 
+import { useState } from 'react';
 import { TopNav } from '@/components/layout/TopNav';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Search, SlidersHorizontal, MapPin, DollarSign, Clock, Bookmark } from 'lucide-react';
+import { 
+  Search, 
+  SlidersHorizontal, 
+  MapPin, 
+  Clock, 
+  Bookmark,
+  X
+} from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetFooter,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Slider } from '@/components/ui/slider';
 
-const filters = [
+const quickFilters = [
   'Remote', 
   'Internship', 
   'Part-time',
@@ -59,7 +81,11 @@ const jobs = [
   }
 ];
 
+const skillOptions = ['React', 'Next.js', 'Node.js', 'Python', 'Figma', 'Marketing', 'Writing'];
+
 export default function BrowseJobs() {
+  const [stipendValue, setStipendValue] = useState([5000]);
+
   return (
     <div className="min-h-screen bg-background pb-20">
       <TopNav />
@@ -70,20 +96,103 @@ export default function BrowseJobs() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input 
               className="pl-10 h-12 rounded-xl bg-white border-none shadow-sm" 
-              placeholder="Search Internships or Projects..." 
+              placeholder="Search Internships Or Projects..." 
             />
           </div>
-          <Button 
-            variant="outline" 
-            className="h-12 w-12 rounded-xl bg-white border-none shadow-sm hover:bg-accent hover:text-white transition-all group"
-          >
-            <SlidersHorizontal className="h-5 w-5 text-accent group-hover:text-white" />
-          </Button>
+          
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button 
+                variant="outline" 
+                className="h-12 w-12 rounded-xl bg-white border-none shadow-sm hover:bg-accent hover:text-white transition-all group"
+              >
+                <SlidersHorizontal className="h-5 w-5 text-accent group-hover:text-white" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] rounded-l-3xl p-6">
+              <SheetHeader className="mb-6">
+                <SheetTitle className="text-xl font-bold">Advanced Filters</SheetTitle>
+              </SheetHeader>
+              
+              <div className="space-y-8 overflow-y-auto max-h-[calc(100vh-200px)] pr-2 no-scrollbar">
+                {/* Work Type */}
+                <div className="space-y-4">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Work Type</h3>
+                  <RadioGroup defaultValue="remote" className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <RadioGroupItem value="remote" id="r-remote" />
+                      <Label htmlFor="r-remote" className="font-medium">Remote Work</Label>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <RadioGroupItem value="onsite" id="r-onsite" />
+                      <Label htmlFor="r-onsite" className="font-medium">On-Site Work</Label>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <RadioGroupItem value="hybrid" id="r-hybrid" />
+                      <Label htmlFor="r-hybrid" className="font-medium">Hybrid Model</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+
+                {/* Stipend Range */}
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Min Stipend</h3>
+                    <span className="text-sm font-bold text-accent">₹{stipendValue[0].toLocaleString()}</span>
+                  </div>
+                  <Slider 
+                    defaultValue={[5000]} 
+                    max={50000} 
+                    step={1000} 
+                    onValueChange={setStipendValue}
+                    className="py-4"
+                  />
+                  <div className="flex justify-between text-[10px] text-muted-foreground font-bold">
+                    <span>₹0</span>
+                    <span>₹50,000+</span>
+                  </div>
+                </div>
+
+                {/* Skills */}
+                <div className="space-y-4">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Skills Required</h3>
+                  <div className="grid grid-cols-1 gap-3">
+                    {skillOptions.map((skill) => (
+                      <div key={skill} className="flex items-center space-x-3">
+                        <Checkbox id={`skill-${skill}`} />
+                        <Label htmlFor={`skill-${skill}`} className="font-medium">{skill}</Label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Duration */}
+                <div className="space-y-4">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Duration</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['1 Month', '3 Months', '6 Months'].map(d => (
+                      <Badge key={d} variant="outline" className="px-3 py-1 cursor-pointer hover:bg-accent hover:text-white border-muted">
+                        {d}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <SheetFooter className="absolute bottom-6 left-6 right-6">
+                <SheetClose asChild>
+                  <Button className="w-full h-12 bg-accent rounded-xl font-bold shadow-lg">
+                    Apply Better Findings
+                  </Button>
+                </SheetClose>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
         </div>
 
         <ScrollArea className="w-full whitespace-nowrap mb-6 -mx-4 px-4">
           <div className="flex gap-2 pb-2">
-            {filters.map(filter => (
+            {quickFilters.map(filter => (
               <Badge 
                 key={filter} 
                 variant="secondary" 
